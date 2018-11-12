@@ -15,6 +15,21 @@ app.engine('hbs', hbs({ //Register engine and set configuration - add Helpers he
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, '/public')));//Set this folder for public/client-side resources: images, css, js/scripts etc...
 
+//Set port to listen on and run site through
 app.listen(webPort, () => {
-    console.log(`App Listening on Port: ${webPort}`); 
+    console.log(`Site running on Port: ${webPort}`); 
  });
+
+ //Set up routes for Front-End
+
+//Homepage/index
+ app.get('/', (req, res) => {
+     // Set which content to render to the view (through layout) also set page variables/data within the render second parameter
+    res.render('index', {title: 'Homepage', condition: false});
+ });
+
+ //About page
+ app.get('/about', (req, res) => {
+    res.render('about', {title: 'About', condition: false});
+ });
+
