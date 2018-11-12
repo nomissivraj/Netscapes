@@ -25,7 +25,6 @@ coverage
 
 # Bower dependency directory (https://bower.io/)
 bower_components
-node_modules
 
 # node-waf configuration
 .lock-wscript
@@ -60,3 +59,9 @@ typings/
 
 # next.js build output
 .next
+
+#npm module folders
+node_modules
+
+#uneccessary files
+package-lock.json
