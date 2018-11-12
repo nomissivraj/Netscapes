@@ -10,13 +10,18 @@
 </head>
 <body>
     <header>
-        <nav>
+        <nav role="navigation">
             <ul><!-- Dummy Nav -->
-                <li><a href="/">Homepage</a></li>
-                <li><a href="/about">About</a></li>
+                <li><a {{#ifEquals title "Homepage" }}class="navlink--active"{{/ifEquals}} href="/">Homepage</a></li>
+                <li><a {{#ifEquals title "About"}}class="navlink--active"{{/ifEquals}} href="/about">About</a></li>
             </ul>
         </nav>
     </header>
-    {{{body}}}
+    <div class="page">
+        {{{body}}}
+    </div>
+    <footer>
+        Footer content
+    </footer>
 </body>
 </html>
