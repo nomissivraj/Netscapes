@@ -53,6 +53,47 @@ Table of Contents:
     -Footer 
 */
 
+/* Core */
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
 h1 {
     color: red; /* this is just for testing purposes - change to something less shit later*/
+	font-size: 2em;
+	margin-bottom: 20px;
+}
+
+p {
+	margin-bottom: 20px;
+}
+
+/* Header */
+header {
+	padding: 20px;
+}
+
+/* Header / Navigation */
+nav ul li {
+	display: inline-block;
+}
+
+nav a {
+	text-decoration: none;
+	color: #00009f;
+}
+nav a.navlink--active {
+	text-decoration: none;
+	color: #444;
+	font-weight: bold;
+}
+
+/* Main Page */
+.page {
+	padding: 20px;
+}
+
+/* Footer */
+footer {
+	padding: 20px;
 }
