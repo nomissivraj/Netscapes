@@ -8,6 +8,11 @@ const webPort = 3000;
 const path = require('path');
 const hbs = require('express-handlebars');// Require handlebars
 app.engine('hbs', hbs({ //Register engine and set configuration - add Helpers here if required
+    helpers: {
+        ifEquals: (a, b, options) => {
+            return a === b ? options.fn(this) : options.inverse(this);
+        }, //This helper simply checks for equality and then returns the content of markup block
+    },
     extname: 'hbs',
     defaultLayout: 'layout.hbs',
     layoutsDir: __dirname + '/views/layout/'
