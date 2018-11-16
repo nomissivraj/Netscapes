@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 const http = require('http').Server(app);
-const webPort = 3000;
+const webPort = process.env.PORT || 5000;
 
 //Front-End dependencies Handlebars etc.
 const path = require('path');
