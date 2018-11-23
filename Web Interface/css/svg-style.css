@@ -1,0 +1,14 @@
+* {
+    -webkit-transition: all 0.7s;
+    transition: all 0.7s;
+}
+
+/*Clouds*/
+
+#clouds{
+    transform: translateX(-100%);
+}
+
+#cloud2{
+    transform: translateX(100%);
+}
