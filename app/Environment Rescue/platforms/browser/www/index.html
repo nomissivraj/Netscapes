@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Environment Rescue</title>
+</head>
+
+<body>
+    <object onload="loadBackground()" id="background" data="img/backgroundImage.svg" type="image/svg+xml"></object>
+    <div id="home" class="page">
+        <h2 class="logo">App Logo</h2>
+        <input class="bold" type="button" value="Try all" onclick="loadQuestions(this)"/>
+        <input type="button" value="Atmosphere" data-name="highAir" onclick="loadQuestions(this)"/>
+        <input type="button" value="Lower Air Levels" data-name="lowAir" onclick="loadQuestions(this)"/>
+        <input type="button" value="Ground" data-name="ground" onclick="loadQuestions(this)"/>
+        <input type="button" value="Sea" data-name="sea" onclick="loadQuestions(this)"/>
+        <input type="button" value="Sea-bed" data-name="seaBed" onclick="loadQuestions(this)"/>
+        <input type="button" value="Sub-surface" data-name="subSurface" onclick="loadQuestions(this)"/>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+
+</html>
