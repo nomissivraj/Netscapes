@@ -1,27 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 4182.62 5574.19"><defs><style>.cls-1,.cls-13{fill:none;}.cls-2{fill:url(#linear-gradient);}.cls-3{fill:url(#linear-gradient-2);}.cls-4{fill:url(#linear-gradient-3);}.cls-5{fill:url(#linear-gradient-4);}.cls-6{fill:#fefffa;}.cls-7{fill:#008895;}.cls-8{fill:#00a2dc;}.cls-9{fill:#7a4a21;}.cls-10{fill:#ffac0a;}.cls-11{fill:#ff8f00;}.cls-12{fill:#009784;}.cls-13{stroke:#42210b;stroke-miterlimit:10;}.cls-14{fill:#42210b;}.cls-15{fill:#33592d;}.cls-16{fill:#9ba1a4;}.cls-17{fill:#fefffd;}.cls-18{fill:#365057;}.cls-19{fill:#5e2d16;}.cls-20{fill:#4b2003;}.cls-21{fill:#512514;}.cls-22{fill:#b47857;}.cls-23{fill:#925325;}.cls-24{fill:#89502b;}.cls-25{fill:#7e3d20;}.cls-26{fill:#a56b4e;}.cls-27{fill:url(#linear-gradient-5);}.cls-28,.cls-30,.cls-31{opacity:0.9;}.cls-29,.cls-30{fill:#fff;}.cls-31{fill:#48bdc8;}.cls-32{fill:url(#linear-gradient-6);}.cls-33,.cls-34,.cls-35,.cls-36,.cls-37,.cls-38,.cls-41,.cls-42,.cls-43,.cls-44,.cls-46,.cls-48{opacity:0.3;}.cls-33{fill:url(#New_Gradient_Swatch);}.cls-34{fill:url(#New_Gradient_Swatch-2);}.cls-35{fill:url(#New_Gradient_Swatch-3);}.cls-36{fill:url(#New_Gradient_Swatch-4);}.cls-37{fill:url(#New_Gradient_Swatch-5);}.cls-38{fill:url(#New_Gradient_Swatch-6);}.cls-39,.cls-40,.cls-47{opacity:0.2;}.cls-39{fill:url(#New_Gradient_Swatch-7);}.cls-40{fill:url(#New_Gradient_Swatch-8);}.cls-41{fill:url(#New_Gradient_Swatch-9);}.cls-42{fill:url(#New_Gradient_Swatch-10);}.cls-43{fill:url(#New_Gradient_Swatch-11);}.cls-44{fill:url(#New_Gradient_Swatch-12);}.cls-45{fill:#7ffff9;opacity:0.4;}.cls-46{fill:url(#New_Gradient_Swatch-13);}.cls-47{fill:url(#New_Gradient_Swatch-14);}.cls-48{fill:url(#New_Gradient_Swatch-15);}.cls-49{fill:#00292d;}.cls-50{fill:#1a1a1a;}.cls-51{fill:#002123;}.cls-52{fill:#191919;}.cls-53{clip-path:url(#clip-path);}.cls-54{fill:url(#linear-gradient-7);}.cls-55{clip-path:url(#clip-path-2);}</style>
     <style>
         * {
-            -webkit-transition: all 0.7s;
-            transition: all 0.7s;
+            -webkit-transition: all 1s ease;
+            transition: all 1s ease;
         }
         
         /*Stage1*/
 
         #clouds{
             transform: translateX(-50%);
-            -webkit-transition: all 1s;
-            transition: all 1s;
+            -webkit-transition: all 1.2s ease;
+            transition: all 1.2s ease;
         }
 
         #cloud2{
             transform: translateX(50%);
-            -webkit-transition: all1s;
-            transition: all 1s;
+            -webkit-transition: all 1.2s ease;
+            transition: all 1.2s ease;
         }
         
         #baloon{
-            -webkit-transition: all 2.7s;
-            transition: all 1.7s;
+            -webkit-transition: all 3s ease;
+            transition: all 3s ease;
         }
         
         /*Stage2*/
