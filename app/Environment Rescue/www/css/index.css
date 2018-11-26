@@ -36,6 +36,10 @@ body{
     transition: opacity 0.5s;
 }
 
+#home .hide{
+    pointer-events: none;
+}
+
 #home input.bold{
     width: 90%;
     font-size: 30px;
@@ -43,30 +47,105 @@ body{
     margin: 10px 0px;
 }
 
-#home input:nth-of-type(7){
+#home input.hide:nth-of-type(7){
+    opacity: 0;
     transition-delay: 0s;
 }
 
-#home input:nth-of-type(6){
+#home input.hide:nth-of-type(6){
+    opacity: 0;
     transition-delay: 0.1s;
 }
 
-#home input:nth-of-type(5){
+#home input.hide:nth-of-type(5){
+    opacity: 0;
     transition-delay: 0.2s;
 }
 
-#home input:nth-of-type(4){
+#home input.hide:nth-of-type(4){
+    opacity: 0;
     transition-delay: 0.3s;
 }
 
-#home input:nth-of-type(3){
+#home input.hide:nth-of-type(3){
+    opacity: 0;
     transition-delay: 0.4s;
 }
 
-#home input:nth-of-type(2){
-    transition-delay: 0.5;
+#home input.hide:nth-of-type(2){
+    opacity: 0;
+    transition-delay: 0.5s;
 }
 
-#home input:nth-of-type(1){
+#home input.hide:nth-of-type(1){
+    opacity: 0;
     transition-delay: 0.6s;
+}
+
+/*Splash screens*/
+.splash{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    padding-top: 3em;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.7s;
+}
+
+.splash .title{
+    text-align: center;
+}
+
+.splash .image{
+    width: 90%;
+    height: 36%;
+    object-fit: cover;
+}
+
+.splash input{
+    display: block;
+    margin: 10px auto;
+}
+
+.splash .start{
+    font-size: 27px;
+}
+
+.splash .return{
+    font-size: 15px;
+}
+
+.splash.selected{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/*Questions*/
+#questions{
+    padding-top: 3em;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+    transform-origin: center top;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0.8) translateY(50%);
+}
+
+#questions.display{
+    pointer-events: auto;
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    transition: opacity 0.7s, transform 0.7s;
+}
+
+#questions.away{
+    opacity: 0;
+    transform: scale(0.8) translateY(-50%);
+    transition: opacity 0.7s, transform 0.7s;
 }
