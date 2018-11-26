@@ -65,3 +65,6 @@ node_modules
 
 #uneccessary files
 package-lock.json
+
+#Server info file
+app/app server files/serverinfo.php
