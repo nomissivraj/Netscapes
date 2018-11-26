@@ -67,4 +67,4 @@ node_modules
 package-lock.json
 
 #Server info file
-app/app server files/serverinfo.php
+app/app_server_files/serverinfo.php
