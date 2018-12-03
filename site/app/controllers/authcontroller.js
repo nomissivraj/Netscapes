@@ -17,7 +17,9 @@ exports.about = function(req, res) {
 }
 
 exports.signup = function(req, res) {
-    res.render('signup');
+    res.render('signup', {
+        title: 'Sign Up'
+    });
 }
 
 exports.signin = function(req, res) {

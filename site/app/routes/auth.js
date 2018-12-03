@@ -6,11 +6,11 @@ module.exports = function(app, passport) {
     app.get('/', authController.index);
 
     // Signup
-    // app.get('/signup', authController.signup);
-    // app.post('/signup', passport.authenticate('local-signup', {
-    //     successRedirect: '/dashboard',
-    //     failureRedirect: '/signup'
-    // }));
+    app.get('/signup', authController.signup);
+    app.post('/signup', passport.authenticate('local-signup', {
+        successRedirect: '/',
+        failureRedirect: '/signup'
+    }));
 
     // Signin
     app.get('/signin', authController.signin);
