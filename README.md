@@ -1,7 +1,7 @@
 # Netscapes
 Netscapes project repository (Georgia, Matt, Chris, Simon)
 
-## User Authentication
+## Database Connection
 
 ### config.json
 In site/app/config/, create config.json with the following database connection values:
