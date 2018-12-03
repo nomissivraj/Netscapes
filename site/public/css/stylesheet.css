@@ -1,3 +1,42 @@
+@import url("reset.css"); /* import css reset */
+/*
+EQ Stylesheet
+
+Table of Contents:
+    - Core Styles
+    - Header
+      - Navigation
+    - Main Page
+    - Footer 
+    - login/Auth
+    - SVG
+      - Clouds
+*/
+
+/* #test */
+
+/* #endtest */
+
+/* CORE STYLES */
+  html, body{
+    padding: 0px;
+    margin: 0px;
+  }
+
+  #background{
+    width: 200%; /* Necessary for parallax animation */
+  }
+
+/* HEADER */
+
+  /* HEADER / NAVIGATION */
+
+/* MAIN CONTENT */
+
+/* FOOTER */
+
+/* LOGIN/AUTH */
+
 .starter-template {
     padding-top: 3rem;
     padding-bottom: 1rem;
@@ -37,3 +76,19 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+/* SVG */
+  * {
+    -webkit-transition: all 0.7s;
+    transition: all 0.7s;
+  }
+
+    /* SVG / CLOUDS*/
+
+    #clouds{
+      transform: translateX(-100%);
+    }
+
+    #cloud2{
+      transform: translateX(100%);
+    }
