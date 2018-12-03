@@ -68,3 +68,9 @@ package-lock.json
 
 #Server info file
 app/app_server_files/serverinfo.php
+
+#Database config
+site/app/config/config.json
+
+#Mac
+.DS_Store

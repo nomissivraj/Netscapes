@@ -1,40 +1,63 @@
-//Node server dependencies for routing etc
-const express = require('express');
-const app = express();
-const http = require('http').Server(app);
-const webPort = process.env.PORT || 5000;
+var express = require('express');
+var app = express();
+var port = process.env.PORT || 8080;
+var path = require('path');
+var passport = require('passport');
+var session = require('express-session');
+var bodyParser = require('body-parser');
+var env = require('dotenv').load();
+var flash = require('connect-flash');
+var hbs = require('hbs');
 
-//Front-End dependencies Handlebars etc.
-const path = require('path');
-const hbs = require('express-handlebars');// Require handlebars
-app.engine('hbs', hbs({ //Register engine and set configuration - add Helpers here if required
-    helpers: {
-        ifEquals: (a, b, options) => {
-            return a === b ? options.fn(this) : options.inverse(this);
-        }, //This helper simply checks for equality and then returns the content of markup block
-    },
-    extname: 'hbs',
-    defaultLayout: 'layout.hbs',
-    layoutsDir: __dirname + '/views/layout/'
-})); 
+// BodyParser
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
+
+// Passport
+app.use(session({
+    secret: 'netscapes',
+    resave: true,
+    saveUninitialized: true
+})); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
+// Flash Messaging
+app.use(flash());
+
+// Handlebars
 app.set('view engine', 'hbs');
-app.use(express.static(path.join(__dirname, '/public')));//Set this folder for public/client-side resources: images, css, js/scripts etc...
+app.set('views', path.join(__dirname, 'app', 'views'));
 
-//Set port to listen on and run site through
-app.listen(webPort, () => {
-    console.log(`Site running on Port: ${webPort}`); 
- });
+// Handlebars helper
+hbs.registerHelper('ifEquals', function(a, b, options) {
+    return a === b ? options.fn(this) : options.inverse(this);
+});
 
- //Set up routes for Front-End
+// Static Files
+app.use(express.static('public'));
 
-//Homepage/index
- app.get('/', (req, res) => {
-     // Set which content to render to the view (through layout) also set page variables/data within the render second parameter
-    res.render('index', {title: 'Homepage', condition: false});
- });
+// Models
+var models = require("./app/models");
 
- //About page
- app.get('/about', (req, res) => {
-    res.render('about', {title: 'About', condition: false});
- });
+// Routes
+var authRoute = require('./app/routes/auth.js')(app, passport);
 
+// Passport strategies
+require('./app/config/passport/passport.js')(passport, models.user);
+
+//Sync Database
+models.sequelize.sync().then(function() {
+    console.log('Database OK')
+
+}).catch(function(err) {
+    console.log(err, "Database update error")
+});
+
+app.listen(port, function(err) {
+    if (!err)
+        console.log('Listening on: ' + port);
+    else console.log(err)
+});
