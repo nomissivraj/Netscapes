@@ -36,6 +36,10 @@ hbs.registerHelper('ifEquals', function(a, b, options) {
     return a === b ? options.fn(this) : options.inverse(this);
 });
 
+hbs.registerHelper('toLowerCase', function(str){
+    return str.toLowerCase();
+});
+
 // Static Files
 app.use(express.static('public'));
 
