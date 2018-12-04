@@ -6,7 +6,8 @@ Table of Contents:
     - Core Styles
     - Header
       - Navigation
-    - Main Page
+    - Main Content
+      - Section Nav (Home page) 
     - Footer 
     - login/Auth
     - SVG
@@ -18,21 +19,96 @@ Table of Contents:
 /* #endtest */
 
 /* CORE STYLES */
-  html, body{
-    padding: 0px;
-    margin: 0px;
-  }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-  #background{
-    width: 200%; /* Necessary for parallax animation */
-  }
+a {
+  color: rgb(18, 114, 18);
+}
 
+p {
+  padding: 20px 0;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1.25em;
+  margin-bottom: 20px;
+}
 /* HEADER */
 
   /* HEADER / NAVIGATION */
 
 /* MAIN CONTENT */
 
+.section {
+  height: 100vh;
+}
+
+.section--atmosphere {
+
+}
+
+.section--ground {
+  
+}
+
+.section--sea {
+  
+}
+
+.section--subterranean {
+  
+}
+
+  /* SECTION NAV (HOME PAGE) */
+  .section-nav {
+    position: fixed;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%) translateX(calc(100% - 40px));
+    background: rgba(240,240,240,.0);
+    padding: 15px;
+    border-radius: 5px 0 0 5px;
+  }
+
+  .section-nav:hover,
+  .section-nav:focus {
+    background: rgba(240,240,240,.5);
+    transform: translateY(-50%) translateX(0);
+  }
+
+  .section-nav ul li {
+    padding: 5px 0;
+  }
+
+  .section-nav ul li:first-child {
+    padding-top:0;
+  }
+
+  .section-nav ul li:last-child {
+    padding-bottom:0;
+  }
+
+  .section-navlink__icon {
+    text-align: center;
+    width: 25px;
+    display: inline-block;
+  }
+
+  .section-navlink__text {
+
+  }
 /* FOOTER */
 
 /* LOGIN/AUTH */
@@ -81,6 +157,14 @@ Table of Contents:
   * {
     -webkit-transition: all 0.7s;
     transition: all 0.7s;
+  }
+
+  #background{
+    width: 200%; /* Necessary for parallax animation */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
   }
 
     /* SVG / CLOUDS*/
