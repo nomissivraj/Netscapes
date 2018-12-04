@@ -1,4 +1,4 @@
-<h1>{{title}}</h1>
+<h1>Welcome</h1>
 
 <p>Irure ad voluptate aute ut elit proident quis ullamco ea do duis do elit do esse magna incididunt proident aliquip nulla id ut aliquip est veniam ullamco eiusmod eiusmod nostrud fugiat do in irure ad.</p>
 
@@ -6,20 +6,57 @@
 {{#if user}}
 	<p><strong>You are logged in as {{user.email}}.</strong></p>
 
-	<section class="atmosphere">
-
-	</section>
-
-	<section class="ground">
-	    
-	</section>
-
-	<section class="sea">
-	    
-	</section>
-
-	<section class="subterranean">
-	    
-	</section>
 {{/if}}
+<section class="section section--atmosphere">
+	<h2>Atmosphere content</h2>
+</section>
+
+<section class="section section--ground">
+	<h2>Ground content</h2>
+</section>
+
+<section class="section section--sea">
+	<h2>Sea content</h2>
+</section>
+
+<section class="section section--subterranean">
+	<h2>Subterranean content</h2>
+</section>
 {{!-- End of logged-in content --}}
+<div class="section-nav">
+	<ul>
+		<li>
+			<a class="section-navlink" href="#">
+				<span class="section-navlink__icon">T</span>
+				<span class="section-navlink__text">Top</span>
+			</a>
+		</li>
+		<li>
+			<a class="section-navlink" href="#" onclick="stage1()">
+				<span class="section-navlink__icon">1</span>
+				<span class="section-navlink__text">Atmosphere</span>
+			</a>
+		</li>
+		<li>
+			<a class="section-navlink" href="#" onclick="stage2()">
+				<span class="section-navlink__icon">2</span>
+				<span class="section-navlink__text">Ground</span>
+			</a>
+		</li>
+		<li>
+			<a class="section-navlink" href="#" onclick="stage3()">
+				<span class="section-navlink__icon">3</span>
+				<span class="section-navlink__text">Sea</span>
+			</a>
+		</li>
+		<li>
+			<a class="section-navlink" href="#" onclick="stage4()">
+				<span class="section-navlink__icon">4</span>
+				<span class="section-navlink__text">Subterranean</span>
+			</a>
+		</li>
+	</ul>
+</div>
+
+
+<object onload="loadBackground()" id="background" data="img/backgroundImage.svg" type="image/svg+xml"></object> 
