@@ -1,0 +1,139 @@
+h1 {
+    color: #444;
+}
+
+section {
+    position: relative;
+    height: 100vh;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+body {
+    background-image: linear-gradient(to top, #d9bf8d, #e2cd9b, #ebdba9, #f5e9b8, #fef7c7);
+    background: #FFFCF6 url(../img/background.svg);
+    background-repeat: no-repeat;
+    margin:0;
+}
+
+.background {
+    z-index: -1;
+    position: fixed;
+    width: calc(100vw - 17px);
+    height: 100vh;
+    top:0;
+    left:0;/* offset padding left */
+    overflow: hidden;
+}
+
+.background__frame {
+    height: 100vh;
+    top: 100vh;
+    left: 0;
+    position: relative;
+    transition: transform 2s ease;
+}
+
+/* Image Animation CSS */
+/* Image Animation CSS / Default State */
+.sprite {
+    position: absolute;
+    max-width: 200%;
+    transition: transform 3s ease;
+}
+
+.sprite--clouds, .sprite--clouds2 {
+    width: 180vh;
+    top: -20vh;
+    left: 5vw;
+    opacity: .95;
+}
+
+.sprite--clouds {
+    transform: translateX(-200vh);
+}
+
+.sprite--balloon {
+    max-width: 10vw;
+    top: -12vh;
+    left: 50vw;
+    transform: translateY(100vh) translateX(-200vw);
+}
+
+.sprite--clouds2 {
+    transform: translateX(200vh);
+}
+
+.sprite--deeprocks {
+    transform: translateY(40vh);
+}
+
+.sprite--boat {
+    transform: translateX(100vh);
+}
+
+.sprite--subterrain {
+    top: 259vh;
+}
+
+.sprite--mountains {
+    transform: translateY(50vh);
+}
+
+.sprite--trees {
+    transform: translateX(-50vw);
+}
+
+.sprite--rocks {
+    transform: translateY(100vh);
+}
+
+/* Image Animation CSS / Stage 1 */
+.background.stage--1 .background__frame {
+    transform: translateY(-40vh);
+}
+
+.background.stage--1 .sprite--clouds {
+    transform: translateX(0vh);
+}
+
+.background.stage--1 .sprite--clouds2 {
+    transform: translateX(0vh);
+}
+.background.stage--1 .sprite--balloon {
+    transform: translateX(0vw) translateY(0vh);
+}
+/* Image Animation CSS / Stage 2 */
+.background.stage--2 .background__frame {
+    transform: translateY(-165vh);
+}
+.background.stage--2 .sprite--balloon {
+    transform: translateX(100vw) translateY(-100vh);
+}
+.background.stage--2 .sprite--mountains {
+    transform: translateY(0vh);
+}
+.background.stage--2 .sprite--rocks {
+    transform: translateY(0vh);
+}
+.background.stage--2 .sprite--trees {
+    transform: translateX(0vw);
+}
+
+/* Image Animation CSS / Stage 3 */
+.background.stage--3 .background__frame {
+    transform: translateY(-225vh) translateX(-98vw);
+}
+
+.background.stage--3 .sprite--boat {
+    transform: translateX(0vh);
+}
+/* Image Animation CSS / Stage 4 */
+.background.stage--4 .background__frame {
+    transform: translateY(-415vh) translateX(-98vw);
+}
+
+.background.stage--4 .sprite--deeprocks {
+    transform: translateY(0vh);
+}
