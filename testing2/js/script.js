@@ -48,7 +48,7 @@ function isInView() {
                     frame.style.transform = "translateY(-"+ratioVal+"vh)";
                 break;
                 case 'section--3':
-                    windowRatio(0.12);
+                    windowRatio(0.11);
                     console.log("section three");
                     background.classList.add('stage--3');
                     background.classList.remove('stage--1', 'stage--2', 'stage--4');
