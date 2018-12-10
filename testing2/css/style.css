@@ -13,7 +13,7 @@ section {
 body {
     background-image: linear-gradient(to top, #d9bf8d, #e2cd9b, #ebdba9, #f5e9b8, #fef7c7);
     background: #FFFCF6 url(../img/background.svg);
-    background-repeat: no-repeat;
+    background-repeat: repeat-x;
     margin:0;
 }
 
@@ -74,7 +74,7 @@ body {
 }
 
 .sprite--subterrain {
-    top: 259vh;
+    top: 165vh;
 }
 
 .sprite--mountains {
