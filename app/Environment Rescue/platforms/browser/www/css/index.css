@@ -140,6 +140,14 @@ body{
 .splash input{
     display: block;
     margin: 10px auto;
+    
+    background-color: white;
+    border-style: solid;
+    border-radius: 8px;
+    padding: 5px;
+    border-width: 1px;
+    border-color: #49443e;
+    color: #49443e;
 }
 
 .splash .start{

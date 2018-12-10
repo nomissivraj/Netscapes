@@ -16,44 +16,32 @@
     <div id="highAir" class="splash">
         <h3 class="title">Atmosphere</h3>
         <img class="image" src="img/sectionImgs/airPollution.jpg"/>
-        <input type="button" class="start" value="Start" onclick="nextQuestion(0)"/>
-        <input type="button" class="return" value="Return" onclick="returnHome();"/>
-    </div>
-    <div id="lowAir" class="splash">
-        <h3 class="title">Lower Air Levels</h3>
-        <img class="image" src="img/sectionImgs/lowerAir.jpg"/>
-        <input type="button" class="start" value="Start" onclick="nextQuestion(0)"/>
+        <input type="button" class="start" value="Start" onclick="startQuestions('highAir')"/>
         <input type="button" class="return" value="Return" onclick="returnHome();"/>
     </div>
     <div id="ground" class="splash">
         <h3 class="title">Ground</h3>
         <img class="image" src="img/sectionImgs/ground.jpg"/>
-        <input type="button" class="start" value="Start" onclick="nextQuestion(0)"/>
+        <input type="button" class="start" value="Start" onclick="startQuestions('ground')"/>
         <input type="button" class="return" value="Return" onclick="returnHome();"/>
     </div>
     <div id="sea" class="splash">
         <h3 class="title">Sea</h3>
         <img class="image" src="img/sectionImgs/sea.jpg"/>
-        <input type="button" class="start" value="Start" onclick="nextQuestion(0)"/>
-        <input type="button" class="return" value="Return" onclick="returnHome();"/>
-    </div>
-    <div id="seaBed" class="splash">
-        <h3 class="title">Sea Bed</h3>
-        <img class="image" src="img/sectionImgs/seaBed.jpg"/>
-        <input type="button" class="start" value="Start" onclick="nextQuestion(0)"/>
+        <input type="button" class="start" value="Start" onclick="startQuestions('sea')"/>
         <input type="button" class="return" value="Return" onclick="returnHome();"/>
     </div>
     <div id="subSurface" class="splash">
         <h3 class="title">Subsurface</h3>
         <img class="image" src="img/sectionImgs/subSurface.jpg"/>
-        <input type="button" class="start" value="Start" onclick="nextQuestion(0)"/>
+        <input type="button" class="start" value="Start" onclick="startQuestions('subSurface')"/>
         <input type="button" class="return" value="Return" onclick="returnHome();"/>
     </div>
     <div id="questions">
         <h3 class="question">Question</h3>
         <div class="figure">
             <p id="rangeValue" class="value"></p>
-            <input type="range" min="0" max="100" onchange="changeFont(this)"/>
+            <input type="range" min="0" max="100"/>
         </div>
         <div class="multipleChoice display">
             <div class="choices">

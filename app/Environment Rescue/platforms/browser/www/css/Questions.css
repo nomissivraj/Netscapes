@@ -29,6 +29,14 @@
     transition: opacity 0.7s, transform 0.7s;
 }
 
+#questions.left.away{/*For when the user clicks back*/
+    transform: scale(1) translateX(50%);
+}
+
+#questions.left{
+    transform: scale(1) translateX(-50%);
+}
+
 #questions .question{
     font-size: 25px;
     padding: 10px;
@@ -62,6 +70,8 @@
     display: block;
 }
 
+/*Next questions buttons*/
+
 #questions .buttons{
     display: flex;
     justify-content: space-between;
@@ -90,6 +100,10 @@
 #questions .buttons input:nth-of-type(2){
     background-image: url(../img/forward-svg.svg);
     background-size: contain;
+}
+
+#questions .buttons .hide{
+    visibility: hidden;
 }
 
 /*Slider design*/
