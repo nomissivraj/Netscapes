@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>New Question</title>
+</head>
+
+<body>
+    <div class="question">
+        <div id="section" class="section">
+            <h3>Section</h3>
+            <p>Atmosphere  <input type="radio" name="section" value="highAir"/> | </p>
+            <p>Lower Air Levels <input type="radio" name="section" value="lowAir"/> | </p>
+            <p>Ground <input type="radio" name="section" value="ground"/> | </p>
+            <p>Sea <input type="radio" name="section" value="sea"/> | </p>
+            <p>Sea-bed <input type="radio" name="section" value="seaBed"/> | </p>
+            <p>Subsurface <input type="radio" name="section" value="subSurface"/> | </p>
+        </div>
+        <div id="GroupSelect" class="typeSelect">
+            <p><strong>Type:</strong> Multiple Choice <input type="radio" name="typeSelect" onclick="setGroup('multiChoice', this)" checked value="Multiple_Choice"/> or range <input type="radio" name="typeSelect" onclick="setGroup('range', this)" value="Range"/></p>
+            <p><strong>Question:</strong> <input id="question" type="text"/>?</p>
+            <div class="multiChoice display">
+                <h4>Multiple Choice</h4>
+                <p>Option 1: <input id="option1" type="text"/></p>
+                <p>Option 2: <input id="option2" type="text"/></p>
+                <p>Option 3: <input id="option3" type="text"/></p>
+                <p>Option 4: <input id="option4" type="text"/></p>
+            </div>
+            <div class="range">
+                <h4>Range</h4>
+                <p>Min: <input id="min" type="number"/></p>
+                <p>Max: <input id="max" type="number"/></p>
+                <p>Units: <input id="units" type="text"/></p>
+            </div>
+            <br>
+            <p>Correct Answer: <input id="answer" type="text"/></p>
+            <p>Source: <input id="source" type="url"/></p>
+        </div>
+        <input type="button" value="submit" onclick="submitQuestion()"/>
+    </div>
+    <p id="Response"></p>
+</body>
+    <style>
+        .section p{
+            display: inline;
+        }
+        
+        .range, .multiChoice{
+            display: none;
+        }
+        
+        .display{
+            display: block;
+        }
+        
+        .bad{
+            background-color: red;
+        }
+    </style>
+    
+    <script>
+        function setGroup(option, element){
+            element.parentElement.parentElement.getElementsByClassName("display")[0].classList.remove("display");
+            element.parentElement.parentElement.getElementsByClassName(option)[0].classList.add("display");
+        }
+        
+        function submitQuestion(){
+            try{
+                var section = document.querySelector('input[name="section"]:checked').value;
+            }catch(err){
+                document.getElementById("section").classList.add("bad");
+            }
+            var type = document.querySelector('input[name="typeSelect"]:checked').value;
+            var question = document.getElementById("question").value
+            var option1 = document.getElementById("option1").value
+            var option2 = document.getElementById("option2").value
+            var option3 = document.getElementById("option3").value
+            var option4 = document.getElementById("option4").value
+            var min = document.getElementById("min").value
+            var max = document.getElementById("max").value
+            var units = document.getElementById("units").value
+            var answer = document.getElementById("answer").value
+            var source = document.getElementById("source").value
+            
+            if(valid()){
+                var data = "section=" + section + "&type=" + type + "&question=" + question + "&option1=" + option1 + "&option2=" + option2 + "&option3=" + option3 + "&option4=" + option4 + "&min=" + min + "&max=" + max + "&units=" + units + "&answer=" + answer + "&source=" + source;
+                //data = escape(data).replace(/%3D/g, "=").replace(/%26/g, "&");
+                console.log(data);
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("Response").innerHTML = this.responseText;
+                        if(this.responseText.toString().indexOf("No Questions Available") < 0){
+                            clearValues();
+                        }
+                    }
+                };
+                xhttp.open("POST", "addQuestion.php", true);
+                xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhttp.send(data);
+            } 
+        }
+        
+        function valid(){
+            var valid = true;
+            
+            
+            try{
+                var section = document.querySelector('input[name="section"]:checked').value;
+            }catch(err){
+                document.getElementById("section").classList.add("bad");
+            }
+            var type = document.querySelector('input[name="typeSelect"]:checked').value;
+            var question = document.getElementById("question").value
+            var option1 = document.getElementById("option1").value
+            var option2 = document.getElementById("option2").value
+            var option3 = document.getElementById("option3").value
+            var option4 = document.getElementById("option4").value
+            var min = document.getElementById("min").value
+            var max = document.getElementById("max").value
+            var units = document.getElementById("units").value
+            var answer = document.getElementById("answer").value
+            var source = document.getElementById("source").value
+            
+            if(section == null){
+                document.getElementById("section").classList.add("bad");
+                valid = false;
+            } else {
+                document.getElementById("section").classList.remove("bad");
+            }
+            if(type == null){
+                document.getElementById("GroupSelect").classList.add("bad");
+                valid = false;
+            } else {
+                document.getElementById("GroupSelect").classList.remove("bad");
+            }
+            if(question == ""){
+                document.getElementById("question").classList.add("bad");
+                valid = false;
+            } else {
+                document.getElementById("question").classList.remove("bad");
+            }
+            if(option1 == "" && type == "Multiple_Choice"){
+                document.getElementById("option1").classList.add("bad");
+                valid = false;
+            } else {
+                document.getElementById("option1").classList.remove("bad");
+            }
+            if(option2 == "" && type == "Multiple_Choice"){
+                document.getElementById("option2").classList.add("bad");
+                valid = false;
+            } else {
+                document.getElementById("option2").classList.remove("bad");
+            }
+            if(option3 == "" && type == "Multiple_Choice"){
+                document.getElementById("option3").classList.add("bad");
+                valid = false;
+            } else {
+                document.getElementById("option3").classList.remove("bad");
+            }
+            if(option4 == "" && type == "Multiple_Choice"){
+                document.getElementById("option4").classList.add("bad");
+                valid = false;
+            } else {
+                document.getElementById("option4").classList.remove("bad");
+            }
+            if(min == "" && type == "Range"){
+                document.getElementById("min").classList.add("bad");
+                valid = false;
+            } else {
+                document.getElementById("min").classList.remove("bad");
+            }
+            if(max == "" && type == "Range"){
+                document.getElementById("max").classList.add("bad");
+                valid = false;
+            } else {
+                document.getElementById("max").classList.remove("bad");
+            }
+            if(units == "" && type == "Range"){
+                document.getElementById("units").classList.add("bad");
+                valid = false;
+            } else {
+                document.getElementById("units").classList.remove("bad");
+            }
+            if(answer == ""){
+                document.getElementById("answer").classList.add("bad");
+                valid = false;
+            } else {
+                document.getElementById("answer").classList.remove("bad");
+            }
+            if(source == ""){
+                document.getElementById("source").classList.add("bad");
+                valid = false;
+            } else {
+                document.getElementById("source").classList.remove("bad");
+            }
+            return valid;
+        }
+        
+        function clearValues(){
+            document.getElementById("question").value = "";
+            document.getElementById("option1").value = "";
+            document.getElementById("option2").value = "";
+            document.getElementById("option3").value = "";
+            document.getElementById("option4").value = "";
+            document.getElementById("min").value = "";
+            document.getElementById("max").value = "";
+            document.getElementById("units").value = "";
+            document.getElementById("answer").value = "";
+            document.getElementById("source").value = "";
+        }
+    </script>
+</html>

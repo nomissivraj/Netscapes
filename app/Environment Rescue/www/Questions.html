@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/Questions.css" />
+    <title>Environment Rescue</title>
+</head>
+
+<body style="background-image:url(img/backgrounds/other-app-bg.png)">
+    <div id="highAir" class="splash">
+        <h3 class="title">Atmosphere</h3>
+        <img class="image" src="img/sectionImgs/airPollution.jpg"/>
+        <input type="button" class="start" value="Start" onclick="nextQuestion(0)"/>
+        <input type="button" class="return" value="Return" onclick="returnHome();"/>
+    </div>
+    <div id="lowAir" class="splash">
+        <h3 class="title">Lower Air Levels</h3>
+        <img class="image" src="img/sectionImgs/lowerAir.jpg"/>
+        <input type="button" class="start" value="Start" onclick="nextQuestion(0)"/>
+        <input type="button" class="return" value="Return" onclick="returnHome();"/>
+    </div>
+    <div id="ground" class="splash">
+        <h3 class="title">Ground</h3>
+        <img class="image" src="img/sectionImgs/ground.jpg"/>
+        <input type="button" class="start" value="Start" onclick="nextQuestion(0)"/>
+        <input type="button" class="return" value="Return" onclick="returnHome();"/>
+    </div>
+    <div id="sea" class="splash">
+        <h3 class="title">Sea</h3>
+        <img class="image" src="img/sectionImgs/sea.jpg"/>
+        <input type="button" class="start" value="Start" onclick="nextQuestion(0)"/>
+        <input type="button" class="return" value="Return" onclick="returnHome();"/>
+    </div>
+    <div id="seaBed" class="splash">
+        <h3 class="title">Sea Bed</h3>
+        <img class="image" src="img/sectionImgs/seaBed.jpg"/>
+        <input type="button" class="start" value="Start" onclick="nextQuestion(0)"/>
+        <input type="button" class="return" value="Return" onclick="returnHome();"/>
+    </div>
+    <div id="subSurface" class="splash">
+        <h3 class="title">Subsurface</h3>
+        <img class="image" src="img/sectionImgs/subSurface.jpg"/>
+        <input type="button" class="start" value="Start" onclick="nextQuestion(0)"/>
+        <input type="button" class="return" value="Return" onclick="returnHome();"/>
+    </div>
+    <div id="questions">
+        <h3 class="question">Question</h3>
+        <div class="figure">
+            <p id="rangeValue" class="value"></p>
+            <input type="range" min="0" max="100" onchange="changeFont(this)"/>
+        </div>
+        <div class="multipleChoice display">
+            <div class="choices">
+                <input type="button" class="option" value="Option 1"/>
+                <input type="button" class="option" value="Option 2"/>
+                <input type="button" class="option" value="Option 3"/>
+                <input type="button" class="option" value="Option 4"/>
+            </div>
+        </div>
+        <div class="buttons">
+            <input type="button" onclick="nextQuestion((questionNum-1))"/>
+            <input type="button" onclick="nextQuestion((questionNum+1))"/>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/questionPage.js"></script>
+</body>
+
+</html>

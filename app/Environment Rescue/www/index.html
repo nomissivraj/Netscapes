@@ -11,71 +11,17 @@
     <title>Environment Rescue</title>
 </head>
 
-<body>
-    <object onload="loadBackground()" id="background" data="img/backgroundImage.svg" type="image/svg+xml"></object>
+<body style="background-image: url(img/backgrounds/other-app-bg.png)">
     <div id="home" class="page">
-        <h2 class="logo">App Logo</h2>
-        <input class="bold" type="button" value="Try all" onclick="loadQuestions(this)"/>
-        <input type="button" value="Atmosphere" data-name="highAir" onclick="loadQuestions(this)"/>
-        <input type="button" value="Lower Air Levels" data-name="lowAir" onclick="loadQuestions(this)"/>
-        <input type="button" value="Ground" data-name="ground" onclick="loadQuestions(this)"/>
-        <input type="button" value="Sea" data-name="sea" onclick="loadQuestions(this)"/>
-        <input type="button" value="Sea-bed" data-name="seaBed" onclick="loadQuestions(this)"/>
-        <input type="button" value="Sub-surface" data-name="subSurface" onclick="loadQuestions(this)"/>
-    </div>
-    <div id="highAir" class="splash">
-        <h3 class="title">Atmosphere</h3>
-        <img class="image" src="img/sectionImgs/airPollution.jpg"/>
-        <input type="button" class="start" value="Start" onclick="nextQuestion(0)"/>
-        <input type="button" class="return" value="Return" onclick="returnHome();"/>
-    </div>
-    <div id="lowAir" class="splash">
-        <h3 class="title">Lower Air Levels</h3>
-        <img class="image" src="img/sectionImgs/lowerAir.jpg"/>
-        <input type="button" class="start" value="Start" onclick="nextQuestion(0)"/>
-        <input type="button" class="return" value="Return" onclick="returnHome();"/>
-    </div>
-    <div id="ground" class="splash">
-        <h3 class="title">Ground</h3>
-        <img class="image" src="img/sectionImgs/ground.jpg"/>
-        <input type="button" class="start" value="Start" onclick="nextQuestion(0)"/>
-        <input type="button" class="return" value="Return" onclick="returnHome();"/>
-    </div>
-    <div id="sea" class="splash">
-        <h3 class="title">Sea</h3>
-        <img class="image" src="img/sectionImgs/sea.jpg"/>
-        <input type="button" class="start" value="Start" onclick="nextQuestion(0)"/>
-        <input type="button" class="return" value="Return" onclick="returnHome();"/>
-    </div>
-    <div id="seaBed" class="splash">
-        <h3 class="title">Sea Bed</h3>
-        <img class="image" src="img/sectionImgs/seaBed.jpg"/>
-        <input type="button" class="start" value="Start" onclick="nextQuestion(0)"/>
-        <input type="button" class="return" value="Return" onclick="returnHome();"/>
-    </div>
-    <div id="subSurface" class="splash">
-        <h3 class="title">Subsurface</h3>
-        <img class="image" src="img/sectionImgs/subSurface.jpg"/>
-        <input type="button" class="start" value="Start" onclick="nextQuestion(0)"/>
-        <input type="button" class="return" value="Return" onclick="returnHome();"/>
-    </div>
-    <div id="questions">
-        <h3 class="question">Question</h3>
-        <div class="figure">
-            <input type="range" min="0" max="100"/>
-        </div>
-        <div class="multipleChoice">
-            <div class="choices">
-                <input type="button" value="Option 1"/>
-                <input type="button" value="Option 2"/>
-                <input type="button" value="Option 3"/>
-                <input type="button" value="Option 4"/>
-            </div>
-        </div>
-        <div class="buttons">
-            <input type="button" value="Previous" onclick="nextQuestion(questionNum--)"/>
-            <input type="button" value="Next Question" onclick="nextQuestion(questionNum++)"/>
-        </div>
+        <h2 class="logo">EQ</h2>
+        <input class="bold" type="button" value="Try all" onclick="loadPage(this)"/>
+        <input type="button" value="Atmosphere" data-name="highAir" onclick="loadPage(this)"/>
+        <!--<input type="button" value="Lower Air Levels" data-name="lowAir" onclick="loadPage(this)"/>-->
+        <input type="button" value="Ground" data-name="ground" onclick="loadPage(this)"/>
+        <input type="button" value="Sea" data-name="sea" onclick="loadPage(this)"/>
+       <!-- <input type="button" value="Sea-bed" data-name="seaBed" onclick="loadPage(this)"/>-->
+        <input type="button" value="Sub-surface" data-name="subSurface" onclick="loadPage(this)"/>
+        <input class="small" type="button" value="Log out" onclick=""/>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>

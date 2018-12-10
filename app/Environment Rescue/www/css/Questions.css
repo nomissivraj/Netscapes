@@ -1,0 +1,118 @@
+/*Questions*/
+#questions{
+    width: 100vw;
+    height: 80vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+    transform-origin: center center;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(1) translateX(50%);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#questions.display{
+    pointer-events: auto;
+    opacity: 1;
+    transform: scale(1) translateX(0);
+    transition: opacity 0.7s, transform 0.7s;
+}
+
+#questions.away{
+    opacity: 0;
+    transform: scale(1) translateX(-50%);
+    transition: opacity 0.7s, transform 0.7s;
+}
+
+#questions .question{
+    font-size: 25px;
+    padding: 10px;
+    font-weight: 100;
+}
+
+#questions .multipleChoice, #questions .figure{
+    display: none;
+    text-align: center;
+    width: 100vw;
+}
+
+/*Multiple Choice Design*/
+
+#questions .multipleChoice input{
+    margin: 10px auto;
+    display: block;
+    width: 75%;
+    font-family: Autery, Stella;
+    background-color: white;
+    border-style: none;
+    border-radius: 8px;
+    padding: 5px;
+   /* border-width: 1px;
+   /* border-color: #49443e;*/
+    color: #49443e;
+    font-size: 23px;
+}
+
+#questions .display{
+    display: block;
+}
+
+#questions .buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    padding: 0px;
+    margin: 0px auto;
+    padding-top: 2.5em;
+}
+
+#questions .buttons input{
+    display: inline-block;
+    background-color: rgba(0,0,0,0);
+    border-style: none;
+    background-repeat: no-repeat;
+    height: 35px;
+    line-height: 35px;
+    font-size: 35px;
+    width: 35px;
+}
+
+#questions .buttons input:nth-of-type(1){
+    background-image: url(../img/back-button.svg);
+    background-size: contain;
+}
+
+#questions .buttons input:nth-of-type(2){
+    background-image: url(../img/forward-svg.svg);
+    background-size: contain;
+}
+
+/*Slider design*/
+#questions  .value{
+    font-size: 25px;
+}
+
+#questions .figure input{
+    -webkit-appearance: none;
+    height: 5px;
+    width: 75%;
+    background: #49443e;
+}
+
+#questions .figure input::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    background: white;
+    height: 30px;
+    width: 15px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #49443e;
+    border-radius: 5px;
+}
+

@@ -1,6 +1,20 @@
+@font-face {
+    font-family: Autery;
+    src: url(../Autery.ttf);
+}
+
+@font-face {
+    font-family: Stella;
+    src: url(../Stella_Wilson.ttf)
+}
+
 body{
     background-color: gainsboro;
     margin: 0px;
+    height: 100vh;
+    background-size: cover;
+    font-family: Autery, Stella;
+    color: #49443e;
 }
 
 #background{
@@ -20,20 +34,34 @@ body{
 /*Home page*/
 #home{
     text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 #home .logo{
     margin-bottom: 30px;
+    font-size: 40px;
 }
 
 #home input{
-    width: 86%;
+    width: 75%;
     text-align: center;
     font-size: 23px;
-    margin: 5px;
+    margin: 5px auto;
     opacity: 1;
+    font-family: Autery, Stella;
     -webkit-transition: opacity 0.5s;
     transition: opacity 0.5s;
+    
+    
+    background-color: white;
+    border-style: solid;
+    border-radius: 8px;
+    padding: 5px;
+    border-width: 1px;
+    border-color: #49443e;
+    color: #49443e;
 }
 
 #home .hide{
@@ -41,10 +69,15 @@ body{
 }
 
 #home input.bold{
-    width: 90%;
     font-size: 30px;
     font-weight:500;
-    margin: 10px 0px;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+#home input.small{
+    width: 30%;
+    font-size: 20px;
 }
 
 #home input.hide:nth-of-type(7){
@@ -122,30 +155,3 @@ body{
     pointer-events: auto;
 }
 
-/*Questions*/
-#questions{
-    padding-top: 3em;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    text-align: center;
-    transform-origin: center top;
-    pointer-events: none;
-    opacity: 0;
-    transform: scale(0.8) translateY(50%);
-}
-
-#questions.display{
-    pointer-events: auto;
-    opacity: 1;
-    transform: scale(1) translateY(0);
-    transition: opacity 0.7s, transform 0.7s;
-}
-
-#questions.away{
-    opacity: 0;
-    transform: scale(0.8) translateY(-50%);
-    transition: opacity 0.7s, transform 0.7s;
-}
