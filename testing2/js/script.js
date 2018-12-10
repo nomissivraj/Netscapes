@@ -1,13 +1,28 @@
-console.log('test');
 var sections,
-    background;
+    background,
+    frame,
+    windowW,
+    ratioVal;
+
 window.onload = () => {
     sections = document.getElementsByClassName('section');
     background = document.getElementsByClassName('background')[0];
+    frame = document.getElementsByClassName('background__frame')[0];
+    isInView();
 }
 
 window.onscroll = () => {
     isInView();
+}
+
+window.onresize = () => {
+    isInView();
+}
+
+function windowRatio(ratio) {
+    windowW = window.innerWidth;
+    ratioVal = windowW * ratio;
+    //might need to re-think this for > 1080p window width
 }
 
 function isInView() {
@@ -18,24 +33,33 @@ function isInView() {
             var currentSection = sections[i].classList[1];
             switch(currentSection) {
                 case 'section--1':
+                    windowRatio();
                     console.log("section one");
                     background.classList.add('stage--1');
                     background.classList.remove('stage--2', 'stage--3', 'stage--4');
+                    frame.style.transform = "";
                 break;
                 case 'section--2':
+                    windowRatio(0.09);
                     console.log("section two");
                     background.classList.add('stage--2');
                     background.classList.remove('stage--1', 'stage--3', 'stage--4');
+                    console.log(frame, ratioVal);
+                    frame.style.transform = "translateY(-"+ratioVal+"vh)";
                 break;
                 case 'section--3':
+                    windowRatio(0.12);
                     console.log("section three");
                     background.classList.add('stage--3');
                     background.classList.remove('stage--1', 'stage--2', 'stage--4');
+                    frame.style.transform = "translateY(-"+ratioVal+"vh) translateX(-98vw)";
                 break;
                 case 'section--4':
+                    windowRatio();
                     console.log("section four");
                     background.classList.add('stage--4');
                     background.classList.remove('stage--1', 'stage--2', 'stage--3');
+                    frame.style.transform = "";
                 break;
                 default:
                 console.log("outside");
