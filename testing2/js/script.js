@@ -44,7 +44,7 @@ function isInView() {
                     console.log("section two");
                     background.classList.add('stage--2');
                     background.classList.remove('stage--1', 'stage--3', 'stage--4');
-                    console.log(frame, ratioVal);
+                    //console.log(frame, ratioVal);
                     frame.style.transform = "translateY(-"+ratioVal+"vh)";
                 break;
                 case 'section--3':
@@ -70,20 +70,55 @@ function isInView() {
     }
 }
 
-function scrolling(event) {
-    var delay = false;
-    console.log('scrolling-event');
-
-    if (delay) return;
-    delay = true;
-    setTimeout(() => { delay = false }, 250);
-
-    var direction = event.deltaY || -event.detail;
-    console.log(direction);
+function scrollTo(el, pos, dur) {
+    var startPos = el.scrollTop;
+    var posChange = pos - startPos;
+    //need to work out how to scroll element intop view 
 }
 
+//Function that moves to the next section based on wheel/scroll direction
+function nextSection(direction) {
+    var index;
+    for (let i =0; i < sections.length; i++) {
+        if (sections[i].classList.contains('active')) {
+            index = i;
+            if (index < 0) index = 0;
+            if (index > sections.length) index = sections.length
+        }
+    }
+    if (!index) return;
+    console.log(index);
+    if (direction === "up") {
+        index--;
+        console.log(sections[index]);
+    } else {
+        index++;
+        console.log(sections[index]);
+    }
+//    direction === "up" ? console.log(sections[index]) : console.log(sections[index]);
+}
+
+/* var scrollActive = false;//set scroll active to false by default */
+var scrollingActive;
+function scrolling(event) {
+    /* if (scrollActive) return;//if still scrolling do not continue with function
+    scrollActive= true;//Scroll true as now active */
+    window.clearTimeout(scrollingActive);//stops timeout/function from completing/running unless event has finished (stopping multiple function calls)
+    scrollingActive = setTimeout(() => {
+        var direction = this.oldScroll > this.scrollY ? nextSection("up") : nextSection("down");// If old scroll position is greater than current scrollY position console log up else down
+        this.oldScroll = this.scrollY;//old scroll keeps track of current scrollY position
+    },250);    
+    
+}
+
+//Self invoking anonymous function that monitors scrolling events and calls scrolling function to handle scroll direction and section navigation
 (() => {
     document.onwheel = (e) => {
         scrolling(e);
-    };
+    }; 
+    /*
+    document.onscroll = (e) => {
+        scrolling(e);
+    }
+    */
 })();
