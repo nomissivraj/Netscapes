@@ -2,6 +2,10 @@ h1 {
     color: #444;
 }
 
+::-webkit-scrollbar { 
+    display: none; 
+}
+
 section {
     position: relative;
     height: 100vh;
