@@ -11,6 +11,7 @@ $category = $_POST['category'];
 
 
 $query = "SELECT * FROM Questions WHERE Category = '" . $category . "';";
+if($category == "all")$query = "SELECT * FROM Questions;";
 
 $result = $conn->query($query);
 
