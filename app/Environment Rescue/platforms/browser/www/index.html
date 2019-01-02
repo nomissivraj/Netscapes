@@ -12,6 +12,24 @@
 </head>
 
 <body style="background-image: url(img/backgrounds/other-app-bg.png)">
+    <div id="login">
+        <div id="signin" class="signin section">
+            <h3>Sign in</h3>
+            <input class="email" type="text" placeholder="Email"/>
+            <input class="password" type="password" placeholder="Password"/>
+            <input type="button" value="Sign in" onclick="signin(this.parentElement)"/>
+            <a href="javascript:changeMode()">Don't have an account</a>
+            
+        </div>
+        <div id="signup" class="signup section">
+            <h3>Sign up</h3>
+            <input class="email" type="text" placeholder="Email"/>
+            <input class="password" type="password" placeholder="Password"/>
+            <input class="password" type="password" placeholder="Confirm Password"/>
+            <input type="button" value="Sign up" onclick="signup(this.parentElement)"/>
+            <a href="javascript:changeMode()">Already have an account</a>
+        </div>
+    </div>
     <div id="home" class="page">
         <h2 class="logo">EQ</h2>
         <input class="bold" type="button" value="Try all" data-name="all" onclick="loadPage(this)"/>
