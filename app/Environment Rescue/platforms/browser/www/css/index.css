@@ -43,6 +43,10 @@ body{
     transition: top 0.8s;
 }
 
+#home.display{
+    top: 0vh;
+}
+
 #home .logo{
     margin-bottom: 30px;
     font-size: 40px;
@@ -177,6 +181,11 @@ body{
     flex-direction: column;
     -webkit-transition: opacity 0.8s;
     transition: opacity 0.8s;
+}
+
+#login.hide{
+    opacity: 0;
+    pointer-events: none;
 }
 
 #login .section{
