@@ -11,6 +11,21 @@ module.exports = function(app, passport) {
         successRedirect: '/',
         failureRedirect: '/signup'
     }));
+    
+    //Sign up for the app
+    //app.get('/signupapp', authController.signup);
+    app.post('/signupapp', passport.authenticate('local-signup', {
+        successRedirect: "/success",
+        failureRedirect: "/fail"
+    }));
+    
+    app.get('/success', function(req, res){//Code for returning a successful response to the app
+        res.send("success");
+    })
+    
+    app.get('/fail', function(req, res){//Code for returning a not so successful response to the app
+        res.send("fail");
+    })
 
     // Signin
     app.get('/signin', authController.signin);
