@@ -9,7 +9,8 @@ module.exports = function(app, passport) {
     app.get('/signup', authController.signup);
     app.post('/signup', passport.authenticate('local-signup', {
         successRedirect: '/',
-        failureRedirect: '/signup'
+        failureRedirect: '/signup',
+        failureFlash: true // allow flash messages
     }));
     
     //Sign up for the app
@@ -35,7 +36,7 @@ module.exports = function(app, passport) {
     app.post('/signin', passport.authenticate('local-signin', {
         successRedirect: '/',
         failureRedirect: '/signin',
-        failureFlash : true // allow flash messages,
+        failureFlash: true // allow flash messages
     }));
     
     //Signin for the app

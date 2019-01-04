@@ -18,13 +18,15 @@ exports.about = function(req, res) {
 
 exports.signup = function(req, res) {
     res.render('signup', {
-        title: 'Sign Up'
+        title: 'Sign Up',
+        message: req.flash('signupMessage')
     });
 }
 
 exports.signin = function(req, res) {
     res.render('signin', {
-        title: 'Sign In'
+        title: 'Sign In',
+        message: req.flash('signinMessage')
     });
 }
 
