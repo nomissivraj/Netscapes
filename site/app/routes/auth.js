@@ -15,12 +15,11 @@ module.exports = function(app, passport) {
     
     //Sign up for the app
     //app.get('/signupapp', authController.signup);
-    app.post('/signupapp', passport.authenticate('local-signup'), function(req,res){
-        res.redirect("/success/?id=" + req.user.id);
-        //failureRedirect: "/fail"
-    }, function(req, res){
-        res.redirect("/fail")
-    });
+    app.post('/signupapp', passport.authenticate('local-signup', {
+        successRedirect: '/success',
+        failureRedirect: '/fail',
+        failureFlash: true // allow flash messages
+    }));
     
     app.get('/success', function(req, res){//Code for returning a successful response to the app
         console.log(req.query.id)
@@ -28,7 +27,7 @@ module.exports = function(app, passport) {
     })
     
     app.get('/fail', function(req, res){//Code for returning a not so successful response to the app
-        res.send("fail");
+        res.send("fail/" + req.flash('signinMessage') + req.flash('signupMessage'));
     })
 
     // Signin
@@ -41,12 +40,11 @@ module.exports = function(app, passport) {
     
     //Signin for the app
     //app.get('/signupapp', authController.signup);
-    app.post('/signinapp', passport.authenticate('local-signin'), function(req,res){
-        res.redirect("/success/?id=" + req.user.id);
-        //failureRedirect: "/fail"
-    }, function(req, res){
-        res.redirect("/fail")
-    });
+    app.post('/signinapp', passport.authenticate('local-signin', {
+        successRedirect: '/success',
+        failureRedirect: '/fail',
+        failureFlash: true // allow flash messages
+    }));
 
     // About
     app.get('/about', authController.about);

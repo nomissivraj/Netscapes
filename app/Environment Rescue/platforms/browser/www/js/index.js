@@ -21,7 +21,7 @@ function signin(element){
                 userID = response[1];
                 closeLogin();
             } else {
-                alert("Login invalid")
+                alert(response[1])
             }
         }
     };
@@ -33,6 +33,8 @@ function signin(element){
 function signup(element){
     if(element.getElementsByClassName("password")[0].value != element.getElementsByClassName("password")[1].value){
         alert("Your passwords do not match!")
+    } else if(element.getElementsByClassName("password")[0].value == ""){
+        alert("Please enter a valid password")
     } else {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -42,7 +44,7 @@ function signup(element){
                     userID = response[1];
                     closeLogin();
                 } else {
-                    alert("Login invalid")
+                    alert(response[1])
                 }
             }
         };
