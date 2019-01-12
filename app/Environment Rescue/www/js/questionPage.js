@@ -32,6 +32,7 @@ function getQuestions(currentPage){
 function startQuestions(currentPage){
     document.getElementById(currentPage).classList.remove("selected");
     buttons = document.getElementsByClassName("buttons")[0];
+    document.getElementsByClassName("header")[0].classList.add("display");
     nextQuestion(0);
 }
 
@@ -57,9 +58,11 @@ function nextQuestion(num){
                 buttons.getElementsByTagName("input")[0].classList.remove("hide")
             }
             if(num >= questions.length-2){
-                buttons.getElementsByTagName("input")[1].classList.add("hide")
+                buttons.getElementsByTagName("input")[1].classList.add("hide");
+                document.getElementsByClassName("header")[0].classList.add("end");//Replaces home button with finish button
             } else {
                 buttons.getElementsByTagName("input")[1].classList.remove("hide")
+                document.getElementsByClassName("header")[0].classList.remove("end");//Replaces finish button with home button
             }
             /*Code for setting up current question*/
             var questionBox = document.getElementById("questions");
@@ -82,6 +85,8 @@ function nextQuestion(num){
                 var range = questionBox.getElementsByTagName("input")[0];
                 range.min = currentQuestion.Min;
                 range.max = currentQuestion.Max;
+                range.value = range.max/2;
+                changeFont(range)
                 range.dataset.unit = currentQuestion.Units;
                 document.getElementById("rangeValue").innerHTML = range.value + range.dataset.unit;
                 

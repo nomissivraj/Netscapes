@@ -38,9 +38,7 @@
                   }
               }).then(function(user) {
                   if (user) {
-                      return done(null, false, {
-                          message: 'That email is already taken'
-                      });
+                      return done(null, false, req.flash('signupMessage', 'That email address is already taken.'));
                   } else {
                       var userPassword = generateHash(password);
                       var data = {
