@@ -37,7 +37,7 @@ body {
 .background {
     z-index: -1;
     position: fixed;
-    width: calc(100vw - 17px);
+    width: calc(100vw);
     height: 100vh;
     top:0;
     left:0;/* offset padding left */
@@ -51,6 +51,51 @@ body {
     position: relative;
     transition: transform 2s ease;
 }
+
+/* SECTION NAV (HOME PAGE) */
+.section-nav {
+    position: fixed;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%) translateX(calc(100% - 40px));
+    background: rgba(240,240,240,.0);
+    padding: 15px;
+    border-radius: 5px 0 0 5px;
+    transition: all .4s ease;
+  }
+
+  .section-nav:hover,
+  .section-nav:focus {
+    background: rgba(240,240,240,.5);
+    transform: translateY(-50%) translateX(0);
+  }
+
+  .section-nav ul {
+      list-style-type: none;
+      padding: 0;
+  }
+
+  .section-nav ul li {
+    padding: 5px 0;
+  }
+
+  .section-nav ul li:first-child {
+    padding-top:0;
+  }
+
+  .section-nav ul li:last-child {
+    padding-bottom:0;
+  }
+
+  .section-navlink__icon {
+    text-align: center;
+    width: 25px;
+    display: inline-block;
+  }
+
+  .section-navlink__text {
+
+  }
 
 /* Image Animation CSS */
 /* Image Animation CSS / Default State */
