@@ -1,4 +1,5 @@
 var exports = module.exports = {}
+var models = require('../models');
 
 exports.index = function(req, res) {
     res.render('index', {
@@ -6,6 +7,17 @@ exports.index = function(req, res) {
         title: 'Home',
         condition: false
     });
+}
+
+exports.questions = function(req, res) {
+    models.question.findAll().then(function(questions) {
+        res.render('questions', {
+            user: req.user,
+            questions: questions,
+            title: 'Questions',
+            condition: false
+        });
+    });  
 }
 
 exports.about = function(req, res) {

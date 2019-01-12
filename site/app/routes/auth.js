@@ -5,6 +5,9 @@ module.exports = function(app, passport) {
     // Index (Home)
     app.get('/', authController.index);
 
+    // Questions (Test)
+    app.get('/questions', authController.questions);
+
     // Signup
     app.get('/signup', authController.signup);
     app.post('/signup', passport.authenticate('local-signup', {
