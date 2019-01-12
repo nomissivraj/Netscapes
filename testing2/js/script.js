@@ -153,21 +153,28 @@ function inverse(num) {
 /* var scrollActive = false;//set scroll active to false by default */
 var scrollingActive;
 function scrolling(event) {
+    console.log(event.type);
+    if (event.type === "wheel") {
+        //console.log(event.wheelDeltaY || event);
+        var data = event.wheelDeltaY || inverse(event.deltaY);
+        window.clearTimeout(scrollingActive);//stops timeout/function from completing/running unless event has finished (stopping multiple function calls)
 
-    console.log(event.wheelDeltaY || event);
-    var data = event.wheelDeltaY || inverse(event.deltaY);
-    window.clearTimeout(scrollingActive);//stops timeout/function from completing/running unless event has finished (stopping multiple function calls)
-    
-    scrollingActive = setTimeout(() => {
-        data > 0 ? nextSection("up") : nextSection("down");
-    },250);
-    /*//The following is for onscroll NOT onwheel
-    window.clearTimeout(scrollingActive);//stops timeout/function from completing/running unless event has finished (stopping multiple function calls)
-    scrollingActive = setTimeout(() => {
-        var direction = this.oldScroll > this.scrollY ? nextSection("up") : nextSection("down");// If old scroll position is greater than current scrollY position console log up else down
-        this.oldScroll = this.scrollY;//old scroll keeps track of current scrollY position
-    },250);     */
+        scrollingActive = setTimeout(() => {
+            data > 0 ? nextSection("up") : nextSection("down");
+        },250);
+    } else if (event.type === "keyup") {
+       var input = event || window.event;
+       input.preventDefault;
+       if (input.keyCode == '38') {
+            nextSection("up")
+       } else if (input.keyCode == '40') {
+            nextSection("down");
+       } else return;
+    }
 }
+    
+
+
 
 //Self invoking anonymous function that monitors scrolling events and calls scrolling function to handle scroll direction and section navigation
 (() => {
@@ -175,6 +182,10 @@ function scrolling(event) {
         e.preventDefault(e)
         scrolling(e);
     }; 
+
+    document.onkeyup = (e) => {
+        scrolling(e)
+    };
     /*
     document.onscroll = (e) => {
         scrolling(e);
