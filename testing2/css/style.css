@@ -37,7 +37,7 @@ body {
 .background {
     z-index: -1;
     position: fixed;
-    width: calc(100vw);
+    width: 100vw;
     height: 100vh;
     top:0;
     left:0;/* offset padding left */
@@ -101,7 +101,8 @@ body {
 /* Image Animation CSS / Default State */
 .sprite {
     position: absolute;
-    max-width: 200%;
+    /*max-width: 200%;*/
+    width: 200vw;
     transition: transform 3s ease;
 }
 
@@ -136,7 +137,8 @@ body {
 }
 
 .sprite--subterrain {
-    top: 165vh;
+    /*top: 165vh;*/
+    transform: translateY(165vh);
 }
 
 .sprite--mountains {

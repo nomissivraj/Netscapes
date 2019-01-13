@@ -19,9 +19,17 @@ window.onresize = () => {
     isInView();
 }
 
+var heightOffset
+
 function windowRatio(ratio) {
-    windowW = window.innerWidth;
+    windowW = (window.innerWidth*2)*1.33;//WindowWidth*2 * comparitive height of image
+    heightOffset = (window.innerWidth/16)*9//works out how high the screen should be for the image
+    heightOffset = (heightOffset-window.innerHeight);
+    //ratio = ratio + heightOffset;
     ratioVal = windowW * ratio;
+    console.log("windowW:", windowW)
+    console.log("RatioValue:", ratioVal)
+    console.log("heightOffset:" + heightOffset)
     //might need to re-think this for > 1080p window width
 }
 
@@ -40,19 +48,19 @@ function isInView() {
                     frame.style.transform = "";
                 break;
                 case 'section--2':
-                    windowRatio(0.09);
+                    windowRatio(0.3);
                     //console.log("section two");
                     background.classList.add('stage--2');
                     background.classList.remove('stage--1', 'stage--3', 'stage--4');
                     //console.log(frame, ratioVal);
-                    frame.style.transform = "translateY(-"+ratioVal+"vh)";
+                    frame.style.transform = "translateY(-"+ratioVal+"px)";
                 break;
                 case 'section--3':
-                    windowRatio(0.11);
+                    windowRatio(0.45);
                     //console.log("section three");
                     background.classList.add('stage--3');
                     background.classList.remove('stage--1', 'stage--2', 'stage--4');
-                    frame.style.transform = "translateY(-"+ratioVal+"vh) translateX(-98vw)";
+                    frame.style.transform = "translateY(-"+ratioVal+"px) translateX(-98vw)";
                 break;
                 case 'section--4':
                     windowRatio();

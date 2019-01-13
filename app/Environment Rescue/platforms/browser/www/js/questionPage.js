@@ -106,7 +106,13 @@ function nextQuestion(num){
     }
 }
 
-function changeFont(item){
+function submitAnswer(){
+    
+}
+
+
+//Minor functions
+function changeFont(item){//Changes the font size of the range slider
     var fontSize = 1;
     var range = item.max - item.min;
     fontSize = fontSize + (1*(1/range)*item.value);
