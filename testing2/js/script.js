@@ -92,7 +92,10 @@ function scrollEase(el,/*el, dur*/dir) {
         var int = setInterval(() => {
             window.scrollTo(0, startPos);
             startPos += 10;
-            if (startPos >= targetPos) clearInterval(int);
+            if (startPos >= targetPos){
+                 clearInterval(int);
+                 canScroll = true;
+            }
         }, 10);
 
     } else if (dir === "up") {
@@ -100,7 +103,10 @@ function scrollEase(el,/*el, dur*/dir) {
         var int = setInterval(() => {
             window.scrollTo(0, startPos);
             startPos -= 10;
-            if (startPos <= targetPos) clearInterval(int);
+            if (startPos <= targetPos){
+                 clearInterval(int);
+                 canScroll = true;
+            }
         }, 10);
     }
     
@@ -115,30 +121,36 @@ function scrollEase(el,/*el, dur*/dir) {
     }, 20); */
 }
 
+var canScroll = true;
+
 //Function that moves to the next section based on wheel/scroll direction
 function nextSection(direction) {
+    
     var index;
-    for (let i =0; i < sections.length; i++) {
-        if (sections[i].classList.contains('active')) {
-            index = i;
-            if (index <= 0) index = 0;
-            if (index >= sections.length) index = sections.length;
+    if(canScroll){
+        for (let i =0; i < sections.length; i++) {
+            if (sections[i].classList.contains('active')) {
+                index = i;
+                if (index <= 0) index = 0;
+                if (index >= sections.length) index = sections.length;
+            }
         }
-    }
-    //if (!index) return;
-    console.log("index: ",index);
-    if (direction === "up") {
-        if (index <= 0) return;
-        index--;
-        scrollEase(sections[index], direction);
-        //sections[index].scrollIntoView();
-        
-    } else if (direction === "down") {
-        if (index === sections.length - 1) return;
-        index++;
-        scrollEase(sections[index], direction);
+        //if (!index) return;
+        console.log("index: ",index);
+        if (direction === "up") {
+            if (index <= 0) return;
+            index--;
+            scrollEase(sections[index], direction);
+            //sections[index].scrollIntoView();
+            
+        } else if (direction === "down") {
+            if (index === sections.length - 1) return;
+            index++;
+            scrollEase(sections[index], direction);
 
-        
+            
+        }
+        canScroll = false;
     }
 //    direction === "up" ? console.log(sections[index]) : console.log(sections[index]);
 }
@@ -153,11 +165,12 @@ function inverse(num) {
 /* var scrollActive = false;//set scroll active to false by default */
 var scrollingActive;
 function scrolling(event) {
+    if(canScroll){
     console.log(event.type);
     if (event.type === "wheel") {
         //console.log(event.wheelDeltaY || event);
         var data = event.wheelDeltaY || inverse(event.deltaY);
-        window.clearTimeout(scrollingActive);//stops timeout/function from completing/running unless event has finished (stopping multiple function calls)
+        //window.clearTimeout(scrollingActive);//stops timeout/function from completing/running unless event has finished (stopping multiple function calls)
 
         scrollingActive = setTimeout(() => {
             data > 0 ? nextSection("up") : nextSection("down");
@@ -171,6 +184,7 @@ function scrolling(event) {
             nextSection("down");
        } else return;
     }
+}
 }
     
 
