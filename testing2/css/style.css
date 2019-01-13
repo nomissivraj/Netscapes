@@ -2,15 +2,15 @@ h1 {
     color: #444;
 }
 
-/* .section--4 h1, .section--4 p {
-    color: #f5f5f5;
-} */
-
-::-webkit-scrollbar { 
+.home ::-webkit-scrollbar { 
     display: none; 
 }
 
-section {
+@-moz-document url-prefix() {
+    .home html,.home body{overflow: hidden !important;}
+}
+
+.home section {
     position: relative;
     height: 100vh;
     padding: 20px;
@@ -18,7 +18,7 @@ section {
     margin: 0 auto;
 }
 
-.section__content {
+.home .section__content {
     position: relative;
     top: calc(50% - 50px);
     transform:translateY(-50%);
@@ -27,14 +27,14 @@ section {
     border-radius: 20px;
 }
 
-body {
+.home body {
     background-image: linear-gradient(to top, #d9bf8d, #e2cd9b, #ebdba9, #f5e9b8, #fef7c7);
     background: #FFFCF6 url(../img/background.svg);
     background-repeat: repeat-x;
     margin:0;
 }
 
-.background {
+.home .background {
     z-index: -1;
     position: fixed;
     width: 100vw;
@@ -44,7 +44,7 @@ body {
     overflow: hidden;
 }
 
-.background__frame {
+.home .background__frame {
     height: 100vh;
     top: 100vh;
     left: 0;
@@ -53,7 +53,7 @@ body {
 }
 
 /* SECTION NAV (HOME PAGE) */
-.section-nav {
+.home .section-nav {
     position: fixed;
     top: 50%;
     right: 0px;
@@ -64,140 +64,132 @@ body {
     transition: all .4s ease;
   }
 
-  .section-nav:hover,
-  .section-nav:focus {
+  .home .section-nav:hover,
+  .home .section-nav:focus {
     background: rgba(240,240,240,.5);
     transform: translateY(-50%) translateX(0);
   }
 
-  .section-nav ul {
+  .home .section-nav ul {
       list-style-type: none;
       padding: 0;
   }
 
-  .section-nav ul li {
+  .home .section-nav ul li {
     padding: 5px 0;
   }
 
-  .section-nav ul li:first-child {
+  .home .section-nav ul li:first-child {
     padding-top:0;
   }
 
-  .section-nav ul li:last-child {
+  .home .section-nav ul li:last-child {
     padding-bottom:0;
   }
 
-  .section-navlink__icon {
+  .home .section-navlink__icon {
     text-align: center;
     width: 25px;
     display: inline-block;
   }
 
-  .section-navlink__text {
-
-  }
-
 /* Image Animation CSS */
 /* Image Animation CSS / Default State */
-.sprite {
+.home .sprite {
     position: absolute;
     /*max-width: 200%;*/
     width: 200vw;
     transition: transform 3s ease;
 }
 
-.sprite--clouds, .sprite--clouds2 {
-    width: 180vh;
+.home .sprite--clouds, .home .sprite--clouds2 {
+    width: 100vw;
     top: -20vh;
     left: 5vw;
     opacity: .95;
 }
 
-.sprite--clouds {
+.home .sprite--clouds {
     transform: translateX(-200vh);
 }
 
-.sprite--balloon {
+.home .sprite--balloon {
     max-width: 10vw;
     top: -12vh;
     left: 50vw;
     transform: translateY(100vh) translateX(-200vw);
 }
 
-.sprite--clouds2 {
+.home .sprite--clouds2 {
     transform: translateX(200vh);
 }
 
-.sprite--deeprocks {
-    transform: translateY(40vh);
+.home .sprite--deeprocks {
+    transform: translateY(20vh);
 }
 
-.sprite--boat {
+.home .sprite--boat {
     transform: translateX(100vh);
 }
 
-.sprite--subterrain {
-    /*top: 165vh;*/
-    transform: translateY(165vh);
-}
 
-.sprite--mountains {
+.home .sprite--mountains {
     transform: translateY(50vh);
 }
 
-.sprite--trees {
+.home .sprite--trees {
     transform: translateX(-50vw);
 }
 
-.sprite--rocks {
+.home .sprite--rocks {
     transform: translateY(100vh);
 }
 
 /* Image Animation CSS / Stage 1 */
-.background.stage--1 .background__frame {
+.home .background.stage--1 .background__frame {
     transform: translateY(-40vh);
 }
 
-.background.stage--1 .sprite--clouds {
+.home .background.stage--1 .sprite--clouds {
     transform: translateX(0vh);
 }
 
-.background.stage--1 .sprite--clouds2 {
+.home .background.stage--1 .sprite--clouds2 {
     transform: translateX(0vh);
 }
-.background.stage--1 .sprite--balloon {
+.home .background.stage--1 .sprite--balloon {
     transform: translateX(0vw) translateY(0vh);
 }
 /* Image Animation CSS / Stage 2 */
-.background.stage--2 .background__frame {
+.home .background.stage--2 .background__frame {
     transform: translateY(-165vh);
 }
-.background.stage--2 .sprite--balloon {
+.home .background.stage--2 .sprite--balloon {
     transform: translateX(100vw) translateY(-100vh);
 }
-.background.stage--2 .sprite--mountains {
+.home .background.stage--2 .sprite--mountains {
     transform: translateY(0vh);
 }
-.background.stage--2 .sprite--rocks {
+.home .background.stage--2 .sprite--rocks {
     transform: translateY(0vh);
 }
-.background.stage--2 .sprite--trees {
+.home .background.stage--2 .sprite--trees {
     transform: translateX(0vw);
 }
 
 /* Image Animation CSS / Stage 3 */
-.background.stage--3 .background__frame {
+.home .background.stage--3 .background__frame {
     transform: translateY(-225vh) translateX(-98vw);
 }
 
-.background.stage--3 .sprite--boat {
+.home .background.stage--3 .sprite--boat {
     transform: translateX(0vh);
 }
 /* Image Animation CSS / Stage 4 */
-.background.stage--4 .background__frame {
+.home .background.stage--4 .background__frame {
     transform: translateY(-415vh) translateX(-98vw);
 }
 
-.background.stage--4 .sprite--deeprocks {
+.home .background.stage--4 .sprite--deeprocks {
     transform: translateY(0vh);
 }
