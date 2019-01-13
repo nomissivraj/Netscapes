@@ -5,8 +5,11 @@ module.exports = function(app, passport) {
     // Index (Home)
     app.get('/', authController.index);
 
-    // Questions (Test)
+    // Questions (DB Test)
     app.get('/questions', authController.questions);
+    
+    // Air Quality (Test)
+    app.get('/airquality', authController.airquality);
 
     // Signup
     app.get('/signup', authController.signup);

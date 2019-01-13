@@ -1,0 +1,9 @@
+<h1>{{title}}</h1>
+{{#each results}}
+	<h2>{{this.title}}</h2>
+	<p>
+		Defra Link: {{this.link}}<br />
+		Geolocation: {{this.location.dms}}<br />
+		Description: {{this.description}}
+	</p>
+{{/each}}

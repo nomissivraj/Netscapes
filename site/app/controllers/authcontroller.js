@@ -1,5 +1,14 @@
 var exports = module.exports = {}
 var models = require('../models');
+var mysql = require('mysql');
+var defraAirQuality = require('defra-air-quality-js');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "password",
+  database: "test"
+});
 
 exports.index = function(req, res) {
     res.render('index', {
@@ -10,14 +19,40 @@ exports.index = function(req, res) {
 }
 
 exports.questions = function(req, res) {
-    models.question.findAll().then(function(questions) {
-        res.render('questions', {
+    // Using Sequelize Node Module
+    // models.question.findAll().then(function(questions) {
+    //     res.render('questions', {
+    //         user: req.user,
+    //         questions: questions,
+    //         title: 'Questions',
+    //         condition: false
+    //     });
+    // });  
+    // Using MySQL Node Module
+    con.connect(function(err) {
+        if (err) throw err;
+        con.query("SELECT * FROM Questions", function (err, result, fields) {
+            if (err) throw err;
+            res.render('questions', {
+                user: req.user,
+                questions: result,
+                title: 'Questions',
+                condition: false
+            });
+        });
+    });
+}
+
+exports.airquality = function(req, res) {
+    results = defraAirQuality.list().then(function(results) {
+        res.render('airquality', {
             user: req.user,
-            questions: questions,
-            title: 'Questions',
+            results: results,
+            title: 'Air Quality',
             condition: false
         });
-    });  
+        console.log(results);
+    });
 }
 
 exports.about = function(req, res) {
