@@ -17,6 +17,7 @@ window.onscroll = () => {
 
 window.onresize = () => {
     isInView();
+    resizePos();
 }
 
 var heightOffset
@@ -27,9 +28,9 @@ function windowRatio(ratio) {
     heightOffset = (heightOffset-window.innerHeight);
     //ratio = ratio + heightOffset;
     ratioVal = windowW * ratio;
-    console.log("windowW:", windowW)
+    /* console.log("windowW:", windowW)
     console.log("RatioValue:", ratioVal)
-    console.log("heightOffset:" + heightOffset)
+    console.log("heightOffset:" + heightOffset) */
 
 }
 
@@ -144,7 +145,7 @@ function nextSection(direction) {
         }
         canScroll = false;
     }
-//    direction === "up" ? console.log(sections[index]) : console.log(sections[index]);
+
 }
 
 function inverse(num) {
@@ -158,7 +159,7 @@ function inverse(num) {
 var scrollingActive;
 function scrolling(event) {
     if(canScroll){
-    console.log(event.type);
+    //console.log(event.type);
     if (event.type === "wheel") {
         //console.log(event.wheelDeltaY || event);
         var data = event.wheelDeltaY || inverse(event.deltaY);
@@ -175,21 +176,44 @@ function scrolling(event) {
     }
 }
 }
-    
+
+
+var resizing = false;
+
 function resizePos() {
-    var currentSection,
-    resizePos;
-    //locate section currently in view and save in currentSection
-    for (var i = 0; i < sections.length; i++) {
-        if (sections[i].getBoundingClientRect().top <= window.innerHeight * 0.30 && sections[i].getBoundingClientRect().top > -window.innerHeight / 1.4) {
-            currentSection = sections[i].classList[1];
+    var currentSection;
+    //console.log(resizing)
+    
+    if (resizing === false) {
+        //locate section currently in view and save in currentSection
+        for (var i = 0; i < sections.length; i++) {
+            if (sections[i].getBoundingClientRect().top <= window.innerHeight * 0.30 && sections[i].getBoundingClientRect().top > -window.innerHeight / 1.4) {
+                currentSection = sections[i];
+            }
         }
+        resizing = true
+        var test = setTimeout(() => {
+            switch(currentSection.id) {
+                case 'section1':
+                    location.href = "#section1";
+                break;
+    
+                case 'section2':
+                    location.href = "#section2";
+                break;
+    
+                case 'section3':
+                    location.href = "#section3";
+                break;
+                case 'section4':
+                    location.href = "#section4";
+    
+                break;
+                default:
+            }
+            resizing = false;
+        },250);
     }
-
-    resizePos = setTimeout(() => {
-
-    },250);
-
 
 }
 
@@ -204,7 +228,4 @@ function resizePos() {
         scrolling(e)
     };
     
-    document.onscroll = (e) => {
-
-    }
 })();
