@@ -30,7 +30,7 @@ function windowRatio(ratio) {
     console.log("windowW:", windowW)
     console.log("RatioValue:", ratioVal)
     console.log("heightOffset:" + heightOffset)
-    //might need to re-think this for > 1080p window width
+
 }
 
 function isInView() {
@@ -56,18 +56,18 @@ function isInView() {
                     frame.style.transform = "translateY(-"+ratioVal+"px)";
                 break;
                 case 'section--3':
-                    windowRatio(0.45);
+                    windowRatio(0.41);
                     //console.log("section three");
                     background.classList.add('stage--3');
                     background.classList.remove('stage--1', 'stage--2', 'stage--4');
                     frame.style.transform = "translateY(-"+ratioVal+"px) translateX(-98vw)";
                 break;
                 case 'section--4':
-                    windowRatio();
+                    windowRatio(0.9);
                     //console.log("section four");
                     background.classList.add('stage--4');
                     background.classList.remove('stage--1', 'stage--2', 'stage--3');
-                    frame.style.transform = "";
+                    frame.style.transform = "translateY(-"+ratioVal+"px) translateX(-98vw)";
                 break;
                 default:
                 console.log("outside");
@@ -88,12 +88,6 @@ function scrollEase(el,/*el, dur*/dir) {
             console.log("target Pos:",targetPos, "target element:", sections[j]);
         }
     }
-
-    //i (first itteration) = starting position?
-    //if i >= [num = target position]
-    //target position keeps adding up till it matches target position in if statement
-    //setInterval speed = speed of scroll
-    console.log("current position: ",window.pageYOffset);
 
     if (dir === "down") {
         var startPos = window.pageYOffset;// get current vertical position
@@ -117,16 +111,6 @@ function scrollEase(el,/*el, dur*/dir) {
             }
         }, 10);
     }
-    
-
-
-    //example:
-    /* var i = 10;
-    var int = setInterval(() => {
-        window.scrollTo(0, i);
-        i += 10;
-        if (i >= 2000) clearInterval(int);
-    }, 20); */
 }
 
 var canScroll = true;
@@ -178,11 +162,8 @@ function scrolling(event) {
     if (event.type === "wheel") {
         //console.log(event.wheelDeltaY || event);
         var data = event.wheelDeltaY || inverse(event.deltaY);
-        //window.clearTimeout(scrollingActive);//stops timeout/function from completing/running unless event has finished (stopping multiple function calls)
+        data > 0 ? nextSection("up") : nextSection("down");
 
-        scrollingActive = setTimeout(() => {
-            data > 0 ? nextSection("up") : nextSection("down");
-        },250);
     } else if (event.type === "keyup") {
        var input = event || window.event;
        input.preventDefault;
@@ -195,8 +176,22 @@ function scrolling(event) {
 }
 }
     
+function resizePos() {
+    var currentSection,
+    resizePos;
+    //locate section currently in view and save in currentSection
+    for (var i = 0; i < sections.length; i++) {
+        if (sections[i].getBoundingClientRect().top <= window.innerHeight * 0.30 && sections[i].getBoundingClientRect().top > -window.innerHeight / 1.4) {
+            currentSection = sections[i].classList[1];
+        }
+    }
+
+    resizePos = setTimeout(() => {
+
+    },250);
 
 
+}
 
 //Self invoking anonymous function that monitors scrolling events and calls scrolling function to handle scroll direction and section navigation
 (() => {
@@ -208,9 +203,8 @@ function scrolling(event) {
     document.onkeyup = (e) => {
         scrolling(e)
     };
-    /*
+    
     document.onscroll = (e) => {
-        scrolling(e);
+
     }
-    */
 })();
