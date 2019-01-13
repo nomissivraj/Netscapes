@@ -1,9 +1,84 @@
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+
 <h1>{{title}}</h1>
+<script>
+	var colour;
+	var locations = [];
+</script>
+
 {{#each results}}
-	<h2>{{this.title}}</h2>
-	<p>
-		Defra Link: {{this.link}}<br />
-		Geolocation: {{this.location.dms}}<br />
-		Description: {{this.description}}
-	</p>
+<script>
+	switch ( {{this.index}} ) {
+		case 1:
+			colour = '#006600';
+			break;
+		case 2:
+			colour = '#ffff00';
+			break;
+		case 3:
+			colour = '#ff9900';
+			break;
+		case 4:
+			colour = '#ff3300'
+	}
+	locations.push( {'lat': {{this.location.latitude}}, 'lng': {{this.location.longitude}}, 'info': '{{this.title}}<br />{{this.description}}', 'colour': colour } ); 
+</script>
 {{/each}}
+
+<div class="row">
+	<div class="col">
+		<div id="map"></div>
+		<ul class="legend">
+		    <li><span class="green"></span> Index 1</li>
+		    <li><span class="yellow"></span> Index 2</li>
+		    <li><span class="amber"></span> Index 3</li>
+		    <li><span class="red"></span> Index 4</li>
+		</ul>
+	</div>
+	<div class="col">
+		{{#each results}}
+			<div class="card mb-4">
+				<div class="card-header">
+					{{this.title}}
+				</div>
+				<div class="card-body">
+				    Defra Link: <a href={{this.link}}>{{this.link}}</a><br />
+					Geolocation: {{this.location.dms}}<br />
+					Latitude: {{this.location.latitude}}<br />
+					Longitude: {{this.location.longitude}}<br />
+					Description: {{this.description}}
+				</div>
+			</div>
+		{{/each}}
+	</div>
+</div>
+
+<script>
+var mymap = L.map('map', {
+    center: [50.376, -4.14],
+    zoom: 7
+});
+
+//initialize a tile map
+L.tileLayer('http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey=8c110d5fa0a74ccfb219a13f96541fb0',
+	{attribution: '&copy; <a href="http://www.opencyclemap.org">OpenCycleMap</a>, &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'})
+	.addTo(mymap);
+
+function addToMap(locationArray){
+
+   //iterates through the array object
+   [].forEach.call(locationArray, function(location){
+		var marker = L.marker([location.lat, location.lng]).addTo(mymap);
+		marker.bindPopup(location.info);
+		var circle = L.circle([location.lat, location.lng], {
+		    color: location.colour,
+		    fillColor: location.colour,
+		    fillOpacity: 0.5,
+		    radius: 4000
+		}).addTo(mymap);
+    })
+  }
+
+addToMap(locations);
+</script>

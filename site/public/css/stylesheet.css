@@ -12,6 +12,8 @@ Table of Contents:
     - login/Auth
     - SVG
       - Clouds
+    - Map
+      - Map Legend
 */
 
 /* #test */
@@ -176,3 +178,45 @@ h3 {
     #cloud2{
       transform: translateX(100%);
     }
+
+/* Map */
+
+#map { 
+  height: 500px;
+  border: 1px solid silver;
+  margin-bottom: 16px;
+}
+
+  /* Map Legend */
+  .legend { 
+    list-style: none;
+  }
+
+  .legend li { 
+    float: left; 
+    margin-right: 10px;
+  }
+
+  .legend span {
+    border: 1px solid #ccc;
+    float: left;
+    width: 12px;
+    height: 12px;
+    margin: 2px;
+  }
+
+  .legend .green {
+    background-color: #006600;
+  }
+
+  .legend .yellow {
+    background-color: #ffff00;
+  }
+
+  .legend .amber {
+    background-color: #ff9900;
+  }
+
+  .legend .red {
+    background-color: #ff3300;
+  }
