@@ -28,7 +28,13 @@
 
 <div class="row">
 	<div class="col">
-		<div id="map" style="height: 500px; border: 1px solid silver; margin-bottom: 16px;"></div>
+		<div id="map"></div>
+		<ul class="legend">
+		    <li><span class="green"></span> Index 1</li>
+		    <li><span class="yellow"></span> Index 2</li>
+		    <li><span class="amber"></span> Index 3</li>
+		    <li><span class="red"></span> Index 4</li>
+		</ul>
 	</div>
 	<div class="col">
 		{{#each results}}
@@ -47,10 +53,6 @@
 		{{/each}}
 	</div>
 </div>
-
-
-
-
 
 <script>
 var mymap = L.map('map', {

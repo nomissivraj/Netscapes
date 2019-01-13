@@ -48,10 +48,10 @@ exports.airquality = function(req, res) {
         res.render('airquality', {
             user: req.user,
             results: results,
-            title: 'Air Quality',
+            title: 'UK Air Quality',
             condition: false
         });
-        console.log(results);
+        // console.log(results);
     });
 }
 
