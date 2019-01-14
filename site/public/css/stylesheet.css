@@ -48,12 +48,17 @@ h3 {
   font-size: 1.25em;
   margin-bottom: 20px;
 }
+
 /* HEADER */
 header {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 2;
+}
+
+.bg-dark {
+  background-color: rgba(91, 81, 74, 0.8)!important;
 }
   /* HEADER / NAVIGATION */
 
