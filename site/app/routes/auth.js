@@ -58,9 +58,6 @@ module.exports = function(app, passport) {
     // About
     app.get('/about', authController.about);
     
-    // Dashboard
-    // app.get('/dashboard', isLoggedIn, authController.dashboard);
-    
     // Logout
     app.get('/logout', authController.logout);
 
