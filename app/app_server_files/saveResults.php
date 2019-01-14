@@ -7,16 +7,20 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$results = json_decode($_POST['results']);
+$results = json_decode($_POST['results'], true);
 var_dump($results);
 
+$query = "";
 
-/*$query = "SELECT * FROM Questions WHERE Category = '" . $category . "';";
-if($category == "all")$query = "SELECT * FROM Questions;";
+for($x=0; $x<count($results); $x++){
+    $ID = $results[$x]['userID'] . "." . $results[$x]['id'];
+    $query = $query .  "INSERT INTO responses (ID, UserID, QuestionID, Question, Response) VALUES (" . $ID . ", " . $results[$x]['UserID'] . ", " . $results[$x]['id'] . ", '" . $results[$x]['Question'] . "', '" . $results[$x]['Response'] . "';";
+}
+
 
 $result = $conn->query($query);
 
-if ($result->num_rows > 0) {
+/*if ($result->num_rows > 0) {
     $questions = [];
     while($row = $result->fetch_assoc()){
         array_push($questions, $row);

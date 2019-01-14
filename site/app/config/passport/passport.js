@@ -73,7 +73,7 @@ module.exports = function(passport, user) {
                         from: 'f557ee0397-b430bd@inbox.mailtrap.io',
                         to: email,
                         subject: 'Welcome to ProjectEQ',
-                        text: 'Thank you for signing up with ProjectEQ!'
+                        html: '<h1>Welcome to ProjectEQ</h1><p>Thank you for creating an account at ProjectEQ.</p>'
                     };
                     // send email
                     transport.sendMail(mailOptions, function(error, info){
