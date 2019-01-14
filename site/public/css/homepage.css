@@ -22,9 +22,10 @@ h1 {
     position: relative;
     top: 50%;
     transform:translateY(-50%);
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.2);
     padding: 20px;
     border-radius: 20px;
+    text-align: justify;
 }
 
 .home body {
@@ -51,6 +52,47 @@ h1 {
     position: relative;
     transition: transform 2s ease;
 }
+
+/* SECTION NAV (HOME PAGE) */
+.home .section-nav {
+    position: fixed;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%) translateX(calc(100% - 40px));
+    background: rgba(240,240,240,.0);
+    padding: 15px;
+    border-radius: 5px 0 0 5px;
+    transition: all .4s ease;
+  }
+
+  .home .section-nav:hover,
+  .home .section-nav:focus {
+    background: rgba(240,240,240,.5);
+    transform: translateY(-50%) translateX(0);
+  }
+
+  .home .section-nav ul {
+      list-style-type: none;
+      padding: 0;
+  }
+
+  .home .section-nav ul li {
+    padding: 5px 0;
+  }
+
+  .home .section-nav ul li:first-child {
+    padding-top:0;
+  }
+
+  .home .section-nav ul li:last-child {
+    padding-bottom:0;
+  }
+
+  .home .section-navlink__icon {
+    text-align: center;
+    width: 25px;
+    display: inline-block;
+  }
 
 /* Image Animation CSS */
 /* Image Animation CSS / Default State */
@@ -151,4 +193,39 @@ h1 {
 
 .home .background.stage--4 .sprite--deeprocks {
     transform: translateY(0vh);
+}
+.intro-content{
+    top: 30%!important;
+}
+
+.logo-div{
+    margin: auto;
+    text-align: center;
+    margin-top: 15%;
+}
+.logo{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+/* code for caroucel */
+
+.carousel-container{
+    border: 1px solid black;  
+}
+.graphs{
+    width: 100%;
+    height: 40vh;
+    border: 1px solid pink;
+    display: none;
+}
+.button{
+    width: 5%;
+}
+.car-leftButton{
+    float: left;
+}
+.car-rightButton{
+    float: right;
 }

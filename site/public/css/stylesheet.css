@@ -22,8 +22,17 @@ Table of Contents:
 /* #endtest */
 
 /* CORE STYLES */
+main {
+    max-width: 
+}
+@font-face {
+    font-family: main;
+    src: url(../fonts/eurofurence/eurof35.ttf);
+}
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: main;
+    font-size: 1.2em;
 }
 
 a {
@@ -37,6 +46,7 @@ p {
 h1 {
   font-size: 2em;
   margin-bottom: 20px;
+    text-align: center;
 }
 
 h2 {
@@ -48,17 +58,12 @@ h3 {
   font-size: 1.25em;
   margin-bottom: 20px;
 }
-
 /* HEADER */
 header {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 2;
-}
-
-.bg-dark {
-  background-color: rgba(91, 81, 74, 0.8)!important;
 }
   /* HEADER / NAVIGATION */
 
@@ -89,7 +94,7 @@ header {
     position: fixed;
     top: 50%;
     right: 0px;
-    transform: translateY(-50%) translateX(calc(100% - 60px));
+    transform: translateY(-50%) translateX(calc(100% - 40px));
     background: rgba(240,240,240,.0);
     padding: 15px;
     border-radius: 5px 0 0 5px;
@@ -97,7 +102,7 @@ header {
 
   .section-nav:hover,
   .section-nav:focus {
-    background: rgba(240,240,240,.8);
+    background: rgba(240,240,240,.5);
     transform: translateY(-50%) translateX(0);
   }
 
@@ -115,12 +120,12 @@ header {
 
   .section-navlink__icon {
     text-align: center;
-    width: 35px;
+    width: 25px;
     display: inline-block;
   }
 
   .section-navlink__text {
-    padding-left: 10px;
+
   }
 /* FOOTER */
 
@@ -196,7 +201,6 @@ header {
   height: 500px;
   border: 1px solid silver;
   margin-bottom: 16px;
-  z-index:0;
 }
 
   /* Map Legend */
@@ -255,3 +259,41 @@ header {
       .legend .veryhigh {
     background-color: #D054F8;
   }
+/* ALT PAGE BGS */
+.other-bg{
+    height: 100vh;
+    width: 100vw;
+    background-image: url(../img/web-bg.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position:center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* SIGN IN PAGE STUFF */
+.content-container{
+    margin-top: 10%;
+}
+.sign-in-box{
+    margin-bottom: 5px;
+}
+
+/* ABOUT PAGE CONTENT */
+.about-content{
+    text-align: justify;
+    height: 60vh;
+    border: 1px solid transparent;
+    padding: 20px;
+    overflow: scroll;
+}
+.team-img{
+    width: 70%;
+    border-radius: 100px;
+    text-align: center;
+}
+.team-section{
+    padding: 30px;
+}
