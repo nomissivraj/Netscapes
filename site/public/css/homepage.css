@@ -58,7 +58,7 @@ h1 {
     position: fixed;
     top: 50%;
     right: 0px;
-    transform: translateY(-50%) translateX(calc(100% - 40px));
+    transform: translateY(-50%) translateX(calc(100% - 60px));
     background: rgba(240,240,240,.0);
     padding: 15px;
     border-radius: 5px 0 0 5px;
@@ -67,13 +67,8 @@ h1 {
 
   .home .section-nav:hover,
   .home .section-nav:focus {
-    background: rgba(240,240,240,.5);
+    background: rgba(240,240,240,.8);
     transform: translateY(-50%) translateX(0);
-  }
-
-  .home .section-nav ul {
-      list-style-type: none;
-      padding: 0;
   }
 
   .home .section-nav ul li {
@@ -88,10 +83,29 @@ h1 {
     padding-bottom:0;
   }
 
+  .home .section-navlink {
+    text-decoration: none;
+    color: #333;
+    display: inline-block;
+    height: 100%;
+  }
+
+  .home .section-navlink:hover,
+  .home .section-navlink:focus {
+    text-decoration: none;
+    color: #61D035;
+  }
+
   .home .section-navlink__icon {
     text-align: center;
-    width: 25px;
+    width: 35px;
     display: inline-block;
+  }
+
+  .home .section-navlink__text {
+    padding-left: 10px;
+    position: relative;
+    top: -10px;
   }
 
 /* Image Animation CSS */
