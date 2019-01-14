@@ -234,8 +234,8 @@ var sameScroll = false;
             scrolling(e);
             sameScroll = true;
         }
-        clearTimeout(scrollingTimeout);
-        scrollingTimeout = setTimeout(function(){
+        //clearTimeout(scrollingTimeout);
+        setTimeout(function(){
             sameScroll = false;
         },100)
     }; 
