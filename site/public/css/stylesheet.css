@@ -193,7 +193,6 @@ h3 {
   }
 
   .legend li { 
-    float: left; 
     margin-right: 10px;
   }
 
@@ -205,18 +204,42 @@ h3 {
     margin: 2px;
   }
 
-  .legend .green {
-    background-color: #006600;
+  .legend .low1 {
+    background-color: #99F69B;
   }
 
-  .legend .yellow {
-    background-color: #ffff00;
+  .legend .low2 {
+    background-color: #73F440;
   }
 
-  .legend .amber {
-    background-color: #ff9900;
+  .legend .low3 {
+    background-color: #61D035;
   }
 
-  .legend .red {
-    background-color: #ff3300;
+  .legend .moderate1 {
+    background-color: #FEF851;
+  }
+
+    .legend .moderate2 {
+    background-color: #FACF49;
+  }
+
+    .legend .moderate3 {
+    background-color: #F39A3E;
+  }
+
+    .legend .high1 {
+    background-color: #EE6262;
+  }
+
+    .legend .high2 {
+    background-color: #ED3833;
+  }
+
+    .legend .high3 {
+    background-color: #9A211D;
+  }
+
+      .legend .veryhigh {
+    background-color: #D054F8;
   }
