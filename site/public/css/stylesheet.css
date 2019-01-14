@@ -1,4 +1,5 @@
 @import url("reset.css"); /* import css reset */
+@import url("homepage.css"); /* import
 /*
 EQ Stylesheet
 
@@ -48,7 +49,12 @@ h3 {
   margin-bottom: 20px;
 }
 /* HEADER */
-
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
   /* HEADER / NAVIGATION */
 
 /* MAIN CONTENT */
