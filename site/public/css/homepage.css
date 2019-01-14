@@ -208,15 +208,19 @@ h1 {
 .home .background.stage--4 .sprite--deeprocks {
     transform: translateY(0vh);
 }
-.intro-content{
-    top: 30%!important;
+
+.home .section--intro .section__content{
+    top: 0;
+    transform: translateY(0);
 }
 
 .logo-div{
     margin: auto;
     text-align: center;
     margin-top: 15%;
+    margin-bottom: 50px;
 }
+
 .logo{
     width: 50%;
     margin: auto;
