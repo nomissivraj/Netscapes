@@ -52,11 +52,11 @@ module.exports = function(app, passport) {
         failureFlash: true // allow flash messages
     }));
 
+    // Visualisations
+    app.get('/visualisations', authController.visualisations);
+
     // About
     app.get('/about', authController.about);
-    
-    // Dashboard
-    // app.get('/dashboard', isLoggedIn, authController.dashboard);
     
     // Logout
     app.get('/logout', authController.logout);

@@ -11,16 +11,35 @@
 <script>
 	switch ( {{this.index}} ) {
 		case 1:
-			colour = '#006600';
+			colour = '#99F69B';
 			break;
 		case 2:
-			colour = '#ffff00';
+			colour = '#73F440';
 			break;
 		case 3:
-			colour = '#ff9900';
+			colour = '#61D035';
 			break;
 		case 4:
-			colour = '#ff3300'
+			colour = '#FEF851'
+			break;
+		case 5:
+			colour = '#FACF49'
+			break;
+		case 6:
+			colour = '#F39A3E'
+			break;
+		case 7:
+			colour = '#EE6262'
+			break;
+		case 8:
+			colour = '#ED3833'
+			break;
+		case 9:
+			colour = '#9A211D'
+			break;
+		case 10:
+			colour = '#D054F8'
+			break;
 	}
 	locations.push( {'lat': {{this.location.latitude}}, 'lng': {{this.location.longitude}}, 'info': '{{this.title}}<br />{{this.description}}', 'colour': colour } ); 
 </script>
@@ -30,11 +49,18 @@
 	<div class="col">
 		<div id="map"></div>
 		<ul class="legend">
-		    <li><span class="green"></span> Index 1</li>
-		    <li><span class="yellow"></span> Index 2</li>
-		    <li><span class="amber"></span> Index 3</li>
-		    <li><span class="red"></span> Index 4</li>
+		    <li><span class="low1"></span> Low 1</li>
+		    <li><span class="low2"></span> Low 2</li>
+		    <li><span class="low3"></span> Low 3</li>
+		    <li><span class="moderate1"></span> Moderate 1</li>
+		    <li><span class="moderate2"></span> Moderate 2</li>
+		    <li><span class="moderate3"></span> Moderate 3</li>
+		    <li><span class="high1"></span> High 1</li>
+		    <li><span class="high2"></span> High 2</li>
+		    <li><span class="high3"></span> High 3</li>
+		    <li><span class="veryhigh"></span> Very High</li>
 		</ul>
+		<p><a href="https://uk-air.defra.gov.uk/air-pollution/daqi?view=more-info">What is the Daily Air Quality Index?</a></p>
 	</div>
 	<div class="col">
 		{{#each results}}

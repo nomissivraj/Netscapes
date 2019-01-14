@@ -7,7 +7,10 @@
         <!-- Bootstrap/FontAwesome CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/stylesheet.css">
-        {{#ifEquals title "Home"}}<script type="text/javascript" src="js/parallax.js"></script>{{/ifEquals}}
+        {{#ifEquals title "Home"}}
+            {{!-- <script type="text/javascript" src="js/parallax.js"></script> --}}
+            <script type="text/javascript" src="js/scripts.js"></script>
+        {{/ifEquals}}
         <title>INDE601 - Netscapes</title>
     </head>
     <body>
@@ -24,6 +27,9 @@
                             <a {{#ifEquals title "Sign In"}}class="nav-link active"{{/ifEquals}} class="nav-link" href="/signin">Sign In</a>
                         </li>
                         {{/unless}}
+                         <li class="nav-item">
+                            <a {{#ifEquals title "Visualisations"}}class="nav-link active"{{/ifEquals}} class="nav-link" href="/visualisations">Visualisations</a>
+                        </li>
                         <li class="nav-item">
                             <a {{#ifEquals title "About"}}class="nav-link active"{{/ifEquals}} class="nav-link" href="/about">About</a>
                         </li>

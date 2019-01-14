@@ -25,7 +25,7 @@ var heightOffset
 function windowRatio(ratio) {
     windowW = (window.innerWidth*2)*1.33;//WindowWidth*2 * comparitive height of image
     heightOffset = (window.innerWidth/16)*9//works out how high the screen should be for the image
-    heightOffset = (heightOffset-window.innerHeight);//Difference between expected window height and actual window height
+    heightOffset = (heightOffset-window.innerHeight);
     //ratio = ratio + heightOffset;
     ratioVal = windowW * ratio;
     /* console.log("windowW:", windowW)
