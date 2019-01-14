@@ -218,10 +218,19 @@ function resizePos() {
 }
 
 //Self invoking anonymous function that monitors scrolling events and calls scrolling function to handle scroll direction and section navigation
+var scrollingTimeout;
+var sameScroll = false;
 (() => {
     document.onwheel = (e) => {
         e.preventDefault(e)
-        scrolling(e);
+        if(!sameScroll){
+            scrolling(e);
+            sameScroll = true;
+        }
+        clearTimeout(scrollingTimeout);
+        scrollingTimeout = setTimeout(function(){
+            sameScroll = false;
+        },100)
     }; 
 
     document.onkeyup = (e) => {

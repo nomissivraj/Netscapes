@@ -13,9 +13,10 @@ var_dump($results);
 $query = "";
 
 for($x=0; $x<count($results); $x++){
-    $ID = $results[$x]['userID'] . "." . $results[$x]['id'];
-    $query = $query .  "INSERT INTO responses (ID, UserID, QuestionID, Question, Response) VALUES (" . $ID . ", " . $results[$x]['UserID'] . ", " . $results[$x]['id'] . ", '" . $results[$x]['Question'] . "', '" . $results[$x]['Response'] . "';";
+    $ID = $results[$x]['userID'] . ":" . $results[$x]['id'];
+    $query = $query .  "INSERT INTO responses (ID, UserID, QuestionID, Question, Response) VALUES ('" . $ID . "', " . $results[$x]['userID'] . ", " . $results[$x]['id'] . ", '" . $results[$x]['question'] . "', '" . $results[$x]['response'] . "');";
 }
+echo $query;
 
 
 $result = $conn->query($query);

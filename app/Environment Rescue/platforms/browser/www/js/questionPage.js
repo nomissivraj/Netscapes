@@ -10,7 +10,7 @@ window.onload = function(){
 
 //Function for get questions from the server
 function getQuestions(currentPage){
-    var data = "category=" + currentPage;
+    var data = "category=" + currentPage + "&userid=" + userID;
     console.log(data)
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -136,7 +136,7 @@ function submitAnswer(){//Code to store the results of the question
     }
 }
 
-function saveResults(){//Function to send the results to the database
+function saveResults(followUp){//Function to send the results to the database
     console.log(answers)
     var data = "results=" + JSON.stringify(answers);
     console.log(data)
@@ -145,6 +145,7 @@ function saveResults(){//Function to send the results to the database
         if (this.readyState == 4 && this.status == 200) {
             console.log("Results Saved")
             console.log(this.responseText)
+            followUp;
         }
     };
     xhttp.open("POST", "http://netscapes.crumbdesign.co.uk/app_server_files/saveResults.php", true);
@@ -167,5 +168,5 @@ function changeFont(item){//Changes the font size of the range slider
 }
 
 function returnHome(){
-    //window.location = "/"
+    window.location = "/"
 }
