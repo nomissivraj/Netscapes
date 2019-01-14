@@ -92,60 +92,6 @@ header {
   
 }
 
-  /* SECTION NAV (HOME PAGE) */
-  .section-nav {
-    position: fixed;
-    top: 50%;
-    right: 0px;
-    transform: translateY(-50%) translateX(calc(100% - 60px));
-    background: rgba(240,240,240,.0);
-    padding: 15px;
-    border-radius: 5px 0 0 5px;
-    transition: all .4s ease;
-  }
-
-  .section-nav:hover,
-  .section-nav:focus {
-    background: rgba(240,240,240,.8);
-    transform: translateY(-50%) translateX(0);
-  }
-
-  .section-nav ul li {
-    padding: 5px 0;
-  }
-
-  .section-nav ul li:first-child {
-    padding-top:0;
-  }
-
-  .section-nav ul li:last-child {
-    padding-bottom:0;
-  }
-
-  .section-navlink {
-    text-decoration: none;
-    color: #333;
-    display: inline-block;
-    height: 100%;
-  }
-
-  .section-navlink:hover,
-  .section-navlink:focus {
-    text-decoration: none;
-    color: #61D035;
-  }
-
-  .section-navlink__icon {
-    text-align: center;
-    width: 35px;
-    display: inline-block;
-  }
-
-  .section-navlink__text {
-    padding-left: 10px;
-    position: relative;
-    top: -10px;
-  }
 /* FOOTER */
 
 /* LOGIN/AUTH */
