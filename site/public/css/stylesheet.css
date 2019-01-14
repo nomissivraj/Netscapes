@@ -22,9 +22,7 @@ Table of Contents:
 /* #endtest */
 
 /* CORE STYLES */
-main {
-    max-width: 
-}
+
 @font-face {
     font-family: main;
     src: url(../fonts/eurofurence/eurof35.ttf);
@@ -46,7 +44,7 @@ p {
 h1 {
   font-size: 2em;
   margin-bottom: 20px;
-    text-align: center;
+  text-align: center;
 }
 
 h2 {
@@ -58,12 +56,17 @@ h3 {
   font-size: 1.25em;
   margin-bottom: 20px;
 }
+
 /* HEADER */
 header {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 2;
+}
+
+.bg-dark {
+  background-color: rgba(91, 81, 74, 0.8)!important;
 }
   /* HEADER / NAVIGATION */
 
@@ -94,15 +97,16 @@ header {
     position: fixed;
     top: 50%;
     right: 0px;
-    transform: translateY(-50%) translateX(calc(100% - 40px));
+    transform: translateY(-50%) translateX(calc(100% - 60px));
     background: rgba(240,240,240,.0);
     padding: 15px;
     border-radius: 5px 0 0 5px;
+    transition: all .4s ease;
   }
 
   .section-nav:hover,
   .section-nav:focus {
-    background: rgba(240,240,240,.5);
+    background: rgba(240,240,240,.8);
     transform: translateY(-50%) translateX(0);
   }
 
@@ -118,14 +122,29 @@ header {
     padding-bottom:0;
   }
 
+  .section-navlink {
+    text-decoration: none;
+    color: #333;
+    display: inline-block;
+    height: 100%;
+  }
+
+  .section-navlink:hover,
+  .section-navlink:focus {
+    text-decoration: none;
+    color: #61D035;
+  }
+
   .section-navlink__icon {
     text-align: center;
-    width: 25px;
+    width: 35px;
     display: inline-block;
   }
 
   .section-navlink__text {
-
+    padding-left: 10px;
+    position: relative;
+    top: -10px;
   }
 /* FOOTER */
 
@@ -171,36 +190,13 @@ header {
   border-top-right-radius: 0;
 }
 
-/* SVG */
-  * {
-    -webkit-transition: all 0.7s;
-    transition: all 0.7s;
-  }
-
-  #background{
-    width: 200%; /* Necessary for parallax animation */
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -2;
-  }
-
-    /* SVG / CLOUDS*/
-
-    #clouds{
-      transform: translateX(-100%);
-    }
-
-    #cloud2{
-      transform: translateX(100%);
-    }
-
 /* Map */
 
 #map { 
   height: 500px;
   border: 1px solid silver;
   margin-bottom: 16px;
+  z-index:0;
 }
 
   /* Map Legend */
