@@ -1,11 +1,10 @@
-//load bcrypt
+//load required modules
 var bCrypt = require('bcrypt-nodejs');
-
-// load nodemailer
 var nodemailer = require('nodemailer');
+var hbs = require('nodemailer-express-handlebars');
 
 // config nodemailer - Mailtrap testing
-var transport = nodemailer.createTransport({
+var transporter = nodemailer.createTransport({
     host: "smtp.mailtrap.io",
     port: 2525,
     auth: {
@@ -13,6 +12,21 @@ var transport = nodemailer.createTransport({
         pass: "f9f8f075f8d76a"
     }
 });
+
+// config email HBS template options
+var options = {
+     viewEngine: {
+         extname: '.hbs',
+         layoutsDir: 'app/views/email/',
+         defaultLayout : 'template',
+         partialsDir : 'app/views/partials/'
+     },
+     viewPath: 'app/views/email/',
+     extName: '.hbs'
+ };
+
+//attach the plugin to the nodemailer transporter
+transporter.use('compile', hbs(options));
 
 module.exports = function(passport, user) {
     var User = user;
@@ -68,21 +82,18 @@ module.exports = function(passport, user) {
                     });
 
                     // Confirmation Email
-                    // config mail options
-                    var mailOptions = {
-                        from: 'f557ee0397-b430bd@inbox.mailtrap.io',
-                        to: email,
-                        subject: 'Welcome to ProjectEQ',
-                        html: '<h1>Welcome to ProjectEQ</h1><p>Thank you for creating an account at ProjectEQ.</p>'
-                    };
-                    // send email
-                    transport.sendMail(mailOptions, function(error, info){
-                        if (error) {
-                          console.log(error);
-                        } else {
-                          console.log('Email sent: ' + info.response);
-                        }
-                    });
+                    var mail = {
+                       from: 'no-reply@projecteq.co.uk',
+                       to: email,
+                       subject: 'Welcome to ProjectEQ',
+                       // views/email/template.hbs
+                       template: 'template',
+                       // pass variables to view
+                       context: {
+                           email: email
+                       }
+                    }
+                    transporter.sendMail(mail);
                 }
             });
         }
