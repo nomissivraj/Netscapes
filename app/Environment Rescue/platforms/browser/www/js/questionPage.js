@@ -40,6 +40,7 @@ var buttons;
 
 function nextQuestion(num){
     console.log("The num is " + num)
+    submitAnswer();
     if(num < 0){
         num = 0
     } else {
@@ -66,6 +67,8 @@ function nextQuestion(num){
             }
             /*Code for setting up current question*/
             var questionBox = document.getElementById("questions");
+            console.log(currentQuestion)
+            questionBox.dataset.number = currentQuestion["id"];
             questionBox.getElementsByClassName("question")[0].innerHTML = currentQuestion.Question;
             if(currentQuestion.Type == "Multiple_Choice"){
                 questionBox.getElementsByClassName("display")[0].classList.remove("display");
@@ -86,12 +89,14 @@ function nextQuestion(num){
                 range.min = currentQuestion.Min;
                 range.max = currentQuestion.Max;
                 range.value = range.max/2;
-                changeFont(range)
+                changeFont(range);
+                setResponse(range.value)
                 range.dataset.unit = currentQuestion.Units;
                 document.getElementById("rangeValue").innerHTML = range.value + range.dataset.unit;
                 
                 range.oninput = function(){
                     document.getElementById("rangeValue").innerHTML = this.value + this.dataset.unit
+                    setResponse(this.value)
                     changeFont(this)
                 }
             }
@@ -106,8 +111,45 @@ function nextQuestion(num){
     }
 }
 
-function submitAnswer(){
-    
+var answers = new Array();
+var response;
+
+function submitAnswer(){//Code to store the results of the question
+    var questionBox = document.getElementById("questions");
+    var id = questionBox.dataset.number;
+    try{
+        answers[id].id = id;
+        answers[id].question = questionBox.getElementsByClassName("question")[0].innerHTML;
+        answers[id].response = response;
+    }catch(err){
+        var newAnswer = new Array();
+        newAnswer.userID = userID;
+        newAnswer.id = id;
+        newAnswer.question = questionBox.getElementsByClassName("question")[0].innerHTML;
+        newAnswer.response = response;
+        answers.push(newAnswer)
+    }
+    console.log(answers)
+}
+
+function saveResults(){//Function to send the results to the database
+    var data = "results=" + JSON.stringify(answers);
+    console.log(data)
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log("Results Saved")
+            console.log(this.responseText)
+        }
+    };
+    xhttp.open("POST", "http://netscapes.crumbdesign.co.uk/app_server_files/saveResults.php", true);
+    xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhttp.send(data);
+}
+
+
+function setResponse(value){
+    response = value;
 }
 
 

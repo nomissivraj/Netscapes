@@ -19,6 +19,7 @@
             <input class="password" type="password" placeholder="Password"/>
             <input type="button" value="Sign in" onclick="signin(this.parentElement)"/>
             <a href="javascript:changeMode()">Don't have an account</a>
+            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
             
         </div>
         <div id="signup" class="signup section">
@@ -28,6 +29,7 @@
             <input class="password" type="password" placeholder="Confirm Password"/>
             <input type="button" value="Sign up" onclick="signup(this.parentElement)"/>
             <a href="javascript:changeMode()">Already have an account</a>
+            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
         </div>
     </div>
     <div id="home" class="page">
@@ -38,8 +40,8 @@
         <input type="button" value="Ground" data-name="ground" onclick="loadPage(this)"/>
         <input type="button" value="Sea" data-name="sea" onclick="loadPage(this)"/>
        <!-- <input type="button" value="Sea-bed" data-name="seaBed" onclick="loadPage(this)"/>-->
-        <input type="button" value="Sub-surface" data-name="subSurface" onclick="loadPage(this)"/>
-        <input class="small" type="button" value="Log out" onclick=""/>
+        <input type="button" value="Subsurface" data-name="subSurface" onclick="loadPage(this)"/>
+        <input class="small" type="button" value="Log out" onclick="logout()"/>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
