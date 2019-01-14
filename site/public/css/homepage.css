@@ -1,0 +1,195 @@
+h1 {
+    color: #444;
+}
+
+.home ::-webkit-scrollbar { 
+    display: none; 
+}
+
+@-moz-document url-prefix() {
+    .home html,.home body{overflow: hidden !important;}
+}
+
+.home section {
+    position: relative;
+    height: 100vh;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.home .section__content {
+    position: relative;
+    top: 50%;
+    transform:translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.home body {
+    background-image: linear-gradient(to top, #d9bf8d, #e2cd9b, #ebdba9, #f5e9b8, #fef7c7);
+    background: #FFFCF6 url(../img/background.svg);
+    background-repeat: repeat-x;
+    margin:0;
+}
+
+.home .background {
+    z-index: -1;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top:0;
+    left:0;/* offset padding left */
+    overflow: hidden;
+}
+
+.home .background__frame {
+    height: 100vh;
+    top: 100vh;
+    left: 0;
+    position: relative;
+    transition: transform 2s ease;
+}
+
+/* SECTION NAV (HOME PAGE) */
+.home .section-nav {
+    position: fixed;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%) translateX(calc(100% - 40px));
+    background: rgba(240,240,240,.0);
+    padding: 15px;
+    border-radius: 5px 0 0 5px;
+    transition: all .4s ease;
+  }
+
+  .home .section-nav:hover,
+  .home .section-nav:focus {
+    background: rgba(240,240,240,.5);
+    transform: translateY(-50%) translateX(0);
+  }
+
+  .home .section-nav ul {
+      list-style-type: none;
+      padding: 0;
+  }
+
+  .home .section-nav ul li {
+    padding: 5px 0;
+  }
+
+  .home .section-nav ul li:first-child {
+    padding-top:0;
+  }
+
+  .home .section-nav ul li:last-child {
+    padding-bottom:0;
+  }
+
+  .home .section-navlink__icon {
+    text-align: center;
+    width: 25px;
+    display: inline-block;
+  }
+
+/* Image Animation CSS */
+/* Image Animation CSS / Default State */
+.home .sprite {
+    position: absolute;
+    /*max-width: 200%;*/
+    width: 200vw;
+    transition: transform 3s ease;
+}
+
+.home .sprite--clouds, .home .sprite--clouds2 {
+    width: 100vw;
+    top: -20vh;
+    left: 5vw;
+    opacity: .95;
+}
+
+.home .sprite--clouds {
+    transform: translateX(-200vh);
+}
+
+.home .sprite--balloon {
+    max-width: 10vw;
+    top: -12vh;
+    left: 50vw;
+    transform: translateY(100vh) translateX(-200vw);
+}
+
+.home .sprite--clouds2 {
+    transform: translateX(200vh);
+}
+
+.home .sprite--deeprocks {
+    transform: translateY(20vh);
+}
+
+.home .sprite--boat {
+    transform: translateX(100vh);
+}
+
+
+.home .sprite--mountains {
+    transform: translateY(50vh);
+}
+
+.home .sprite--trees {
+    transform: translateX(-50vw);
+}
+
+.home .sprite--rocks {
+    transform: translateY(100vh);
+}
+
+/* Image Animation CSS / Stage 1 */
+.home .background.stage--1 .background__frame {
+    transform: translateY(-40vh);
+}
+
+.home .background.stage--1 .sprite--clouds {
+    transform: translateX(0vh);
+}
+
+.home .background.stage--1 .sprite--clouds2 {
+    transform: translateX(0vh);
+}
+.home .background.stage--1 .sprite--balloon {
+    transform: translateX(0vw) translateY(0vh);
+}
+/* Image Animation CSS / Stage 2 */
+.home .background.stage--2 .background__frame {
+    transform: translateY(-165vh);
+}
+.home .background.stage--2 .sprite--balloon {
+    transform: translateX(100vw) translateY(-100vh);
+}
+.home .background.stage--2 .sprite--mountains {
+    transform: translateY(0vh);
+}
+.home .background.stage--2 .sprite--rocks {
+    transform: translateY(0vh);
+}
+.home .background.stage--2 .sprite--trees {
+    transform: translateX(0vw);
+}
+
+/* Image Animation CSS / Stage 3 */
+.home .background.stage--3 .background__frame {
+    transform: translateY(-225vh) translateX(-98vw);
+}
+
+.home .background.stage--3 .sprite--boat {
+    transform: translateX(0vh);
+}
+/* Image Animation CSS / Stage 4 */
+.home .background.stage--4 .background__frame {
+    transform: translateY(-415vh) translateX(-98vw);
+}
+
+.home .background.stage--4 .sprite--deeprocks {
+    transform: translateY(0vh);
+}
