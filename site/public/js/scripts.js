@@ -237,7 +237,7 @@ var sameScroll = false;
         clearTimeout(scrollingTimeout);
         scrollingTimeout = setTimeout(function(){
             sameScroll = false;
-        },100)
+        },50)
     }; 
 
     document.onkeyup = (e) => {
