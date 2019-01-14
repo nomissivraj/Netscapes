@@ -43,6 +43,22 @@ exports.questions = function(req, res) {
     });
 }
 
+exports.about = function(req, res) {
+    res.render('about', {
+        user: req.user,
+        title: 'About',
+        condition: false
+    });
+}
+
+exports.visualisations = function(req, res) {
+    res.render('visualisations', {
+        user: req.user,
+        title: 'Visualisations',
+        condition: false
+    });
+}
+
 exports.airquality = function(req, res) {
     results = defraAirQuality.list().then(function(results) {
         res.render('airquality', {
@@ -52,14 +68,6 @@ exports.airquality = function(req, res) {
             condition: false
         });
         // console.log(results);
-    });
-}
-
-exports.about = function(req, res) {
-    res.render('about', {
-        user: req.user,
-        title: 'About',
-        condition: false
     });
 }
 
