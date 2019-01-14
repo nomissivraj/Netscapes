@@ -1,4 +1,6 @@
 window.onload = function(){
+    userID = localStorage.getItem("userID");
+    console.log("THE USER ID IS ", localStorage.getItem("userID"))
     var currentPage = window.location.search.replace("?", "");
     document.body.style.backgroundImage = "url(img/backgrounds/" + currentPage + ".png)"; 
     getQuestions(currentPage);
@@ -117,22 +119,25 @@ var response;
 function submitAnswer(){//Code to store the results of the question
     var questionBox = document.getElementById("questions");
     var id = questionBox.dataset.number;
-    try{
-        answers[id].id = id;
-        answers[id].question = questionBox.getElementsByClassName("question")[0].innerHTML;
-        answers[id].response = response;
-    }catch(err){
-        var newAnswer = new Array();
-        newAnswer.userID = userID;
-        newAnswer.id = id;
-        newAnswer.question = questionBox.getElementsByClassName("question")[0].innerHTML;
-        newAnswer.response = response;
-        answers.push(newAnswer)
+    if(id != undefined){
+        try{
+            answers[id].id = id;
+            answers[id].question = questionBox.getElementsByClassName("question")[0].innerHTML;
+            answers[id].response = response;
+        }catch(err){
+            var newAnswer = new Object();
+            newAnswer.userID = userID;
+            newAnswer.id = id;
+            newAnswer.question = questionBox.getElementsByClassName("question")[0].innerHTML;
+            newAnswer.response = response;
+            answers.push(newAnswer)
+        }
+        console.log(answers)
     }
-    console.log(answers)
 }
 
 function saveResults(){//Function to send the results to the database
+    console.log(answers)
     var data = "results=" + JSON.stringify(answers);
     console.log(data)
     var xhttp = new XMLHttpRequest();
@@ -162,5 +167,5 @@ function changeFont(item){//Changes the font size of the range slider
 }
 
 function returnHome(){
-    window.location = "/"
+    //window.location = "/"
 }

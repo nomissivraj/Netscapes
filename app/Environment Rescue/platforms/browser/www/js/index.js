@@ -92,6 +92,7 @@ function signup(element){
 function closeLogin(){
     document.getElementById("login").classList.add("hide");
     setTimeout(function(){
+        localStorage.setItem("userID", userID)
         document.getElementById("home").classList.add("display");
         document.getElementById("login").classList.remove("loading");
     },700);

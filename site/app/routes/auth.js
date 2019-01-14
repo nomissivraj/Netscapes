@@ -28,8 +28,8 @@ module.exports = function(app, passport) {
     }));
     
     app.get('/success', function(req, res){//Code for returning a successful response to the app
-        console.log(req.query.id)
-        res.send("success/" + req.query.id);
+        console.log(req.user.id)
+        res.send("success/" + req.user.id);
     })
     
     app.get('/fail', function(req, res){//Code for returning a not so successful response to the app
