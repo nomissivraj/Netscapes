@@ -59,7 +59,7 @@ h1 {
     top: 50%;
     right: 0px;
     transform: translateY(-50%) translateX(calc(100% - 60px));
-    background: rgba(240,240,240,.0);
+    background: rgba(240,240,240,.3);
     padding: 15px;
     border-radius: 5px 0 0 5px;
     transition: all .4s ease;
