@@ -174,7 +174,7 @@ function scrolling(event) {
 
     } else if (event.type === "keyup") {
        var input = event || window.event;
-       input.preventDefault;
+       input.preventDefault();
        if (input.keyCode == '38') {
             nextSection("up")
        } else if (input.keyCode == '40') {
@@ -237,7 +237,7 @@ var sameScroll = false;
         //clearTimeout(scrollingTimeout);
         setTimeout(function(){
             sameScroll = false;
-        },100)
+        },50)
     }; 
 
     document.onkeyup = (e) => {
