@@ -89,7 +89,7 @@ header {
     position: fixed;
     top: 50%;
     right: 0px;
-    transform: translateY(-50%) translateX(calc(100% - 40px));
+    transform: translateY(-50%) translateX(calc(100% - 60px));
     background: rgba(240,240,240,.0);
     padding: 15px;
     border-radius: 5px 0 0 5px;
@@ -97,7 +97,7 @@ header {
 
   .section-nav:hover,
   .section-nav:focus {
-    background: rgba(240,240,240,.5);
+    background: rgba(240,240,240,.8);
     transform: translateY(-50%) translateX(0);
   }
 
@@ -115,12 +115,12 @@ header {
 
   .section-navlink__icon {
     text-align: center;
-    width: 25px;
+    width: 35px;
     display: inline-block;
   }
 
   .section-navlink__text {
-
+    padding-left: 10px;
   }
 /* FOOTER */
 
