@@ -14,13 +14,14 @@ $query = "";
 
 for($x=0; $x<count($results); $x++){
     $ID = $results[$x]['userID'] . ":" . $results[$x]['id'];
-    $query = $query .  "INSERT INTO responses (ID, UserID, QuestionID, Question, Response) VALUES ('" . $ID . "', " . $results[$x]['userID'] . ", " . $results[$x]['id'] . ", '" . $results[$x]['question'] . "', '" . $results[$x]['response'] . "');";
+    $query = "INSERT INTO responses (ID, UserID, QuestionID, Question, Response) VALUES ('" . $ID . "', " . $results[$x]['userID'] . ", " . $results[$x]['id'] . ", '" . $results[$x]['question'] . "', '" . $results[$x]['response'] . "');";
+    $result = $conn->query($query);
 }
-echo $query;
 
 
-$result = $conn->query($query);
 
+
+echo "SUCCESS";
 /*if ($result->num_rows > 0) {
     $questions = [];
     while($row = $result->fetch_assoc()){

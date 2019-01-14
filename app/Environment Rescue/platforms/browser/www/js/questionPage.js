@@ -21,6 +21,7 @@ function getQuestions(currentPage){
             }catch(err){
                 console.log(err);
                 alert(this.responseText);
+                returnHome();
             }
             console.log(questions)
             
@@ -132,7 +133,7 @@ function submitAnswer(){//Code to store the results of the question
             newAnswer.response = response;
             answers.push(newAnswer)
         }
-        console.log(answers)
+        console.log(JSON.stringify(answers))
     }
 }
 
@@ -145,7 +146,7 @@ function saveResults(followUp){//Function to send the results to the database
         if (this.readyState == 4 && this.status == 200) {
             console.log("Results Saved")
             console.log(this.responseText)
-            followUp;
+            followUp();
         }
     };
     xhttp.open("POST", "http://netscapes.crumbdesign.co.uk/app_server_files/saveResults.php", true);
@@ -168,5 +169,5 @@ function changeFont(item){//Changes the font size of the range slider
 }
 
 function returnHome(){
-    window.location = "/"
+    window.location = "index.html"
 }
