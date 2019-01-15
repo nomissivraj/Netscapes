@@ -1,17 +1,16 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
-<script>
-	var json;
-</script>
+
+<a class="previous" href="/visualisations">
+	Back
+</a>
 
 <h1>{{title}}</h1>
 <div class="row">
 	<div class="col">
 		<div id="map"></div>
+		<p><a href="https://www.eea.europa.eu/themes/water/europes-seas-and-coasts/assessments/marine-litterwatch">What is the Marine LitterWatch?</a></p>
 	</div>
-	{{!-- <div class="col">
-		<div id="results"></div>
-	</div> --}}
 </div>
 
 <script>
@@ -25,52 +24,22 @@ L.tileLayer('http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey=
 	{attribution: '&copy; <a href="http://www.opencyclemap.org">OpenCycleMap</a>, &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'})
 	.addTo(mymap);
 
+// get JSON data
 $.getJSON("js/result.json", function(json) {
-	var colour;
+	// iterate data
 	for (var i in json) {
-	switch (true) {
-		case (json[i].TotalEvents > 100 && json[i].TotalEvents < 200):
-			colour = '#99F69B';
-			break;
-		case (json[i].TotalEvents > 200 && json[i].TotalEvents < 300):
-			colour = '#73F440';
-			break;
-		case (json[i].TotalEvents > 300 && json[i].TotalEvents < 400):
-			colour = '#61D035';
-			break;
-		 case (json[i].TotalEvents > 400 && json[i].TotalEvents < 500):
-			colour = '#FEF851';
-			break;
-		 case (json[i].TotalEvents > 500 && json[i].TotalEvents < 600):
-			colour = '#FACF49'
-			break;
-		 case (json[i].TotalEvents > 600 && json[i].TotalEvents < 1000):
-			colour = '#F39A3E'
-			break;
-		case (json[i].TotalEvents > 1000 && json[i].TotalEvents < 2000):
-			colour = '#EE6262'
-			break;
-		case (json[i].TotalEvents > 2000 && json[i].TotalEvents < 3000):
-			colour = '#ED3833'
-			break;
-		case (json[i].TotalEvents > 3000 && json[i].TotalEvents < 5000):
-			colour = '#9A211D'
-			break;
-		case (json[i].TotalEvents > 5000):
-			colour = '#D054F8'
-			break;
-	}
-
-		var info = "Beach Name: " + json[i].BeachName;
+		var info = "Community Name: " + json[i].CommunityName;
+		info += "<br /><em>Beach Name:</em> " + json[i].BeachName;
+		info += "<br /><strong>Regional Sea:</strong> " + json[i].BeachRegionalSea;
+		info += "<br /><strong>Number of Events:</strong> " + json[i].TotalEvents;
 	    var latlng = L.latLng({ lat: json[i].lat_y1, lng: json[i].lon_x1 });
 	    var circle = L.circle([json[i].lat_y1, json[i].lon_x1], {
-		    color: colour,
-		    fillColor: colour,
+		    color: '#61D035',
+		    fillColor: '#73F440',
 		    fillOpacity: 0.5,
-		    radius: 5000
+		    radius: json[i].TotalEvents * 2
 		}).addTo(mymap);
 		circle.bindPopup(info);
 	}
 });
-
 </script>
