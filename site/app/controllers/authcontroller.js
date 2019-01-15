@@ -71,6 +71,14 @@ exports.airquality = function(req, res) {
     });
 }
 
+exports.marinelitter = function(req, res) {
+    res.render('marinelitter', {
+        user: req.user,
+        title: 'Marine LitterWatch',
+        condition: false
+    });
+}
+
 exports.signup = function(req, res) {
     res.render('signup', {
         title: 'Sign Up',
