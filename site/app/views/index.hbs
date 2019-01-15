@@ -1,6 +1,10 @@
 {{!-- Logged in content --}}
 {{#if user}}
-	<p><strong>You are logged in as {{user.email}}.</strong></p>
+<script>
+	localStorage.setItem('user_id', {{user.id}} );
+</script>
+	<p>You are logged in as {{user.email}}<br />
+	user_id: {{user.id}}</p>
 
 {{/if}}
 <main>
