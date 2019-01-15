@@ -20,18 +20,21 @@
     <body>
         <header>
             <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-                <a class="navbar-brand" href="/">EQ</a>
+                <a class="navbar-brand" href="/"><img class="navbar-img" src="img/logo-white.svg" alt="logo" /></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav mr-auto">
-                         {{#unless user}}
-                        <li class="nav-item">
-                            <a {{#ifEquals title "Sign In"}}class="nav-link active"{{/ifEquals}} class="nav-link" href="/signin">Sign In</a>
-                        </li>
+                        {{#unless user}}
+                            <li class="nav-item">
+                                <a {{#ifEquals title "Sign In"}}class="nav-link active"{{/ifEquals}} class="nav-link" href="/signin">Sign In</a>
+                            </li>
                         {{/unless}}
-                         <li class="nav-item">
+                        <li class="nav-item">
+                            <a {{#ifEquals title "Home"}}class="nav-link active"{{/ifEquals}} class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
                             <a {{#ifEquals title "Visualisations"}}class="nav-link active"{{/ifEquals}} class="nav-link" href="/visualisations">Visualisations</a>
                         </li>
                         <li class="nav-item">

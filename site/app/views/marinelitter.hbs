@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+
+<a class="previous" href="/visualisations">
+	Back
+</a>
+
+<h1>{{title}}</h1>
+<div class="row">
+	<div class="col">
+		<div id="map"></div>
+	</div>
+</div>
+
+<script>
+var mymap = L.map('map', {
+    center: [50.376, -4.14],
+    zoom: 7
+});
+
+//initialize a tile map
+L.tileLayer('http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey=8c110d5fa0a74ccfb219a13f96541fb0',
+	{attribution: '&copy; <a href="http://www.opencyclemap.org">OpenCycleMap</a>, &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'})
+	.addTo(mymap);
+
+$.getJSON("js/result.json", function(json) {
+	for (var i in json) {
+		var info = "Community Name: " + json[i].CommunityName;
+		info += "<br />Beach Name: " + json[i].BeachName;
+		info += "<br />Regional Sea: " + json[i].BeachRegionalSea;
+		info += "<br />Total Events: " + json[i].TotalEvents;
+	    var latlng = L.latLng({ lat: json[i].lat_y1, lng: json[i].lon_x1 });
+	    var circle = L.circle([json[i].lat_y1, json[i].lon_x1], {
+		    color: '#61D035',
+		    fillColor: '#99F69B',
+		    fillOpacity: 0.5,
+		    radius: json[i].TotalEvents * 2
+		}).addTo(mymap);
+		circle.bindPopup(info);
+	}
+});
+
+</script>

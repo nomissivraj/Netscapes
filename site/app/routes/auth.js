@@ -7,9 +7,6 @@ module.exports = function(app, passport) {
 
     // Questions (DB Test)
     app.get('/questions', authController.questions);
-    
-    // Air Quality (Test)
-    app.get('/airquality', authController.airquality);
 
     // Signup
     app.get('/signup', authController.signup);
@@ -54,6 +51,12 @@ module.exports = function(app, passport) {
 
     // Visualisations
     app.get('/visualisations', authController.visualisations);
+
+    // Air Quality
+    app.get('/airquality', authController.airquality);
+
+    // Marine Litter (Test)
+    app.get('/marinelitter', authController.marinelitter);
 
     // About
     app.get('/about', authController.about);
