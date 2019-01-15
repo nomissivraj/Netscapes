@@ -65,6 +65,24 @@ img {
   max-width: 100%;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(91, 81, 74, 0.8);
+  outline: 1px solid rgba(91, 81, 74, 0.8);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-track {
+  border-radius: 0;
+}
 /* HEADER */
 header {
   position: fixed;
@@ -135,6 +153,12 @@ header {
   border: 1px solid silver;
   margin-bottom: 16px;
   z-index:0;
+  border-radius: 5px;
+}
+
+.col.results {
+  max-height: 500px;
+  overflow-y: scroll;
 }
 
   /* Map Legend */
