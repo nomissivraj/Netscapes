@@ -281,3 +281,18 @@ header {
   padding: 0;
   font-size: 1.5em;
 }
+
+.previous {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #333;
+  transition: all .4s ease;
+}
+
+.previous:hover {
+  text-decoration: none;
+  background: #f7f7f7;
+  color: rgb(18, 114, 18);
+}
