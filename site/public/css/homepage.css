@@ -283,6 +283,7 @@ h1 {
 
 .logo{
     width: 30%;
+    max-width: 250px;
     margin: auto;
     text-align: center;
 }
