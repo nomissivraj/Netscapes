@@ -1,0 +1,83 @@
+#title{
+     text-align: center;
+}
+
+#visualisation{
+    display: block;
+    height: 70vw;
+    width: 70vw;
+    border-style: solid;
+    border-radius: 50%;
+    position: relative;
+    margin: auto;
+    left: 0px;
+    right: 0px;
+    
+    border-width: 13px;
+}
+
+#visualisation .score{
+    display: block;
+    color: #49443e;
+    width: 100%;
+    text-align: center;
+    height: 90px;
+    margin: auto;
+    top: 0px;
+    bottom: 0px;
+    position: absolute;
+    font-size: 90px;
+    vertical-align: middle;
+}
+
+/*Individual Scores*/
+
+#otherScores{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#otherScores .area{
+    width: 20%;
+    text-align: center;
+}
+
+#otherScores .area img{
+    width: 70%;
+}
+
+#otherScores .area p{
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    margin: 5px 0px;
+}
+
+/*Button design*/
+
+input{
+    min-width: 60%;
+    text-align: center;
+    font-size: 23px;
+    margin: 5px auto;
+    position: relative;
+    left: 0px;
+    right: 0px;
+    display:block;
+    opacity: 1;
+    font-family: Autery, Stella;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+    
+    
+    background-color: white;
+    border-style: solid;
+    border-radius: 8px;
+    padding: 5px;
+    margin-top: 20px;
+    border-width: 1px;
+    border-color: #49443e;
+    color: #49443e;
+}
