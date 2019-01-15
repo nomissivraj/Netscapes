@@ -15,6 +15,11 @@ Table of Contents:
       - Clouds
     - Map
       - Map Legend
+    - Alt Page
+    - Sign in Page
+    - About Page
+    - Visualisation Previews/Links
+    - MEDIA QUERIES
 */
 
 /* #test */
@@ -35,6 +40,7 @@ body {
 
 a {
   color: rgb(18, 114, 18);
+  font-weight: bold;
 }
 
 p {
@@ -57,6 +63,29 @@ h3 {
   margin-bottom: 20px;
 }
 
+html:not(.home) img {
+  max-width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(91, 81, 74, 0.8);
+  outline: 1px solid rgba(91, 81, 74, 0.8);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-track {
+  border-radius: 0;
+}
 /* HEADER */
 header {
   position: fixed;
@@ -127,15 +156,27 @@ header {
   border: 1px solid silver;
   margin-bottom: 16px;
   z-index:0;
+  border-radius: 5px;
+}
+
+.col.results {
+  max-height: 500px;
+  overflow-y: scroll;
+}
+.card-header {
+  font-weight: bold;
 }
 
   /* Map Legend */
   .legend { 
     list-style: none;
+    overflow: hidden;
   }
 
   .legend li { 
     margin-right: 10px;
+    float: left;
+    min-width: 30%;
   }
 
   .legend span {
@@ -210,10 +251,9 @@ header {
 /* ABOUT PAGE CONTENT */
 .about-content{
     text-align: justify;
-    height: 60vh;
     border: 1px solid transparent;
     padding: 20px;
-    overflow: scroll;
+    overflow: hidden;
 }
 .team-img{
     width: 70%;
@@ -222,4 +262,93 @@ header {
 }
 .team-section{
     padding: 30px;
+}
+
+/* Visualisation Preview/Links */
+
+.visualisation-preview {
+  padding: 20px;
+  margin-bottom: 20px;
+  background: #f7f7f7;
+  border: 2px solid #f2f2f2;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.visualisation-preview__link:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.visualisation-preview:hover .visualisation-preview__link::before {
+  background: rgba(124, 124, 124, 0.15);
+}
+
+.visualisation-preview__link:hover {
+  text-decoration: none;
+}
+
+.visualisation-preview span {
+  display: block;
+  float: left;
+  padding-right: 20px;
+}
+
+.visualisation-preview span:last-child {
+  padding-right: 0;
+}
+
+.visualisation-preview__img {
+    width: calc(25%);
+}
+
+.visualisation-preview__summary {
+  width: calc(75%);
+}
+.visualisation-preview__summary p {
+  padding: 0;
+  font-size: 1.5em;
+}
+
+.visualisation-preview__summary h1 {
+  text-align: left;
+}
+
+.previous {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #333;
+  transition: all .4s ease;
+}
+
+.previous:hover {
+  text-decoration: none;
+  background: #f7f7f7;
+  color: rgb(18, 114, 18);
+}
+
+@media (max-width:850px) {
+  .visualisation-preview__img {
+    width: calc(50%);
+  }
+
+  .visualisation-preview__summary {
+    width: calc(100%);
+  }
+  .visualisation-preview__summary h1,
+  .visualisation-preview__summary {
+    text-align: center;
+  }
+
+  .visualisation-preview__img img {
+    max-width: 100%;
+    position: relative;
+    left: calc(50% + 10px);
+  }
 }

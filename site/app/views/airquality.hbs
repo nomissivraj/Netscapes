@@ -1,6 +1,10 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
 
+<a class="previous" href="/visualisations">
+	Back
+</a>
+
 <h1>{{title}}</h1>
 <script>
 	var colour;
@@ -62,7 +66,7 @@
 		</ul>
 		<p><a href="https://uk-air.defra.gov.uk/air-pollution/daqi?view=more-info">What is the Daily Air Quality Index?</a></p>
 	</div>
-	<div class="col">
+	<div class="col results">
 		{{#each results}}
 			<div class="card mb-4">
 				<div class="card-header">
