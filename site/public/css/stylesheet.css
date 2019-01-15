@@ -38,6 +38,13 @@ body {
     font-size: 1.2em;
 }
 
+.visualisations body,
+.about body {
+  background: url(../img/about-top.svg), url(../img/about-bottom.svg), url(../img/background.svg);
+  background-position: top, bottom, 0 -400px;
+  background-repeat: no-repeat;
+}
+
 a {
   color: rgb(18, 114, 18);
   font-weight: bold;
@@ -269,7 +276,7 @@ header {
 .visualisation-preview {
   padding: 20px;
   margin-bottom: 20px;
-  background: #f7f7f7;
+  background: rgba(247, 247, 247, 0.8);
   border: 2px solid #f2f2f2;
   border-radius: 5px;
   overflow: hidden;
