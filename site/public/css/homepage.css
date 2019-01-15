@@ -290,20 +290,44 @@ h1 {
 /* code for caroucel */
 
 .carousel-container{
-    border: 1px solid black;  
+    border: 1px solid transparent;  
 }
 .graphs{
     width: 100%;
     height: 40vh;
-    border: 1px solid pink;
+    border: 1px solid transparent;
     display: none;
 }
 .button{
     width: 5%;
+    margin-top: 15%;
 }
 .car-leftButton{
     float: left;
 }
 .car-rightButton{
     float: right;
+}
+
+/* GRAPHS CSS */
+
+.map-graphs{
+    margin: auto;
+    width: 100%;
+    max-height: 40vh!important;
+    
+}
+.pie-graphs{
+    margin: auto;
+    width: 50%;
+    height: 450px;
+    margin-top: -50px;
+}
+.line-charts{
+    margin: auto;
+    width: 500px;
+    height: 300px;
+    margin-top: 5%;
+    position: absolute;
+    margin-left: 100px;
 }
