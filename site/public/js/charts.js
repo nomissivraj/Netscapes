@@ -1,9 +1,15 @@
-window.onload = function(){
-    loadJSON();
-}
-
 function loadJSON(){
     var userID = localStorage.getItem("user_id");
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(JSON.parse(this.responseText))
+            var response = JSON.parse(this.responseText);
+        }
+    };
+    xhttp.open("POST", "http://netscapes.crumbdesign.co.uk/app_server_files/getData/", true);
+    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhttp.send("userid=" + userID);
 }
 
 var seaQuestions1 = [

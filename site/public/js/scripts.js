@@ -9,6 +9,7 @@ window.onload = () => {
     background = document.getElementsByClassName('background')[0];
     frame = document.getElementsByClassName('background__frame')[0];
     isInView();
+    loadJSON();
 }
 
 window.onscroll = () => {
