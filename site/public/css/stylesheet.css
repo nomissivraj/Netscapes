@@ -58,16 +58,19 @@ h1 {
   font-size: 2em;
   margin-bottom: 20px;
   text-align: center;
+  font-weight: bold;
 }
 
 h2 {
   font-size: 1.5em;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
 h3 {
   font-size: 1.25em;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
 html:not(.home) main img {
@@ -119,6 +122,11 @@ header {
 }
 
 /* FOOTER */
+
+.footer {
+  position: fixed;
+  bottom: 5px;
+}
 
 /* LOGIN/AUTH */
 
@@ -270,7 +278,7 @@ header {
 }
 .team-img{
     width: 70%;
-    border-radius: 100px;
+    border-radius: 50%;
     text-align: center;
 }
 .team-section{
