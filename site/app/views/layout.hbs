@@ -26,12 +26,15 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav mr-auto">
-                         {{#unless user}}
-                        <li class="nav-item">
-                            <a {{#ifEquals title "Sign In"}}class="nav-link active"{{/ifEquals}} class="nav-link" href="/signin">Sign In</a>
-                        </li>
+                        {{#unless user}}
+                            <li class="nav-item">
+                                <a {{#ifEquals title "Sign In"}}class="nav-link active"{{/ifEquals}} class="nav-link" href="/signin">Sign In</a>
+                            </li>
                         {{/unless}}
-                         <li class="nav-item">
+                        <li class="nav-item">
+                            <a {{#ifEquals title "Home"}}class="nav-link active"{{/ifEquals}} class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
                             <a {{#ifEquals title "Visualisations"}}class="nav-link active"{{/ifEquals}} class="nav-link" href="/visualisations">Visualisations</a>
                         </li>
                         <li class="nav-item">
