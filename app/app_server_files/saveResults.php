@@ -8,7 +8,6 @@ if ($conn->connect_error) {
 } 
 
 $results = json_decode($_POST['results'], true);
-var_dump($results);
 
 $query = "";
 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/Scores.css" />
+    <title>Environment Rescue</title>
+</head>
+
+<body style="background-image:url(img/backgrounds/other-app-bg.png)">
+    <h2 id="title">Ground</h2>
+    <div id="visualisation">
+        <h1 class="score">0</h1>
+    </div>
+    <div id="otherScores">
+        <div class="area" id="Atmosphere">
+            <img src="img/icons/atmosphere.svg"/>
+            <p class="score">0</p>
+        </div>
+        <div class="area" id="Ground">
+            <img src="img/icons/ground.svg"/>
+            <p class="score">0</p>
+        </div>
+        <div class="area" id="Sea">
+            <img src="img/icons/sea.svg"/>
+            <p class="score">0</p>
+        </div>
+        <div class="area" id="Subsurface">
+            <img src="img/icons/subterrain.svg"/>
+            <p class="score">0</p>
+        </div>
+    </div>
+    <input type="button" value="Go Home" onclick="returnHome()"/>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/scorePage.js"></script>
+</body>
+
+</html>
