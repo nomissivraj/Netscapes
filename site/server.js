@@ -21,8 +21,6 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 })); // session secret
-app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
 
 // Flash Messaging
 app.use(flash());
@@ -42,6 +40,12 @@ hbs.registerHelper('toLowerCase', function(str){
 
 // Static Files
 app.use(express.static('public'));
+
+// Initialise Passport
+app.use(passport.initialize());
+
+// Persistent login sessions
+app.use(passport.session()); 
 
 // Models
 var models = require("./app/models");
