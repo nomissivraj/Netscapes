@@ -15,6 +15,10 @@ Table of Contents:
       - Clouds
     - Map
       - Map Legend
+    - Alt Page
+    - Sign in Page
+    - About Page
+    - Visualisation Previews/Links
 */
 
 /* #test */
@@ -55,6 +59,10 @@ h2 {
 h3 {
   font-size: 1.25em;
   margin-bottom: 20px;
+}
+
+img {
+  max-width: 100%;
 }
 
 /* HEADER */
@@ -222,4 +230,54 @@ header {
 }
 .team-section{
     padding: 30px;
+}
+
+/* Visualisation Preview/Links */
+
+.visualisation-preview {
+  padding: 20px;
+  margin-bottom: 20px;
+  background: #f7f7f7;
+  border: 2px solid #f2f2f2;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.visualisation-preview__link:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.visualisation-preview:hover .visualisation-preview__link::before {
+  background: rgba(124, 124, 124, 0.15);
+}
+
+.visualisation-preview__link:hover {
+  text-decoration: none;
+}
+
+.visualisation-preview span {
+  display: block;
+  float: left;
+  padding-right: 20px;
+}
+
+.visualisation-preview span:last-child {
+  padding-right: 0;
+}
+
+.visualisation-preview__img {
+    width: calc(25%);
+}
+
+.visualisation-preview__summary {
+  width: calc(75%);
+}
+.visualisation-preview__summary p {
+  padding: 0;
+  font-size: 1.5em;
 }
