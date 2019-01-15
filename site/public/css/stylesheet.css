@@ -104,6 +104,12 @@ header {
 .bg-dark {
   background-color: rgba(91, 81, 74, 0.8)!important;
 }
+
+.navbar-img {
+  width: 100%;
+  max-width: 80px;
+  opacity: .5;
+}
   /* HEADER / NAVIGATION */
 
 /* MAIN CONTENT */
