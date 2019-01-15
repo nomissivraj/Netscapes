@@ -77,6 +77,10 @@ html:not(.home) main img {
   max-width: 100%;
 }
 
+html:not(.home) body {
+  padding-bottom: 65px;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -96,6 +100,19 @@ body::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-track {
   border-radius: 0;
 }
+
+.btn-primary {
+  color: #fff;
+  background-color: #436b3d;
+  border-color: #33592d;
+  font-weight: bold;
+}
+
+.text-muted {
+  color: rgba(255,255,255,.5)!important;
+  font-size: .8em;
+}
+
 /* HEADER */
 header {
   position: fixed;
@@ -125,7 +142,11 @@ header {
 
 .footer {
   position: fixed;
-  bottom: 5px;
+  bottom: 0;
+  width: 100%;
+  background: rgba(91, 81, 74, 0.8);
+  text-align: center;
+  padding: 0px 20px 4px 20px;
 }
 
 /* LOGIN/AUTH */
@@ -156,6 +177,7 @@ header {
 
 .form-signin .form-control:focus {
   z-index: 2;
+  border-color: #2b5225;
 }
 
 .form-signin input[type="email"] {
