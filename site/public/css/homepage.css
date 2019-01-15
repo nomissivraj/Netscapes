@@ -88,24 +88,79 @@ h1 {
     color: #333;
     display: inline-block;
     height: 100%;
+    position: relative;
+    width: 150px;
+    transition: all .4s ease;
   }
 
   .home .section-navlink:hover,
   .home .section-navlink:focus {
     text-decoration: none;
-    color: #61D035;
+    color: #539a37;
   }
 
   .home .section-navlink__icon {
     text-align: center;
     width: 35px;
+    height: 35px;
     display: inline-block;
+    transition: all .4s ease;
   }
 
+.home .section-navlink--top .section-navlink__icon  {
+    background:url("../img/icons/toTop.svg");
+    background-size: cover;
+}
+.home .section-navlink--top:hover .section-navlink__icon  {
+    background:url("../img/icons/toTop-active.svg");
+    background-size: cover;
+}
+
+.home .section-navlink--atmos .section-navlink__icon  {
+    background:url("../img/icons/atmosphere.svg");
+    background-size: cover;
+}
+.home .section-navlink--atmos:hover .section-navlink__icon  {
+    background:url("../img/icons/atmosphere-active.svg");
+    background-size: cover;
+}
+
+.home .section-navlink--ground .section-navlink__icon  {
+    background:url("../img/icons/ground.svg");
+    background-size: cover;
+}
+
+.home .section-navlink--ground:hover .section-navlink__icon  {
+    background:url("../img/icons/ground-active.svg");
+    background-size: cover;
+}
+
+.home .section-navlink--sea .section-navlink__icon  {
+    background:url("../img/icons/sea.svg");
+    background-size: cover;
+}
+
+.home .section-navlink--sea:hover .section-navlink__icon  {
+    background:url("../img/icons/sea-active.svg");
+    background-size: cover;
+}
+
+.home .section-navlink--subterrain .section-navlink__icon  {
+    background:url("../img/icons/subterrain.svg");
+    background-size: cover;
+}
+
+.home .section-navlink--subterrain:hover .section-navlink__icon  {
+    background:url("../img/icons/subterrain-active.svg");
+    background-size: cover;
+}
+
   .home .section-navlink__text {
-    padding-left: 10px;
-    position: relative;
-    top: -10px;
+    padding-left: 15px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
   }
 
 /* Image Animation CSS */
@@ -209,9 +264,14 @@ h1 {
     transform: translateY(0vh);
 }
 
-.home .section--intro .section__content{
+.home .section--intro .section__content {
     top: 0;
     transform: translateY(0);
+}
+
+.home .section--4 .section__content h1,
+.home .section--4 .section__content {
+    color: #fff;
 }
 
 .logo-div{
