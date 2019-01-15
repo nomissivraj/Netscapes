@@ -1,4 +1,4 @@
-//load required modules
+// load required modules
 var bCrypt = require('bcrypt-nodejs');
 var nodemailer = require('nodemailer');
 var hbs = require('nodemailer-express-handlebars');
@@ -83,7 +83,7 @@ module.exports = function(passport, user) {
 
                     // Confirmation Email
                     var mail = {
-                       from: 'no-reply@projecteq.co.uk',
+                       from: 'f557ee0397-b430bd@inbox.mailtrap.io',
                        to: email,
                        subject: 'Welcome to ProjectEQ',
                        // views/email/template.hbs
@@ -94,6 +94,7 @@ module.exports = function(passport, user) {
                        }
                     }
                     transporter.sendMail(mail);
+                    console.log('Sending email ...');
                 }
             });
         }
