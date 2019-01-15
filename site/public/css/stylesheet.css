@@ -38,6 +38,13 @@ body {
     font-size: 1.2em;
 }
 
+.visualisations body,
+.about body {
+  background: url(../img/about-top.svg), url(../img/about-bottom.svg), url(../img/background.svg);
+  background-position: top, bottom, 0 -400px;
+  background-repeat: no-repeat;
+}
+
 a {
   color: rgb(18, 114, 18);
   font-weight: bold;
@@ -63,7 +70,7 @@ h3 {
   margin-bottom: 20px;
 }
 
-html:not(.home) img {
+html:not(.home) main img {
   max-width: 100%;
 }
 
@@ -96,6 +103,12 @@ header {
 
 .bg-dark {
   background-color: rgba(91, 81, 74, 0.8)!important;
+}
+
+.navbar-img {
+  width: 100%;
+  max-width: 80px;
+  opacity: .5;
 }
   /* HEADER / NAVIGATION */
 
@@ -269,7 +282,7 @@ header {
 .visualisation-preview {
   padding: 20px;
   margin-bottom: 20px;
-  background: #f7f7f7;
+  background: rgba(247, 247, 247, 0.8);
   border: 2px solid #f2f2f2;
   border-radius: 5px;
   overflow: hidden;
