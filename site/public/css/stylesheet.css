@@ -19,6 +19,7 @@ Table of Contents:
     - Sign in Page
     - About Page
     - Visualisation Previews/Links
+    - MEDIA QUERIES
 */
 
 /* #test */
@@ -39,6 +40,7 @@ body {
 
 a {
   color: rgb(18, 114, 18);
+  font-weight: bold;
 }
 
 p {
@@ -164,10 +166,13 @@ header {
   /* Map Legend */
   .legend { 
     list-style: none;
+    overflow: hidden;
   }
 
   .legend li { 
     margin-right: 10px;
+    float: left;
+    min-width: 30%;
   }
 
   .legend span {
@@ -245,7 +250,6 @@ header {
     height: 60vh;
     border: 1px solid transparent;
     padding: 20px;
-    overflow: scroll;
 }
 .team-img{
     width: 70%;
@@ -306,6 +310,10 @@ header {
   font-size: 1.5em;
 }
 
+.visualisation-preview__summary h1 {
+  text-align: left;
+}
+
 .previous {
   padding: 10px 20px;
   border: 1px solid #ccc;
@@ -319,4 +327,24 @@ header {
   text-decoration: none;
   background: #f7f7f7;
   color: rgb(18, 114, 18);
+}
+
+@media (max-width:850px) {
+  .visualisation-preview__img {
+    width: calc(50%);
+  }
+
+  .visualisation-preview__summary {
+    width: calc(100%);
+  }
+  .visualisation-preview__summary h1,
+  .visualisation-preview__summary {
+    text-align: center;
+  }
+
+  .visualisation-preview__img img {
+    max-width: 100%;
+    position: relative;
+    left: calc(50% + 10px);
+  }
 }
