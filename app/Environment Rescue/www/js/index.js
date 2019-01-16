@@ -69,15 +69,21 @@ function signin(element){
         id: 12,
         message: "email=" + element.getElementsByClassName("email")[0].value + "&password=" + element.getElementsByClassName("password")[0].value
     },{ Authorization: "OAuth2: token" }, function(response) {
-        var this = new Object();
-        alert(JSON.stringify(response))
-        this.responseText = response.data;
-        alert(response.data)
-        alert(JSON.stringify(this))
-        alert(test.responseText)
+        var test = new Object();
+        test.responseText = response.data;
+        
+        
+        var response = test.responseText.split("/");
+        if(response[0] == "success"){//If the login is successful this will get called.
+            userID = response[1];
+            localStorage.setItem("loginState", "true")
+            localStorage.setItem("credentials", element.getElementsByClassName("email")[0].value + ":" + element.getElementsByClassName("password")[0].value);
+            closeLogin();
+        } else {
+            document.getElementById("login").classList.remove("loading");
+        }
         
     }, function(response) {
-        alert("It didn't work")
         // prints 403
         alert(response.status);
 
