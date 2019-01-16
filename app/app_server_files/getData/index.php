@@ -72,30 +72,30 @@ if ($questions->num_rows > 0) {
         
         if(count($formattedAverage) > $maxLength){//Code for organising the data into fewer categories
             $highest = end($usedFigure);
-            echo $highest;
             $range = $highest/$maxLength;
-            echo "(" . $range.")";
             $currentCategory = "0 - " . $range;
             $max = $range;
-            $formattedAverage[$currentCategory] = 0;
+            $newFormattedAverage = array();
+            $newFormattedAverage[] = array($currentCategory, 0);
             for($x=0; $x<count($formattedAverage); $x++){
                 if($formattedAverage[$x][0] < $max){
-                    $formattedAverage[sizeof($formattedAverage)-1][1] = intval($formattedAverage[sizeof($formattedAverage)-1][1]) + 1;
-                    unset($formattedAverage[$x]);
+                    $newFormattedAverage[sizeof($newFormattedAverage)-1][1] = intval($newFormattedAverage[sizeof($newFormattedAverage)-1][1]) + 1;
                 } else {
                     $currentCategory = $max . " - ";
                     $max = $max + $range;
                     $currentCategory = $currentCategory . $max;
-                    $formattedAverage[] = array($currentCategory, 1);
+                    $newFormattedAverage[] = array($currentCategory, 1);
                 }
-                echo json_encode($formattedAverage);
             }
+            $formattedAverage = $newFormattedAverage;
+                //echo json_encode($formattedAverage);
         }
+        //echo json_encode($formattedAverage);
         
         $newItem['Average'] = $formattedAverage;
         $return[$row['Category']][] = $newItem;
     }
-    //echo json_encode($return);
+    echo json_encode($return);
 } else {
     echo "FAIL";
 }
