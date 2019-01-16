@@ -83,6 +83,8 @@ html:not(.home) body {
 
 ::-webkit-scrollbar {
   width: 10px;
+  height: 10px;
+  opacity: .4;
 }
 ::-webkit-scrollbar-thumb {
   background-color: rgba(91, 81, 74, 0.8);
@@ -111,6 +113,10 @@ body::-webkit-scrollbar-track {
 .text-muted {
   color: rgba(255,255,255,.5)!important;
   font-size: .8em;
+}
+
+.button {
+  cursor: pointer;
 }
 
 /* HEADER */
@@ -381,6 +387,12 @@ h1 {
   text-decoration: none;
   background: #f7f7f7;
   color: rgb(18, 114, 18);
+}
+
+@media (min-width:1300px) {
+  .section__content {
+    overflow-y: hidden!important;
+  }
 }
 
 @media (max-width:850px) {
