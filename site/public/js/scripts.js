@@ -46,9 +46,11 @@ window.onload = () => {
     for (let i = 0; i < sectionCont.length; i++) {
         sectionCont[i].addEventListener('mouseenter', () => {
             disablePageScroll(sectionCont[i], sections[i]);
+            scrollUpCount = 0;
         });
         sectionCont[i].addEventListener('mouseleave', () => {
             enablePageScroll(sectionCont[i], sections[i]);
+            scrollUpCount = 0;
         });
     }
 
@@ -279,7 +281,7 @@ function resizePos() {
     }
 
 }
-var scrollThreshold = 2;
+var scrollThreshold = 1;
 var scrollUpCount = 0;
 function checkContScrollPos(event) {
     var direction = scrollDirection(event);
@@ -294,7 +296,7 @@ function checkContScrollPos(event) {
             if (scrollAtBottom(sectionCont[i]) && i !== sections.length - 1 && direction === "down") {//If inner content is scrolled to bottom and current section isn't last section
                 console.log("scroll at bottom")
                 pageScroll = true;
-                sectionCont[i].scrollTop = 0;
+                //sectionCont[i].scrollTop = 0;
             }
             if (scrollAtTop(sectionCont[i]) && i !== 0 && scrollUpCount === scrollThreshold) { //if inner content is scrolled to top and current section isn't first section
                 console.log("scroll at top")
@@ -302,7 +304,7 @@ function checkContScrollPos(event) {
             }
         }
     }
-    if (scrollUpCount > scrollThreshold) scrollUpCount = 0;
+    if (scrollUpCount >= scrollThreshold) scrollUpCount = 0;
 }
 
 
