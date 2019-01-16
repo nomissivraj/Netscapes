@@ -1,11 +1,11 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "helloworld",
-  "short_name": "helloworld",
+  "name": "Enviromental Quotient",
+  "short_name": "Enviromental Quotient",
   "version": "com.environment.rescue",
-  "description": "Hello World sample application that responds to the deviceready event.",
-  "author": "PhoneGap Team",
+  "description": "App part of the EQ project",
+  "author": "EQ",
   "icons": [],
   "start_url": "index.html"
 }
