@@ -444,7 +444,8 @@ module.exports.metadata =
     "cordova-plugin-network-information": "1.3.4",
     "cordova-plugin-vibration": "2.1.6",
     "cordova-plugin-splashscreen": "5.0.2",
-    "cordova-plugin-http": "1.2.0"
+    "cordova-plugin-http": "1.2.0",
+    "cordova-plugin-whitelist": "1.3.3"
 }
 // BOTTOM OF METADATA
 });
