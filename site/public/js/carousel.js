@@ -58,6 +58,14 @@ $(document).ready(function() {
             $('.sub-graphs').hide();
             $('#sub-' + subBox).show();
             }
+        drawSeaQ1();
+        drawSeaQ2();
+        drawSeaQ3();
+        drawSeaQ4();
+        drawSeaQ5();
+        
+        drawGroundQ1();
+        drawGroundQ5();
 
     });
     $('.car-rightButton').click(function(){
@@ -108,5 +116,7 @@ $(document).ready(function() {
             $('.sub-graphs').hide();
             $('#sub-' + subBox).show();
             }
+        
+        drawGroundQ5();
     });
 });

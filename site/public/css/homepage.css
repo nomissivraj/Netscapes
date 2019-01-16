@@ -309,6 +309,13 @@ h1 {
     float: right;
 }
 
+.reality{
+    color: green;
+}
+.answer{
+    color: red;
+}
+
 /* GRAPHS CSS */
 
 .map-graphs{
@@ -320,7 +327,7 @@ h1 {
 .pie-graphs{
     margin: auto;
     width: 50%;
-    height: 450px;
+    height: 400px!important;
     margin-top: -50px;
 }
 .line-charts{
