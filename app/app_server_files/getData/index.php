@@ -13,7 +13,6 @@ $query = "SELECT * FROM Questions;";
 $questions = $conn->query($query);
 
 
-
 $return = Array();
 
 if ($questions->num_rows > 0) {
@@ -36,6 +35,8 @@ if ($questions->num_rows > 0) {
             while($row1 = $userResponses->fetch_assoc()){
                 $newItem['UserAnswer'] = $row1['Response'];
             }
+        } else {
+                $newItem['UserAnswer'] = "No Answer";
         }
         
         //Code for getting the other responses

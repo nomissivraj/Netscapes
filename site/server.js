@@ -21,8 +21,6 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 })); // session secret
-app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
 
 // Flash Messaging
 app.use(flash());
@@ -30,6 +28,7 @@ app.use(flash());
 // Handlebars
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'app', 'views'));
+hbs.registerPartials('app/views/partials'); 
 
 // Handlebars helper
 hbs.registerHelper('ifEquals', function(a, b, options) {
@@ -42,6 +41,12 @@ hbs.registerHelper('toLowerCase', function(str){
 
 // Static Files
 app.use(express.static('public'));
+
+// Initialise Passport
+app.use(passport.initialize());
+
+// Persistent login sessions
+app.use(passport.session()); 
 
 // Models
 var models = require("./app/models");

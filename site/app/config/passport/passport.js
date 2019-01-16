@@ -83,7 +83,7 @@ module.exports = function(passport, user) {
 
                     // Confirmation Email
                     var mail = {
-                       from: 'f557ee0397-b430bd@inbox.mailtrap.io',
+                       from: 'mfrench71@googlemail.com',
                        to: email,
                        subject: 'Welcome to ProjectEQ',
                        // views/email/template.hbs

@@ -41,11 +41,12 @@ function changeMode(){
 
 function signin(element){
     document.getElementById("login").classList.add("loading");
-    var xhttp = new XMLHttpRequest();
+    /*(var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var response = this.responseText.split("/");
             if(response[0] == "success"){//If the login is successful this will get called.
+                alert("Stage1")
                 userID = response[1];
                 localStorage.setItem("loginState", "true")
                 localStorage.setItem("credentials", element.getElementsByClassName("email")[0].value + ":" + element.getElementsByClassName("password")[0].value);
@@ -54,11 +55,41 @@ function signin(element){
                 document.getElementById("login").classList.remove("loading");
                 alert(response[1])
             }
+        } else if(this.readyState == 4){
+            alert("Error " + this.status)
         }
     };
     xhttp.open("POST", "http://netscapes-nodejs.crumbdesign.co.uk/signinapp", true);
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhttp.send("email=" + element.getElementsByClassName("email")[0].value + "&password=" + element.getElementsByClassName("password")[0].value);
+    xhttp.send("email=" + element.getElementsByClassName("email")[0].value + "&password=" + element.getElementsByClassName("password")[0].value);*/
+    
+    try{
+        cordovaHTTP.setHeader("Content-Type", "application/x-www-form-urlencoded");
+    cordovaHTTP.post("http://netscapes-nodejs.crumbdesign.co.uk/signinapp", {
+        id: 12,
+        message: "email=" + element.getElementsByClassName("email")[0].value + "&password=" + element.getElementsByClassName("password")[0].value
+    },{ Authorization: "OAuth2: token" }, function(response) {
+        alert("It did work")
+        // prints 200
+        alert(response);
+        try {
+            response.data = JSON.parse(response.data);
+            // prints test
+            alert(response.data.message);
+        } catch(e) {
+            alert("JSON parsing error");
+        }
+    }, function(response) {
+        alert("It didn't work")
+        // prints 403
+        alert(response.status);
+
+        //prints Permission denied 
+        alert(response.error);
+    });
+    }catch(err){
+        alert(err.message)
+    }
 }
 
 function signup(element){

@@ -39,6 +39,9 @@
     },
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "com.environment.rescue"
+    },
+    "cordova-plugin-http": {
+      "PACKAGE_NAME": "com.environment.rescue"
     }
   },
   "dependent_plugins": {

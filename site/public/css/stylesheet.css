@@ -131,6 +131,12 @@ header {
   height: 44px;
   opacity: .5;
 }
+
+.navbar-dark .navbar-nav .nav-link,
+.home .section-navlink__text,
+h1 {
+  letter-spacing: 1.5px;
+}
   /* HEADER / NAVIGATION */
 
 /* MAIN CONTENT */

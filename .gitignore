@@ -69,6 +69,12 @@ package-lock.json
 #Server info file
 app/app_server_files/serverinfo.php
 
+#Phonegap Long File
+app/Environment Rescue/plugins/
+
+#Phonegap android files
+app/Environment Rescue/platforms
+
 #Database config
 config.json
 
