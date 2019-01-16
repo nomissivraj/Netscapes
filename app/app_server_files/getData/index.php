@@ -71,28 +71,31 @@ if ($questions->num_rows > 0) {
         $maxLength = 10;
         
         if(count($formattedAverage) > $maxLength){//Code for organising the data into fewer categories
-            $highest = $usedFigures[-1];
+            $highest = end($usedFigure);
+            echo $highest;
             $range = $highest/$maxLength;
+            echo "(" . $range.")";
             $currentCategory = "0 - " . $range;
             $max = $range;
             $formattedAverage[$currentCategory] = 0;
             for($x=0; $x<count($formattedAverage); $x++){
                 if($formattedAverage[$x][0] < $max){
-                    $formattedAverage[$currentCategory] = intval($formattedAverage[$currentCategory]) + 1;
-                    unset($formattedAverage[$x][0]);
+                    $formattedAverage[sizeof($formattedAverage)-1][1] = intval($formattedAverage[sizeof($formattedAverage)-1][1]) + 1;
+                    unset($formattedAverage[$x]);
                 } else {
                     $currentCategory = $max . " - ";
                     $max = $max + $range;
-                    $currentCategory = $currentCategory . $range;
-                    $formattedAverage[$currentCategory] = 0;
+                    $currentCategory = $currentCategory . $max;
+                    $formattedAverage[] = array($currentCategory, 1);
                 }
+                echo json_encode($formattedAverage);
             }
         }
         
         $newItem['Average'] = $formattedAverage;
         $return[$row['Category']][] = $newItem;
     }
-    echo json_encode($return);
+    //echo json_encode($return);
 } else {
     echo "FAIL";
 }

@@ -64,33 +64,32 @@ function signin(element){
     xhttp.send("email=" + element.getElementsByClassName("email")[0].value + "&password=" + element.getElementsByClassName("password")[0].value);*/
     
     try{
-        cordovaHTTP.setHeader("Content-Type", "application/x-www-form-urlencoded");
-    cordovaHTTP.post("http://netscapes-nodejs.crumbdesign.co.uk/signinapp", {
-        id: 12,
-        message: "email=" + element.getElementsByClassName("email")[0].value + "&password=" + element.getElementsByClassName("password")[0].value
-    },{ Authorization: "OAuth2: token" }, function(response) {
-        var test = new Object();
-        test.responseText = response.data;
-        alert(response.responseText)
-        
-        
-        var response = test.responseText.split("/");
-        if(response[0] == "success"){//If the login is successful this will get called.
-            userID = response[1];
-            localStorage.setItem("loginState", "true")
-            localStorage.setItem("credentials", element.getElementsByClassName("email")[0].value + ":" + element.getElementsByClassName("password")[0].value);
-            closeLogin();
-        } else {
-            document.getElementById("login").classList.remove("loading");
-        }
-        
-    }, function(response) {
-        // prints 403
-        alert(response.status);
+        cordovaHTTP.post("http://netscapes-nodejs.crumbdesign.co.uk/signinapp", {
+            email: element.getElementsByClassName("email")[0].value,
+            password: element.getElementsByClassName("password")[0].value
+        },{"Content-Type": "application/x-www-form-urlencoded"}, function(response) {
+            var test = new Object();
+            test.responseText = response.data;
+            alert(test.responseText)
 
-        //prints Permission denied 
-        alert(response.error);
-    });
+
+            var response = test.responseText.split("/");
+            if(response[0] == "success"){//If the login is successful this will get called.
+                userID = response[1];
+                localStorage.setItem("loginState", "true")
+                localStorage.setItem("credentials", element.getElementsByClassName("email")[0].value + ":" + element.getElementsByClassName("password")[0].value);
+                closeLogin();
+            } else {
+                document.getElementById("login").classList.remove("loading");
+            }
+
+        }, function(response) {
+            // prints 403
+            alert(response.status);
+
+            //prints Permission denied 
+            alert(response.error);
+        });
     }catch(err){
         alert(err.message)
     }
