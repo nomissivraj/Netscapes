@@ -125,6 +125,7 @@ module.exports = function(passport, user) {
                     return done(null, false, req.flash('signinMessage', 'Incorrect password.'));
                 }
                 var userinfo = user.get();
+                console.log(userinfo)
                 return done(null, userinfo);
             }).catch(function(err) {
                 console.log("Error:", err);

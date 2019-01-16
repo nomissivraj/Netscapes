@@ -25,11 +25,12 @@ module.exports = function(app, passport) {
     }));
     
     app.get('/success', function(req, res){//Code for returning a successful response to the app
-        console.log(req.user.id)
+        console.log(req)
         res.send("success/" + req.user.id);
     })
     
     app.get('/fail', function(req, res){//Code for returning a not so successful response to the app
+        console.log(req)
         res.send("fail/" + req.flash('signinMessage') + req.flash('signupMessage'));
     })
 
