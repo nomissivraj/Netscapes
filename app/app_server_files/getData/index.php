@@ -71,9 +71,8 @@ if ($questions->num_rows > 0) {
         $maxLength = 10;
         
         if(count($formattedAverage) > $maxLength){//Code for organising the data into fewer categories
-            $highest = $usedFigures[-1];
+            $highest = $usedFigure[-1];
             $range = $highest/$maxLength;
-            echo $range;
             $currentCategory = "0 - " . $range;
             $max = $range;
             $formattedAverage[$currentCategory] = 0;
