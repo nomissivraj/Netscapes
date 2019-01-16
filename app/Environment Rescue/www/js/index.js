@@ -71,6 +71,7 @@ function signin(element){
     },{ Authorization: "OAuth2: token" }, function(response) {
         var test = new Object();
         test.responseText = response.data;
+        alert(response.responseText)
         
         
         var response = test.responseText.split("/");
