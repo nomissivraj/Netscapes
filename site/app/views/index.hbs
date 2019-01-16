@@ -198,14 +198,12 @@
 
 {{/if}}
 {{#unless user}}
-    <section id="intro" class="section section--intro">
-        <div class="logo-div">
-            <img class="logo" alt="logo" src="img/logo.svg">
-        </div>
-        <div class="section__content intro-content">
-            <h1>Welcome to EQ - What's your Environmental Quotient?</h1>
-            <p>Please log in to see your results</p>
-            {{> login}}
-        </div>
-    </section>
+    <div class="logo-div">
+        <img class="logo" alt="logo" src="img/logo.svg">
+    </div>
+
+        <h1>Welcome to EQ - What's your Environmental Quotient?</h1>
+        <h2>Please log in to see your results</h2>
+        {{> login}}
+
 {{/unless}}
