@@ -85,7 +85,7 @@ module.exports = function(passport, user) {
                     var mail = {
                        from: 'mfrench71@googlemail.com',
                        to: email,
-                       subject: 'Welcome to ProjectEQ',
+                       subject: 'Welcome to EQ',
                        // views/email/template.hbs
                        template: 'template',
                        // pass variables to view
