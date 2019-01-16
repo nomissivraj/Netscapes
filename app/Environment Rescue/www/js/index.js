@@ -69,16 +69,13 @@ function signin(element){
         id: 12,
         message: "email=" + element.getElementsByClassName("email")[0].value + "&password=" + element.getElementsByClassName("password")[0].value
     },{ Authorization: "OAuth2: token" }, function(response) {
-        alert("It did work")
-        // prints 200
-        alert(response);
-        try {
-            response.data = JSON.parse(response.data);
-            // prints test
-            alert(response.data.message);
-        } catch(e) {
-            alert("JSON parsing error");
-        }
+        var this = new Object();
+        alert(JSON.stringify(response))
+        this.responseText = response.data;
+        alert(response.data)
+        alert(JSON.stringify(this))
+        alert(test.responseText)
+        
     }, function(response) {
         alert("It didn't work")
         // prints 403
