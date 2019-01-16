@@ -2,7 +2,7 @@ h1 {
     color: #444;
 }
 
-.home ::-webkit-scrollbar { 
+.home body::-webkit-scrollbar { 
     display: none; 
 }
 
@@ -22,12 +22,13 @@ h1 {
     position: relative;
     top: 50%;
     transform:translateY(-50%);
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.4);
     padding: 20px;
     border-radius: 20px;
     text-align: justify;
     max-height: 75vh;
-    overflow-y: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .home body {
@@ -269,6 +270,7 @@ h1 {
 .home .section--intro .section__content {
     top: 0;
     transform: translateY(0);
+    text-align: center;
 }
 
 .home .section--4 .section__content h1,
