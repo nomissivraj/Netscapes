@@ -9,12 +9,11 @@ window.onload = () => {
     background = document.getElementsByClassName('background')[0];
     frame = document.getElementsByClassName('background__frame')[0];
     isInView();
-    loadJSON();    
+    loadJSON();
 }
 
 window.onscroll = () => {
     isInView();
-
 }
 
 window.onresize = () => {
@@ -37,7 +36,7 @@ function windowRatio(ratio) {
 }
 
 function isInView() {
-    if (!document.getElementsByClassName('section:not(.active)') || !sections) return;
+    if (!document.getElementsByClassName('section:not(.active)')) return;
 
     for (var i = 0; i < sections.length; i++) {
         if (sections[i].getBoundingClientRect().top <= window.innerHeight * 0.30 && sections[i].getBoundingClientRect().top > -window.innerHeight / 1.4) {
@@ -167,31 +166,29 @@ function inverse(num) {
 /* var scrollActive = false;//set scroll active to false by default */
 var scrollingActive;
 function scrolling(event) {
-    if (!sections) return;
     if(canScroll){
-        //console.log(event.type);
-        if (event.type === "wheel") {
-            //console.log(event.wheelDeltaY || event);
-            var data = event.wheelDeltaY || inverse(event.deltaY);
-            data > 0 ? nextSection("up") : nextSection("down");
+    //console.log(event.type);
+    if (event.type === "wheel") {
+        //console.log(event.wheelDeltaY || event);
+        var data = event.wheelDeltaY || inverse(event.deltaY);
+        data > 0 ? nextSection("up") : nextSection("down");
 
-        } else if (event.type === "keyup") {
-        var input = event || window.event;
-        input.preventDefault();
-        if (input.keyCode == '38') {
-                nextSection("up")
-        } else if (input.keyCode == '40') {
-                nextSection("down");
-        } else return;
-        }
+    } else if (event.type === "keyup") {
+       var input = event || window.event;
+       input.preventDefault();
+       if (input.keyCode == '38') {
+            nextSection("up")
+       } else if (input.keyCode == '40') {
+            nextSection("down");
+       } else return;
     }
+}
 }
 
 
 var resizing = false;
 
 function resizePos() {
-    if (!sections) return;
     var currentSection;
     //console.log(resizing)
     
@@ -232,7 +229,6 @@ function resizePos() {
 var scrollingTimeout;
 var sameScroll = false;
 (() => {
-    if (!sections) return;
     document.onwheel = (e) => {
         e.preventDefault(e)
         if(!sameScroll){
