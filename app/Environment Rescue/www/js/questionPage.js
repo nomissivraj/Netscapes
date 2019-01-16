@@ -168,6 +168,10 @@ function changeFont(item){//Changes the font size of the range slider
     document.getElementById("rangeValue").style.transform = "scale(" + fontSize + ")";
 }
 
+function scorePage(){
+    window.location = "Score.html"
+}
+
 function returnHome(){
     window.location = "index.html"
 }
