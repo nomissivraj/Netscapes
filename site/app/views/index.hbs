@@ -6,10 +6,7 @@
 <script>
 	localStorage.setItem('user_id', {{user.id}} );
 </script>
-
-{{/if}}
-<main>
-	<div class="background">
+    <div class="background">
 		<div class="background__frame">
 				<img class="sprite sprite--mountains" alt="" src="img/mountains.svg">
 				<img class="sprite sprite--rocks" alt="" src="img/rocks.svg">
@@ -161,7 +158,6 @@
             </div>
 		</div>
 	</section>
-</main>
 {{!-- End of logged-in content --}}
 <div class="section-nav">
 	<ul>
@@ -197,6 +193,18 @@
 		</li>
 	</ul>
 </div>
+{{/if}}
+
+{{#unless user}}
+    <div class="logo-div" style="margin-top:2%;">
+        <img class="logo" alt="logo" src="img/logo.svg">
+    </div>
+
+    <h1>Welcome to EQ - What's your Environmental Quotient?</h1>
+    <h2 style="text-align:center">Please log in to see your results</h2>
+    {{> login}}
+
+{{/unless}}
 
 
 {{!-- <object onload="loadBackground()" id="background" data="img/backgroundImage.svg" type="image/svg+xml"></object>  --}}
