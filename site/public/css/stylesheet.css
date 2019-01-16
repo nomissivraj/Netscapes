@@ -389,11 +389,11 @@ h1 {
   color: rgb(18, 114, 18);
 }
 
-@media (min-width:1300px) {
+/* @media (min-width:1300px) {
   .section__content {
     overflow-y: hidden!important;
   }
-}
+} */
 
 @media (max-width:850px) {
   .visualisation-preview__img {
