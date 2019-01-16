@@ -279,6 +279,7 @@ function resizePos() {
     }
 
 }
+var scrollThreshold = 2;
 var scrollUpCount = 0;
 function checkContScrollPos(event) {
     var direction = scrollDirection(event);
@@ -295,13 +296,13 @@ function checkContScrollPos(event) {
                 pageScroll = true;
                 sectionCont[i].scrollTop = 0;
             }
-            if (scrollAtTop(sectionCont[i]) && i !== 0 && scrollUpCount === 10) { //if inner content is scrolled to top and current section isn't first section
+            if (scrollAtTop(sectionCont[i]) && i !== 0 && scrollUpCount === scrollThreshold) { //if inner content is scrolled to top and current section isn't first section
                 console.log("scroll at top")
                 pageScroll = true;
             }
         }
     }
-    if (scrollUpCount > 10) scrollUpCount = 0;
+    if (scrollUpCount > scrollThreshold) scrollUpCount = 0;
 }
 
 
