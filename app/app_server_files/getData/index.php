@@ -13,7 +13,6 @@ $query = "SELECT * FROM Questions;";
 $questions = $conn->query($query);
 
 
-
 $return = Array();
 
 if ($questions->num_rows > 0) {
