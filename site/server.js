@@ -28,6 +28,7 @@ app.use(flash());
 // Handlebars
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'app', 'views'));
+hbs.registerPartials('app/views/partials'); 
 
 // Handlebars helper
 hbs.registerHelper('ifEquals', function(a, b, options) {
