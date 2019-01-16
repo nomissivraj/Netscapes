@@ -44,10 +44,10 @@ window.onload = () => {
     frame = document.getElementsByClassName('background__frame')[0];
     
     for (let i = 0; i < sectionCont.length; i++) {
-        sectionCont[i].addEventListener('mouseover', () => {
+        sectionCont[i].addEventListener('mouseenter', () => {
             disablePageScroll(sectionCont[i], sections[i]);
         });
-        sectionCont[i].addEventListener('mouseout', () => {
+        sectionCont[i].addEventListener('mouseleave', () => {
             enablePageScroll(sectionCont[i], sections[i]);
         });
     }
