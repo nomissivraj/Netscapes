@@ -9,19 +9,28 @@
 		  -webkit-text-size-adjust: 100%;
 		  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 		}
+		h1 {
+			color: #685F57;
+		}
+		.content {
+			padding: 8px;
+		}
 		.logo {
 			margin: auto;
+			padding-bottom: 16px;
 			text-align: center;
 		}
 	</style>
 </head>
 <body>
-	<div class="logo">
-		<img src="http://localhost:8080/img/logo.png" alt="logo">
+	<div class="content">
+		<div class="logo">
+			<img src="http://localhost:8080/img/logo.png" alt="logo">
+		</div>
+		<h1>Welcome to ProjectEQ</h1>
+		<p><strong>Thanks for creating an account with ProjectEQ.</strong></p>
+		<p>You can login to your account at: <a href="www.projecteq.co.uk/signin">ProjectEQ</a></p>
+		<p>Your username is: <strong>{{email}}</strong></p>
 	</div>
-	<h1>Welcome to ProjectEQ</h1>
-	<p><strong>Thanks for creating an account with ProjectEQ.</strong></p>
-	<p>You can login to your account at: <a href="www.projecteq.co.uk/signin">ProjectEQ</a></p>
-	<p>Your username is: <strong>{{email}}</strong></p>
 </body>
 </html>
