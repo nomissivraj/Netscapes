@@ -72,15 +72,15 @@ if ($result->num_rows > 0) {
     if(is_nan($SeaScore)) $SeaScore = 0;
     if(is_nan($SubsurfaceScore)) $SubsurfaceScore = 0;
     
-    $OverallScore = (($AtmosphereScore + $GroundScore + $SeaScore + $SubsurfaceScore)/60)*200;
+    $OverallScore = ((($AtmosphereScore + $GroundScore + $SeaScore + $SubsurfaceScore)/4)/60)*200;
     
     $return = Array();
     
-    $return['total'] = $OverallScore;
-    $return['atmosphere'] = $AtmosphereScore;
-    $return['ground'] = $GroundScore;
-    $return['sea'] = $SeaScore;
-    $return['subsurface'] = $SubsurfaceScore;
+    $return['total'] = round($OverallScore);
+    $return['atmosphere'] = round($AtmosphereScore);
+    $return['ground'] = round($GroundScore);
+    $return['sea'] = round($SeaScore);
+    $return['subsurface'] = round($SubsurfaceScore);
     
     echo json_encode($return);
 } else {
