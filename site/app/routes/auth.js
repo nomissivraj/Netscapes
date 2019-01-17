@@ -49,6 +49,13 @@ module.exports = function(app, passport) {
         failureRedirect: '/fail',
         failureFlash: true // allow flash messages
     }));
+    
+    //Code for sending results via email
+    app.get('/sendResults', passport.authenticate('local-result', {
+        successRedirect: '/success',
+        failureRedirect: '/fail',
+        failureFlash: true // allow flash messages
+    }))
 
     // Visualisations
     app.get('/visualisations', authController.visualisations);
