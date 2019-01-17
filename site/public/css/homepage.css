@@ -325,21 +325,20 @@ h1 {
 
 .map-graphs{
     margin: auto;
-    width: 100%;
-    height: 280px;
-    width: 600px;
+    width: 70%;
+    height: 70%;
     
 }
 .pie-graphs{
     margin: auto;
-    width: 50%;
-    height: 350px!important;
+    width: 70%;
+    height: 90%;
     margin-top: -50px;
 }
 .line-charts{
     margin: auto;
-    width: 500px;
-    height: 300px;
+    width: 80%;
+    height: 90%;
     margin-top: 5%;
 }
 .correct-answer{
