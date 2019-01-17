@@ -41,7 +41,7 @@ body {
 .visualisations body,
 .about body {
   background: url(../img/about-top.svg), url(../img/about-bottom.svg), url(../img/background.svg);
-  background-position: top, bottom, 0 -400px;
+  background-position: 0 65px, 0 calc(100% - 23px), 0 -400px;
   background-repeat: no-repeat;
 }
 
