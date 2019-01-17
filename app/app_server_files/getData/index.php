@@ -48,6 +48,8 @@ if ($questions->num_rows > 0) {
             while($row2 = $userResponses->fetch_assoc()){
                 $average[] = $row2['Response'];
             }
+            $average[] = $row1["Response"];
+            $average[] = $row["Answer"];
         }
         
         $usedFigure = array();
