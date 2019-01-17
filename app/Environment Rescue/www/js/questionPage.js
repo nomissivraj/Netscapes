@@ -170,7 +170,7 @@ function changeFont(item){//Changes the font size of the range slider
 }
 
 function scorePage(){
-    window.location = "Score.html"
+   // window.location = "Score.html"
 }
 
 function returnHome(){
