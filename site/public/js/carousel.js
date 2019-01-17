@@ -58,6 +58,15 @@ $(document).ready(function() {
             $('.sub-graphs').hide();
             $('#sub-' + subBox).show();
             }
+        
+        drawAirQ1();
+        drawAirQ2();
+        drawAirQ3();
+        drawAirQ4();
+        drawAirQ5();
+        
+        drawAirQ5();
+        
         drawSeaQ1();
         drawSeaQ2();
         drawSeaQ3();
@@ -65,7 +74,12 @@ $(document).ready(function() {
         drawSeaQ5();
         
         drawGroundQ1();
+        drawGroundQ3();
+        drawGroundQ4();
         drawGroundQ5();
+        
+        drawSubQ1();
+        drawSubQ2();
 
     });
     $('.car-rightButton').click(function(){
@@ -117,6 +131,26 @@ $(document).ready(function() {
             $('#sub-' + subBox).show();
             }
         
+        drawAirQ1();
+        drawAirQ2();
+        drawAirQ3();
+        drawAirQ4();
+        drawAirQ5();
+        
+        drawAirQ5();
+        
+        drawSeaQ1();
+        drawSeaQ2();
+        drawSeaQ3();
+        drawSeaQ4();
+        drawSeaQ5();
+        
+        drawGroundQ1();
+        drawGroundQ3();
+        drawGroundQ4();
         drawGroundQ5();
+        
+        drawSubQ1();
+        drawSubQ2();
     });
 });

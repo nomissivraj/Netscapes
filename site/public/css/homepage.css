@@ -22,7 +22,7 @@ h1 {
     position: relative;
     top: 50%;
     transform:translateY(-50%);
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.5);
     padding: 20px;
     border-radius: 20px;
     text-align: justify;
@@ -326,13 +326,14 @@ h1 {
 .map-graphs{
     margin: auto;
     width: 100%;
-    max-height: 40vh!important;
+    height: 280px;
+    width: 600px;
     
 }
 .pie-graphs{
     margin: auto;
     width: 50%;
-    height: 400px!important;
+    height: 350px!important;
     margin-top: -50px;
 }
 .line-charts{
@@ -340,6 +341,14 @@ h1 {
     width: 500px;
     height: 300px;
     margin-top: 5%;
-    position: absolute;
-    margin-left: 100px;
+}
+.correct-answer{
+    text-align: center;
+    color: green;
+}
+.bar-charts{
+    margin: auto;
+    width: 700px;
+    height: 350px!important;
+    margin-top: -50px;
 }
