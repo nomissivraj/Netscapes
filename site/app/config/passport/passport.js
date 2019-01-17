@@ -136,7 +136,7 @@ module.exports = function(passport, user) {
     
     
     //I added this to try and create a custom email
-    passport.use('local-result', new LocalStrategy(
+   /* passport.use('local-result', new LocalStrategy(
         function(req, username){
             console.log("Aren't you clever");
             console.log(username)
@@ -158,5 +158,5 @@ module.exports = function(passport, user) {
             console.log('Sending email ...');
             return false
         }
-    ));
+    ));*/
 }
