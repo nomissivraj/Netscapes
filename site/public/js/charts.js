@@ -168,6 +168,9 @@ function workOutGuess(results, answer){
          //   console.log(Math.ceil(resultSplit[0]));
           //  console.log(Math.floor(resultSplit[0]));
     });
+    if(guess == ""){
+        guess = -1;
+    }
     return guess; //return what point guessed answer is within the array 
 }
 
@@ -189,6 +192,9 @@ function workOutTrue(results, answer){
             }
                
     });
+    if(truth == ""){
+        truth = -1;
+    }
     return truth; //return what point guessed answer is within the array 
 }
 
