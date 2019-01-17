@@ -7,7 +7,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$userid = $_POST['userid'];
+$userid = 3;//$_POST['userid'];
 
 $query = "SELECT * FROM Questions;";
 $questions = $conn->query($query);
@@ -48,8 +48,6 @@ if ($questions->num_rows > 0) {
             while($row2 = $userResponses->fetch_assoc()){
                 $average[] = $row2['Response'];
             }
-            $average[] = $row1["Response"];
-            $average[] = $row["Answer"];
         }
         
         $usedFigure = array();
@@ -77,20 +75,21 @@ if ($questions->num_rows > 0) {
             $range = $highest/$maxLength;
             $currentCategory = "0 - " . $range;
             $max = $range;
+                //echo json_encode($formattedAverage);
             $newFormattedAverage = array();
             $newFormattedAverage[] = array($currentCategory, 0);
             for($x=0; $x<count($formattedAverage); $x++){
-                if($formattedAverage[$x][0] < $max){
+                if($formattedAverage[$x][0] <= $max){
                     $newFormattedAverage[sizeof($newFormattedAverage)-1][1] = intval($newFormattedAverage[sizeof($newFormattedAverage)-1][1]) + 1;
                 } else {
                     $currentCategory = $max . " - ";
                     $max = $max + $range;
                     $currentCategory = $currentCategory . $max;
-                    $newFormattedAverage[] = array($currentCategory, 1);
+                    $newFormattedAverage[] = array($currentCategory, 0);
+                    $x = $x-1;
                 }
             }
             $formattedAverage = $newFormattedAverage;
-                //echo json_encode($formattedAverage);
         }
         //echo json_encode($formattedAverage);
         
