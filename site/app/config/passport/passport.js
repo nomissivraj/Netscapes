@@ -53,7 +53,7 @@ module.exports = function(passport, user) {
         {
             usernameField: 'email',
             passwordField: 'password',
-            passReqToCallback: true // allows us to pass back the entire request to the callback
+            passReqToCallback: true
         },
         function(req, email, password, done) {
             var generateHash = function(password) {
@@ -103,10 +103,10 @@ module.exports = function(passport, user) {
     // local signin
     passport.use('local-signin', new LocalStrategy(
         {
-            // by default, local strategy uses username and password, we will override with email
+            // by default, local strategy uses username and password, override with email
             usernameField: 'email',
             passwordField: 'password',
-            passReqToCallback: true // allows us to pass back the entire request to the callback
+            passReqToCallback: true
         },
         function(req, email, password, done) {
             var User = user;
