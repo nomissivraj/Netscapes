@@ -12,12 +12,15 @@ $(document).ready(function(){
         drawSeaQ5();
         
         drawGroundQ1();
+        drawGroundQ2();
         drawGroundQ3();
         drawGroundQ4();
         drawGroundQ5();
         
         drawSubQ1();
         drawSubQ2();
+        drawSubQ3();
+        drawSubQ4();
     
     $( window ).resize(function() {
         
@@ -35,12 +38,15 @@ $(document).ready(function(){
         drawSeaQ5();
         
         drawGroundQ1();
+        drawGroundQ2();
         drawGroundQ3();
         drawGroundQ4();
         drawGroundQ5();
         
         drawSubQ1();
         drawSubQ2();
+        drawSubQ3();
+        drawSubQ4();
     });
 });
 
@@ -111,6 +117,15 @@ var subResults2Guess = "";
 
 var subResults1True = "";
 var subResults2True = "";
+
+var subResults3 = [];
+var subResults4 = [];
+
+var subResults3Guess = "";
+var subResults4Guess = "";
+
+var subResults3True = "";
+var subResults4True = "";
 
 function loadJSON(){
     var userID = 24 //localStorage.getItem("user_id");
@@ -283,6 +298,16 @@ function dataRetreiveComplete(){
     subResults2Guess = workOutGuess(subResults2, sub[1]);
     subResults2True = workOutTrue(subResults2, sub[1]);
     
+    subResults3 = sub[2]['Average'];
+    subResults3.unshift(['something', 'How many guessed']);
+    subResults3Guess = workOutGuess(subResults3, sub[2]);
+    subResults3True = workOutTrue(subResults3, sub[2]);
+    
+    subResults4 = sub[3]['Average'];
+    subResults4.unshift(['something', 'How many guessed']);
+    subResults4Guess = workOutGuess(subResults4, sub[3]);
+    subResults4True = workOutTrue(subResults4, sub[3]);
+    
 
           google.charts.load("current", {
                                      'packages':['corechart', 'geochart', 'line'],
@@ -302,12 +327,15 @@ function dataRetreiveComplete(){
         google.charts.setOnLoadCallback(drawSeaQ5);
     
         google.charts.setOnLoadCallback(drawGroundQ1);
+        google.charts.setOnLoadCallback(drawGroundQ2);
         google.charts.setOnLoadCallback(drawGroundQ3);
         google.charts.setOnLoadCallback(drawGroundQ4);
         google.charts.setOnLoadCallback(drawGroundQ5);
     
         google.charts.setOnLoadCallback(drawSubQ1);
         google.charts.setOnLoadCallback(drawSubQ2);
+        google.charts.setOnLoadCallback(drawSubQ3);
+        google.charts.setOnLoadCallback(drawSubQ4);
 
     
     
@@ -488,6 +516,28 @@ function drawGroundQ1() {
         var chart = new google.visualization.ColumnChart(document.getElementById('ground-chart-1'));
         chart.draw(data, options);
       }
+
+
+
+function drawGroundQ2() {
+    
+        var data = google.visualization.arrayToDataTable(groundResults2);
+
+        var slices = { [0]: { color: 'black' }, [1]: { color: 'black' }, [2]: { color: 'black' }, [3]: { color: 'black' }, [4]: { color: 'black' }, [5]: { color: 'black' }, [6]: { color: 'black' }, [7]: { color: 'black' }, [8]: { color: 'black' }, [9]: { color: 'black' }, [10]: { color: 'black' }, [groundResults2Guess-1]: { offset: 0.2, color: 'red' }, [groundResults2True-1]: { offset: 0.4, color: 'green' }};
+        if (groundResults2Guess == groundResults2True){
+            slices = { [0]: { color: 'black' }, [1]: { color: 'black' }, [2]: { color: 'black' }, [3]: { color: 'black' }, [4]: { color: 'black' }, [5]: { color: 'black' }, [6]: { color: 'black' }, [7]: { color: 'black' }, [8]: { color: 'black' }, [9]: { color: 'black' }, [groundResults2Guess-1]: { offset: 0.2, color: 'yellow' }, [groundResults2True-1]: { offset: 0.4, color: 'yellow' }};
+        }
+        var options = {
+          backgroundColor: 'transparent',
+            legend: 'none',
+            slices: slices, 
+        };
+    
+        var chart = new google.visualization.PieChart(document.getElementById('ground-chart-2'));
+        chart.draw(data, options);
+      }
+
+
 
 function drawGroundQ3() {
     
@@ -758,4 +808,59 @@ function drawSubQ2() {
         var chart = new google.visualization.ColumnChart(document.getElementById('sub-chart-2'));
         chart.draw(data, options);
       }
+
+function drawSubQ3() {
+    
+        var data = google.visualization.arrayToDataTable(subResults3);
+
+        var slices = { [0]: { color: 'black' }, [1]: { color: 'black' }, [2]: { color: 'black' }, [3]: { color: 'black' }, [4]: { color: 'black' }, [5]: { color: 'black' }, [6]: { color: 'black' }, [7]: { color: 'black' }, [8]: { color: 'black' }, [9]: { color: 'black' }, [10]: { color: 'black' }, [subResults3Guess-1]: { offset: 0.2, color: 'red' }, [subResults3True-1]: { offset: 0.4, color: 'green' }};
+        if (subResults3Guess == subResults3True){
+            slices = { [0]: { color: 'black' }, [1]: { color: 'black' }, [2]: { color: 'black' }, [3]: { color: 'black' }, [4]: { color: 'black' }, [5]: { color: 'black' }, [6]: { color: 'black' }, [7]: { color: 'black' }, [8]: { color: 'black' }, [9]: { color: 'black' }, [subResults3Guess-1]: { offset: 0.2, color: 'yellow' }, [subResults3True-1]: { offset: 0.4, color: 'yellow' }};
+        }
+        var options = {
+          backgroundColor: 'transparent',
+            legend: 'none',
+            slices: slices, 
+        };
+    
+        var chart = new google.visualization.PieChart(document.getElementById('sub-chart-3'));
+        chart.draw(data, options);
+      }
+
+function drawSubQ4() {
+    
+    $.each(subResults4, function(index, value){
+            if (index == subResults4Guess){
+                value[2] = 'point {fill-color: red;}';
+                }
+            else if (index == subResults4True){
+                value[2] = 'point {fill-color: green;}' ;
+            }
+            else{
+                if (index == 0){
+                   value[2] = { 'type': 'string', 'role': 'style' }; 
+                }
+                else{
+                    value[2] = 'point {fill-color: black;}' ;
+                }
+            }
+            
+            subResults4[index] = value;
+            
+    }); 
+    
+        var data = google.visualization.arrayToDataTable(subResults4);
+        var options = {
+            curveType: '',
+            legend: 'none',
+            backgroundColor: 'transparent',
+            chartArea:{left:30,top:10,width:"100%"},
+           // hAxis: {title: '', minValue: 0, maxValue: 1000},
+           // vAxis: {title: '', minValue: 0, maxValue: 1000},
+            colors: ['orange'],
+        };
+        var chart = new google.visualization.ScatterChart(document.getElementById('sub-chart-4'));
+        chart.draw(data, options);
+      }
+
 // ************************************ . END OF SUB CHARTS . ***************************************
