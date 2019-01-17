@@ -36,6 +36,7 @@ function startQuestions(currentPage){
     document.getElementById(currentPage).classList.remove("selected");
     buttons = document.getElementsByClassName("buttons")[0];
     document.getElementsByClassName("header")[0].classList.add("display");
+    document.getElementById("questions").classList.add(currentPage)
     nextQuestion(0);
 }
 
