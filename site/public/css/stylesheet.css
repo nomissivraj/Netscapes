@@ -33,7 +33,7 @@ Table of Contents:
     src: url(../fonts/eurofurence/eurof35.ttf);
 }
 
-html:not(.home).row {
+html:not(.home) .row {
   width: calc(100% - 20px);
   margin: 0 auto;
   border-radius: 5px;
@@ -409,6 +409,12 @@ h1 {
   }
 } 
 
+@media (max-width: 990px) {
+  .logo-div {
+    margin-top: 25%;
+    margin-bottom: 50px;
+  }
+}
 @media (max-width:850px) {
   .visualisation-preview__img {
     width: calc(50%);
@@ -430,8 +436,18 @@ h1 {
 }
 
 @media (max-width: 600px) {
+
+  .logo-div {
+    margin-bottom: 50px;
+  }
+
+  .home .section--intro h1 {
+      font-size: 1.25em;
+  }
+
   .home .section__content {
     max-height: 70vh;
+    margin-top: 0;
   }
   .home .section-nav {
       top: auto;
