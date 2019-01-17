@@ -40,8 +40,7 @@ hbs.registerHelper('toLowerCase', function(str){
 });
 
 // Static Files
-// app.use(express.static('public'));
-app.use(express.static(__dirname + 'public'));
+app.use(express.static('public'));
 
 // Initialise Passport
 app.use(passport.initialize());
