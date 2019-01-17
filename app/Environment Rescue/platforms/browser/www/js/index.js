@@ -46,7 +46,6 @@ function signin(element){
         if (this.readyState == 4 && this.status == 200) {
             var response = this.responseText.split("/");
             if(response[0] == "success"){//If the login is successful this will get called.
-                alert("Stage1")
                 userID = response[1];
                 localStorage.setItem("loginState", "true")
                 localStorage.setItem("credentials", element.getElementsByClassName("email")[0].value + ":" + element.getElementsByClassName("password")[0].value);

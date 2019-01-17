@@ -61,7 +61,7 @@ function nextQuestion(num){
             } else {
                 buttons.getElementsByTagName("input")[0].classList.remove("hide")
             }
-            if(num >= questions.length-2){
+            if(num >= questions.length-1){
                 buttons.getElementsByTagName("input")[1].classList.add("hide");
                 document.getElementsByClassName("header")[0].classList.add("end");//Replaces home button with finish button
             } else {
@@ -146,7 +146,8 @@ function saveResults(followUp){//Function to send the results to the database
         if (this.readyState == 4 && this.status == 200) {
             console.log("Results Saved")
             console.log(this.responseText)
-            followUp();
+            setTimeout(followUp, 500);
+            //followUp();
         }
     };
     xhttp.open("POST", "http://netscapes.crumbdesign.co.uk/app_server_files/saveResults.php", true);

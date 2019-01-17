@@ -23,6 +23,18 @@ function loadAnswers(){
     xhttp.send("userid=" + userID);
 }
 
+var scoreResponses =
+    {
+        scores: [-30, -25, -15, 0, 15],
+        responses: [
+            "You clearly have no idea what is happening in the world!",
+            "You probably should check the news from time to time.",
+            "You seem to have some idea, but not a lot.",
+            "I have a basic grasp of the situation.",
+            "You are the fount of all knowledge and saviour of the planet earth."
+                   ]
+    }
+
 function setScore(name, score){
     var speed = score/10;
     var displayScore = 0;
@@ -53,6 +65,12 @@ function setScore(name, score){
             }
             element.parentElement.style.color = color;
             element.parentElement.style.boxShadow = color + " 0 0 " + shadow + "px";//Sets color and shadow
+            for(i=0; i<scoreResponses.scores.length; i++){
+                if(score >= scoreResponses.scores[i]){
+                    document.getElementById("scoreFeedback").innerHTML = scoreResponses.responses[i];
+                    document.getElementById("scoreFeedback").style.color = color;
+                }
+            }
         }
     }, 100);
 }
