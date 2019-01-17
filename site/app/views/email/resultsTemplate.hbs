@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		html {
+		  font-family: sans-serif;
+		  line-height: 1.15;
+		  -webkit-text-size-adjust: 100%;
+		  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		}
+		h1 {
+			color: #685F57;
+		}
+		.content {
+			padding: 8px;
+		}
+		.logo {
+			margin: auto;
+			padding-bottom: 16px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="content">
+		<div class="logo">
+			<img src="https://www.project-eq.co.uk/img/logo.png" alt="logo">
+			{{!-- <img src="http://www.project-eq.co.uk/img/logo.png" alt="logo"> --}}
+		</div>
+		<h1>Well done on completing your EQ test.</h1>
+        <p>Your EQ score is <strong>{{score}}</strong> and you have completed <strong>{{answered}}</strong> questons</p>
+		<p>You can see your results as part of our visualisation by visiting: <a href="www.project-eq.co.uk/signin">EQ</a> and signing up.</p>
+		<p>Your username is: <strong>{{email}}</strong></p>
+	</div>
+</body>
+</html>

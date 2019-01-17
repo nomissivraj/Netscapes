@@ -133,4 +133,30 @@ module.exports = function(passport, user) {
             });
         }
     ));
+    
+    
+    //I added this to try and create a custom email
+    passport.use('local-result', new LocalStrategy(
+        function(req, username){
+            console.log("Aren't you clever");
+            console.log(username)
+            //console.log(req);
+            var mail = {
+               from: 'mfrench71@googlemail.com',
+               to: username,
+               subject: 'Your EQ score is...',
+               // views/email/template.hbs
+               template: 'resultsTemplate',
+               // pass variables to view
+               context: {
+                   score: 25,
+                   answered: "1/10",
+                   email: username
+               }
+            }
+            transporter.sendMail(mail);
+            console.log('Sending email ...');
+            return false
+        }
+    ));
 }
