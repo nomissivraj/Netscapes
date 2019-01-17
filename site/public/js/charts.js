@@ -128,7 +128,7 @@ var subResults3True = "";
 var subResults4True = "";
 
 function loadJSON(){
-    var userID = 24 //localStorage.getItem("user_id");
+    var userID = localStorage.getItem("user_id");
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {

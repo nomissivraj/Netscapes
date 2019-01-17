@@ -6,7 +6,7 @@
 <script>
 	localStorage.setItem('user_id', {{user.id}} );
 </script>
-{{/if}} <!-- This closing if is to be removed to restore user conditional content -->
+{{!-- {{/if}} <!-- This closing if is to be removed to restore user conditional content --> --}}
     <div class="background">
 		<div class="background__frame">
 				<img class="sprite sprite--mountains" alt="" src="img/mountains.svg">
@@ -216,9 +216,9 @@
 		</li>
 	</ul>
 </div>
-{{!-- {{/if}} --}} <!-- this closing if statement is to be reinstated for user conditional content -->
+{{/if}} <!-- this closing if statement is to be reinstated for user conditional content -->
 
-{{!-- {{#unless user}}
+{{#unless user}}
     <div class="logo-div" style="margin-top:2%;">
         <img class="logo" alt="logo" src="img/logo.svg">
     </div>
@@ -227,7 +227,7 @@
     <h2 style="text-align:center">Please log in to see your results</h2>
     {{> login}}
 
-{{/unless}} --}}
+{{/unless}}
 
 
 {{!-- <object onload="loadBackground()" id="background" data="img/backgroundImage.svg" type="image/svg+xml"></object>  --}}
