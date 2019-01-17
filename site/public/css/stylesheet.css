@@ -33,6 +33,14 @@ Table of Contents:
     src: url(../fonts/eurofurence/eurof35.ttf);
 }
 
+.row {
+  width: calc(100% - 20px);
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 20px 20px 0px 10px;
+  background: rgba(255, 255, 255, 0.73);
+}
+
 body {
   font-family: main;
     font-size: 1.2em;
@@ -382,9 +390,11 @@ h1 {
   padding: 10px 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  background: rgba(255,255,255,.4);
   font-weight: bold;
   color: #333;
   transition: all .4s ease;
+  margin-left: 10px;
 }
 
 .previous:hover {
