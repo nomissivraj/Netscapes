@@ -49,11 +49,11 @@ $(document).ready(function() {
             }
         if (buttonClicked == '#sub-leftButton'){
             subBox = subBox - 1;
-            if (subBox > 5){
+            if (subBox > 4){
                 subBox = 1;
             }
             if (subBox < 1){
-                subBox = 5;
+                subBox = 4;
             }
             $('.sub-graphs').hide();
             $('#sub-' + subBox).show();
@@ -124,11 +124,11 @@ $(document).ready(function() {
             }
         if (buttonClicked == '#sub-rightButton'){
             subBox = subBox + 1;
-            if (subBox > 5){
+            if (subBox > 4){
                 subBox = 1;
             }
             if (subBox < 1){
-                subBox = 5;
+                subBox = 4;
             }
             $('.sub-graphs').hide();
             $('#sub-' + subBox).show();
