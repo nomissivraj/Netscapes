@@ -1,3 +1,49 @@
+$(document).ready(function(){
+        drawAirQ1();
+        drawAirQ2();
+        drawAirQ3();
+        drawAirQ4();
+        drawAirQ5();
+        
+        drawSeaQ1();
+        drawSeaQ2();
+        drawSeaQ3();
+        drawSeaQ4();
+        drawSeaQ5();
+        
+        drawGroundQ1();
+        drawGroundQ3();
+        drawGroundQ4();
+        drawGroundQ5();
+        
+        drawSubQ1();
+        drawSubQ2();
+    
+    $( window ).resize(function() {
+        
+        drawAirQ1();
+        drawAirQ2();
+        drawAirQ3();
+        drawAirQ4();
+        drawAirQ5();
+        
+        
+        drawSeaQ1();
+        drawSeaQ2();
+        drawSeaQ3();
+        drawSeaQ4();
+        drawSeaQ5();
+        
+        drawGroundQ1();
+        drawGroundQ3();
+        drawGroundQ4();
+        drawGroundQ5();
+        
+        drawSubQ1();
+        drawSubQ2();
+    });
+});
+
 var air = [];
 var sea = [];
 var ground = [];
@@ -95,12 +141,12 @@ function workOutGuess(results, answer){
         
             var resultSplit = value[0].split(" - ");
             if (resultSplit.length > 1){
-                if(answer['UserAnswer'] >= Math.ceil(resultSplit[0]) && answer['UserAnswer'] < Math.floor(resultSplit[1])){
+                if(Math.floor(answer['UserAnswer']) >= Math.floor(resultSplit[0]) && Math.floor(answer['UserAnswer']) < Math.ceil(resultSplit[1])){
                     guess = index;
                 }
             }
             else{
-                if (value[0] == answer['UserAnswer']){
+                if (value[0] == Math.floor(answer['UserAnswer'])){
                 guess = index;
                 }
             }
@@ -120,12 +166,12 @@ function workOutTrue(results, answer){
         
         var resultSplit = value[0].split(" - ");
             if (resultSplit.length > 1){
-                if(answer['Reality'] >= Math.ceil(resultSplit[0]) && answer['Reality'] < Math.floor(resultSplit[1])){
+                if(Math.floor(answer['Reality']) >= Math.floor(resultSplit[0]) && Math.floor(answer['Reality']) < Math.ceil(resultSplit[1])){
                     truth = index;
                 }
             }
             else{
-                if (value[0] == answer['Reality']){
+                if (value[0] == Math.floor(answer['Reality'])){
                 truth = index;
                 }
             }
@@ -297,8 +343,6 @@ function drawAirQ1() {
             curveType: '',
             legend: 'none',
             backgroundColor: 'transparent',
-            width: 500,
-            height: 300,
             chartArea:{left:30,top:10,width:"100%"},
            // hAxis: {title: '', minValue: 0, maxValue: 1000},
            // vAxis: {title: '', minValue: 0, maxValue: 1000},
@@ -351,8 +395,6 @@ function drawAirQ3() {
             curveType: '',
             legend: 'none',
             backgroundColor: 'transparent',
-            width: 500,
-            height: 300,
             chartArea:{left:30,top:10,width:"100%"},
         };
         var chart = new google.visualization.ColumnChart(document.getElementById('air-chart-3'));
@@ -402,8 +444,6 @@ function drawAirQ5() {
             curveType: '',
             legend: 'none',
             backgroundColor: 'transparent',
-            width: 500,
-            height: 300,
             chartArea:{left:30,top:10,width:"100%"},
         };
         var chart = new google.visualization.ColumnChart(document.getElementById('air-chart-5'));
@@ -443,8 +483,6 @@ function drawGroundQ1() {
             curveType: '',
             legend: 'none',
             backgroundColor: 'transparent',
-            width: 500,
-            height: 300,
             chartArea:{left:30,top:10,width:"100%"},
         };
         var chart = new google.visualization.ColumnChart(document.getElementById('ground-chart-1'));
@@ -478,8 +516,6 @@ function drawGroundQ3() {
             curveType: '',
             legend: 'none',
             backgroundColor: 'transparent',
-            width: 500,
-            height: 300,
             chartArea:{left:30,top:10,width:"100%"},
            // hAxis: {title: '', minValue: 0, maxValue: 1000},
            // vAxis: {title: '', minValue: 0, maxValue: 1000},
@@ -618,8 +654,6 @@ function drawSeaQ4() {
             curveType: '',
             legend: 'none',
             backgroundColor: 'transparent',
-            width: 500,
-            height: 300,
             chartArea:{left:30,top:10,width:"100%"},
            // hAxis: {title: '', minValue: 0, maxValue: 1000},
            // vAxis: {title: '', minValue: 0, maxValue: 1000},
@@ -680,8 +714,6 @@ function drawSubQ1() {
             curveType: '',
             legend: 'none',
             backgroundColor: 'transparent',
-            width: 500,
-            height: 300,
             chartArea:{left:30,top:10,width:"100%"},
            // hAxis: {title: '', minValue: 0, maxValue: 1000},
            // vAxis: {title: '', minValue: 0, maxValue: 1000},
@@ -721,8 +753,6 @@ function drawSubQ2() {
             curveType: '',
             legend: 'none',
             backgroundColor: 'transparent',
-            width: 500,
-            height: 300,
             chartArea:{left:30,top:10,width:"100%"},
         };
         var chart = new google.visualization.ColumnChart(document.getElementById('sub-chart-2'));
