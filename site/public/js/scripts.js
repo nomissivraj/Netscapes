@@ -53,7 +53,7 @@ window.onload = () => {
             scrollUpCount = 0;
         });
     }
-
+    refreshResize();
     isInView();
     loadJSON();
 }
@@ -307,6 +307,20 @@ function checkContScrollPos(event) {
     if (scrollUpCount >= scrollThreshold) scrollUpCount = 0;
 }
 
+var loop;
+
+function refreshResize() {
+    console.log("test")
+    //Add listener for resize event
+    window.addEventListener('resize', () => {
+        //clear timeout every time resize event fires - i.e. when resizing is still happening
+        clearTimeout(loop);
+        //Initialise timeout and bind it to loop variable
+        loop = setTimeout(() => {
+            location.reload();// if resize event hasn't fired in the last quarter of a second (i.e. it has finishe resizing) then reload the page
+        }, 500)
+    });
+}
 
 //Self invoking anonymous function that monitors scrolling events and calls scrolling function to handle scroll direction and section navigation
 var scrollingTimeout;
@@ -329,5 +343,7 @@ var sameScroll = false;
     document.onkeyup = (e) => {
         scrolling(e)
     };
+
+    document.onresi
     
 })();

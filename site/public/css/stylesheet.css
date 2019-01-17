@@ -33,7 +33,7 @@ Table of Contents:
     src: url(../fonts/eurofurence/eurof35.ttf);
 }
 
-.row {
+html:not(.home).row {
   width: calc(100% - 20px);
   margin: 0 auto;
   border-radius: 5px;
