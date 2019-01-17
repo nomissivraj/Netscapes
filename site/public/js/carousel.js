@@ -74,12 +74,15 @@ $(document).ready(function() {
         drawSeaQ5();
         
         drawGroundQ1();
+        drawGroundQ2();
         drawGroundQ3();
         drawGroundQ4();
         drawGroundQ5();
         
         drawSubQ1();
         drawSubQ2();
+        drawSubQ3();
+        drawSubQ4();
 
     });
     $('.car-rightButton').click(function(){
@@ -146,11 +149,14 @@ $(document).ready(function() {
         drawSeaQ5();
         
         drawGroundQ1();
+        drawGroundQ2();
         drawGroundQ3();
         drawGroundQ4();
         drawGroundQ5();
         
         drawSubQ1();
         drawSubQ2();
+        drawSubQ3();
+        drawSubQ4();
     });
 });
