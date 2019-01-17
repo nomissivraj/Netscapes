@@ -2,44 +2,39 @@ var exports = module.exports = {}
 var models = require('../models');
 var mysql = require('mysql');
 var defraAirQuality = require('defra-air-quality-js');
+var nodemailer = require('nodemailer');
+var hbs = require('nodemailer-express-handlebars');
 
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "password",
-  database: "test"
+// config nodemailer - Mailtrap testing
+var transporter = nodemailer.createTransport({
+    host: "smtp.mailtrap.io",
+    port: 2525,
+    auth: {
+        user: "46158a10815a77",
+        pass: "f9f8f075f8d76a"
+    }
 });
+
+// config email HBS template options
+var options = {
+     viewEngine: {
+         extname: '.hbs',
+         layoutsDir: 'app/views/email/',
+         defaultLayout : 'resultsTemplate',
+         partialsDir : 'app/views/partials/'
+     },
+     viewPath: 'app/views/email/',
+     extName: '.hbs'
+ };
+
+//attach the plugin to the nodemailer transporter
+transporter.use('compile', hbs(options));
 
 exports.index = function(req, res) {
     res.render('index', {
         user: req.user,
         title: 'Home',
         condition: false
-    });
-}
-
-exports.questions = function(req, res) {
-    // Using Sequelize Node Module
-    // models.question.findAll().then(function(questions) {
-    //     res.render('questions', {
-    //         user: req.user,
-    //         questions: questions,
-    //         title: 'Questions',
-    //         condition: false
-    //     });
-    // });  
-    // Using MySQL Node Module
-    con.connect(function(err) {
-        if (err) throw err;
-        con.query("SELECT * FROM Questions", function (err, result, fields) {
-            if (err) throw err;
-            res.render('questions', {
-                user: req.user,
-                questions: result,
-                title: 'Questions',
-                condition: false
-            });
-        });
     });
 }
 
@@ -93,10 +88,27 @@ exports.signin = function(req, res) {
     });
 }
 
-exports.dashboard = function(req, res) {
-    res.render('dashboard', {
-        user: req.user
-    });
+exports.sendResults = function(req, res) {
+    var email = req.query.email;
+    var score = req.query.score;
+    var answered = req.query.answered;
+    // Results email
+    var mail = {
+       from: 'mfrench71@googlemail.com',
+       to: email,
+       subject: 'Your EQ Score',
+       // views/email/resultsTemplate.hbs
+       template: 'resultsTemplate',
+       // pass variables to view
+       context: {
+           email: email,
+           score: score,
+           answered: answered
+       }
+    }
+    transporter.sendMail(mail);
+    console.log('Sending email ...');
+    res.send("success/" + email + "/" + score + "/" + answered);
 }
 
 exports.logout = function(req, res) {

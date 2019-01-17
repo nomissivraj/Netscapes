@@ -5,9 +5,6 @@ module.exports = function(app, passport) {
     // Index (Home)
     app.get('/', authController.index);
 
-    // Questions (DB Test)
-    app.get('/questions', authController.questions);
-
     // Signup
     app.get('/signup', authController.signup);
     app.post('/signup', passport.authenticate('local-signup', {
@@ -17,7 +14,6 @@ module.exports = function(app, passport) {
     }));
     
     //Sign up for the app
-    //app.get('/signupapp', authController.signup);
     app.post('/signupapp', passport.authenticate('local-signup', {
         successRedirect: '/success',
         failureRedirect: '/fail',
@@ -43,7 +39,6 @@ module.exports = function(app, passport) {
     }));
     
     //Signin for the app
-    //app.get('/signupapp', authController.signup);
     app.post('/signinapp', passport.authenticate('local-signin', {
         successRedirect: '/success',
         failureRedirect: '/fail',
@@ -51,11 +46,7 @@ module.exports = function(app, passport) {
     }));
     
     //Code for sending results via email
-    app.get('/sendResults', passport.authenticate('local-result', {
-        successRedirect: '/success',
-        failureRedirect: '/fail',
-        failureFlash: true // allow flash messages
-    }))
+    app.post('/sendResults', authController.sendResults);
 
     // Visualisations
     app.get('/visualisations', authController.visualisations);
