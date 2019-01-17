@@ -13,6 +13,7 @@ Netscapes project repository (Georgia, Matt, Chris, Simon)
 9.  Click on the visualisations tab to view other data visualisations.
 10. Click on the about tab to view information on the developers of this project, as well as more information on what the project is about. 
 
+# Local Development Configuration
 
 ## Database Connection
 
