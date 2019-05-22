@@ -132,7 +132,7 @@ function loadJSON(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            //console.log(JSON.parse(this.responseText));
+            console.log(JSON.parse(this.responseText));
             console.log(this.responseText)
             var response = JSON.parse(this.responseText);
             console.log(response)
@@ -156,12 +156,12 @@ function workOutGuess(results, answer){
         
             var resultSplit = value[0].split(" - ");
             if (resultSplit.length > 1){
-                if(Math.floor(answer['UserAnswer']) >= Math.floor(resultSplit[0]) && Math.floor(answer['UserAnswer']) < Math.ceil(resultSplit[1])){
+                if(Math.floor(answer['UserAnswer']) >= Math.floor(resultSplit[0]) && Math.floor(answer['UserAnswer']) <= Math.ceil(resultSplit[1])){
                     guess = index;
                 }
             }
             else{
-                if (value[0] == Math.floor(answer['UserAnswer'])){
+                if (value[0] == Math.floor(answer['UserAnswer']) || value[0] == answer['UserAnswer']){
                 guess = index;
                 }
             }
@@ -181,12 +181,12 @@ function workOutTrue(results, answer){
         
         var resultSplit = value[0].split(" - ");
             if (resultSplit.length > 1){
-                if(Math.floor(answer['Reality']) >= Math.floor(resultSplit[0]) && Math.floor(answer['Reality']) < Math.ceil(resultSplit[1])){
+                if(Math.floor(answer['Reality']) >= Math.floor(resultSplit[0]) && Math.floor(answer['Reality']) <= Math.ceil(resultSplit[1])){
                     truth = index;
                 }
             }
             else{
-                if (value[0] == Math.floor(answer['Reality'])){
+                if (value[0] == Math.floor(answer['Reality']) || value[0] == answer['Reality']){
                 truth = index;
                 }
             }
@@ -347,7 +347,10 @@ function dataRetreiveComplete(){
 function drawAirQ1() {
     
     $.each(airResults1, function(index, value){
-            if (index == airResults1Guess){
+            if(index == airResults1Guess && index == airResults1True){
+                value[2] = 'purple';
+            } 
+            else if (index == airResults1Guess){
                 value[2] = 'point {fill-color: red;}';
                 }
             else if (index == airResults1True){
@@ -383,7 +386,10 @@ function drawAirQ1() {
 function drawAirQ2() {
     
         var data = google.visualization.arrayToDataTable(airResults2);
-        var slices = { [0]: { color: '#FFB6C1' }, [1]: { color: '#FFB6C1' }, [2]: { color: '#FFB6C1' }, [3]: { color: '#FFB6C1' }, [4]: { color: '#FFB6C1' }, [5]: { color: '#FFB6C1' }, [6]: { color: '#FFB6C1' }, [7]: { color: '#FFB6C1' }, [8]: { color: '#FFB6C1' }, [9]: { color: '#FFB6C1' }, [10]: { color: '#FFB6C1' }, [airResults2Guess-1]: { offset: 0.2, color: 'red' }, [airResults2True-1]: { offset: 0.4, color: 'green' }};
+        var slices = { [0]: { color: 'black' }, [1]: { color: 'black' }, [2]: { color: 'black' }, [3]: { color: 'black' }, [4]: { color: 'black' }, [5]: { color: 'black' }, [6]: { color: 'black' }, [7]: { color: 'black' }, [8]: { color: 'black' }, [9]: { color: 'black' }, [10]: { color: 'black' }, [airResults2Guess-1]: { offset: 0.2, color: 'red' }, [airResults2True-1]: { offset: 0.4, color: 'green' }};
+        if(airResults2Guess == airResults2True){
+            slices[airResults4True-1].color = "purple";
+        }
         var options = {
           backgroundColor: 'transparent',
             legend: 'none',
@@ -395,9 +401,11 @@ function drawAirQ2() {
       }
 
 function drawAirQ3() {
-    
         $.each(airResults3, function(index, value){
-            if (index == airResults3Guess){
+            if(index == airResults3Guess && index == airResults3True){
+                value[2] = 'purple';
+            } 
+            else if (index == airResults3Guess){
                 value[2] = 'red';
                 }
             else if (index == airResults3True){
@@ -433,6 +441,9 @@ function drawAirQ4() {
     
         var data = google.visualization.arrayToDataTable(airResults4);
         var slices = { [0]: { color: 'black' }, [1]: { color: 'black' }, [2]: { color: 'black' }, [3]: { color: 'black' }, [4]: { color: 'black' }, [5]: { color: 'black' }, [6]: { color: 'black' }, [7]: { color: 'black' }, [8]: { color: 'black' }, [9]: { color: 'black' }, [10]: { color: 'black' }, [airResults4Guess-1]: { offset: 0.2, color: 'red' }, [airResults4True-1]: { offset: 0.4, color: 'green' }};
+        if(airResults4Guess == airResults4True){
+            slices[airResults4True-1].color = "purple";
+        }
         var options = {
           backgroundColor: 'transparent',
             legend: 'none',
@@ -446,7 +457,10 @@ function drawAirQ4() {
 function drawAirQ5() {
     
         $.each(airResults5, function(index, value){
-            if (index == airResults5Guess){
+            if(index == airResults5Guess && index == airResults5True){
+                value[2] = 'purple';
+            } 
+            else if (index == airResults5Guess){
                 value[2] = 'red';
                 }
             else if (index == airResults5True){
@@ -483,9 +497,11 @@ function drawAirQ5() {
 // ************************************ . GROUND CHARTS . ***************************************
 
 function drawGroundQ1() {
-    
         $.each(groundResults1, function(index, value){
-            if (index == groundResults1Guess){
+            if(index == groundResults1Guess && index == airResults1True){
+                value[2] = 'purple';
+            } 
+            else if (index == groundResults1Guess){
                 value[2] = 'red';
                 }
             else if (index == groundResults1True){
@@ -524,8 +540,8 @@ function drawGroundQ2() {
         var data = google.visualization.arrayToDataTable(groundResults2);
 
         var slices = { [0]: { color: 'black' }, [1]: { color: 'black' }, [2]: { color: 'black' }, [3]: { color: 'black' }, [4]: { color: 'black' }, [5]: { color: 'black' }, [6]: { color: 'black' }, [7]: { color: 'black' }, [8]: { color: 'black' }, [9]: { color: 'black' }, [10]: { color: 'black' }, [groundResults2Guess-1]: { offset: 0.2, color: 'red' }, [groundResults2True-1]: { offset: 0.4, color: 'green' }};
-        if (groundResults2Guess == groundResults2True){
-            slices = { [0]: { color: 'black' }, [1]: { color: 'black' }, [2]: { color: 'black' }, [3]: { color: 'black' }, [4]: { color: 'black' }, [5]: { color: 'black' }, [6]: { color: 'black' }, [7]: { color: 'black' }, [8]: { color: 'black' }, [9]: { color: 'black' }, [groundResults2Guess-1]: { offset: 0.2, color: 'yellow' }, [groundResults2True-1]: { offset: 0.4, color: 'yellow' }};
+        if(groundResults2Guess == groundResults2True){
+            slices[groundResults2Guess-1].color = "purple";
         }
         var options = {
           backgroundColor: 'transparent',
@@ -542,7 +558,10 @@ function drawGroundQ2() {
 function drawGroundQ3() {
     
     $.each(groundResults3, function(index, value){
-            if (index == groundResults3Guess){
+            if(index == groundResults3Guess && index == groundResults3True){
+                value[2] = 'purple';
+            } 
+            else if (index == groundResults3Guess){
                 value[2] = 'point {fill-color: red;}';
                 }
             else if (index == groundResults3True){
@@ -580,8 +599,8 @@ function drawGroundQ4() {
     
         var data = google.visualization.arrayToDataTable(groundResults4);
         var slices = { [0]: { color: 'black' }, [1]: { color: 'black' }, [2]: { color: 'black' }, [3]: { color: 'black' }, [4]: { color: 'black' }, [5]: { color: 'black' }, [6]: { color: 'black' }, [7]: { color: 'black' }, [8]: { color: 'black' }, [9]: { color: 'black' }, [groundResults4Guess-1]: { offset: 0.2, color: 'red' }, [groundResults4True-1]: { offset: 0.4, color: 'green' }};
-        if (seaResults1Guess == seaResults1True){
-            slices = { [0]: { color: 'black' }, [1]: { color: 'black' }, [2]: { color: 'black' }, [3]: { color: 'black' }, [4]: { color: 'black' }, [5]: { color: 'black' }, [6]: { color: 'black' }, [7]: { color: 'black' }, [8]: { color: 'black' }, [groundResults4Guess-1]: { offset: 0.2, color: 'yellow' }, [groundResults4True-1]: { offset: 0.4, color: 'yellow' }};
+        if(groundResults4Guess == groundResults4True){
+            slices[groundResults4Guess-1].color = "purple";
         }
         var options = {
           backgroundColor: 'transparent',
@@ -594,7 +613,6 @@ function drawGroundQ4() {
       }
 
 function drawGroundQ5() {
-    
         var data = google.visualization.arrayToDataTable(groundResults5);
         var options = {
             title: 'What country contributes the most ocean pollution each year?',
@@ -614,9 +632,9 @@ function drawSeaQ1() {
     
         var data = google.visualization.arrayToDataTable(seaResults1);
 
-        var slices = { [0]: { color: 'black' }, [1]: { color: 'black' }, [2]: { color: 'black' }, [3]: { color: 'black' }, [4]: { color: 'black' }, [5]: { color: 'black' }, [6]: { color: 'black' }, [7]: { color: 'black' }, [8]: { color: 'black' }, [9]: { color: 'black' }, [seaResults1Guess-1]: { offset: 0.2, color: 'red' }, [seaResults1True-1]: { offset: 0.4, color: 'green' }};
-        if (seaResults1Guess == seaResults1True){
-            slices = { [0]: { color: 'black' }, [1]: { color: 'black' }, [2]: { color: 'black' }, [3]: { color: 'black' }, [4]: { color: 'black' }, [5]: { color: 'black' }, [6]: { color: 'black' }, [7]: { color: 'black' }, [seaResults1Guess-1]: { offset: 0.2, color: 'yellow' }, [seaResults1True-1]: { offset: 0.4, color: 'yellow' }};
+        var slices = { [0]: { color: 'black' }, [1]: { color: 'black' }, [2]: { color: 'black' }, [3]: { color: 'black' }, [4]: { color: 'black' }, [5]: { color: 'black' }, [6]: { color: 'black' }, [7]: { color: 'black' }, [8]: { color: 'black' }, [9]: { color: 'black' }, [10]: { color: 'black' }, [11]: { color: 'black' }, [seaResults1Guess-1]: { offset: 0.2, color: 'red' }, [seaResults1True-1]: { offset: 0.4, color: 'green' }};
+        if(seaResults1Guess == seaResults1True){
+            slices[seaResults1True-1].color = "purple";
         }
         var options = {
           backgroundColor: 'transparent',
@@ -632,7 +650,10 @@ function drawSeaQ1() {
 function drawSeaQ2() {
     
     $.each(seaResults2, function(index, value){
-            if (index == seaResults2Guess){
+            if(index == seaResults2Guess && index == seaResults2True){
+                value[2] = 'purple';
+            } 
+            else if (index == seaResults2Guess){
                 value[2] = 'red';
                 }
             else if (index == seaResults2True){
@@ -680,7 +701,10 @@ function drawSeaQ3() {
 function drawSeaQ4() {
     
     $.each(seaResults4, function(index, value){
-            if (index == seaResults4Guess){
+            if(index == seaResults4Guess && index == seaResults4True){
+                value[2] = 'purple';
+            } 
+            else if (index == seaResults4Guess){
                 value[2] = 'point {fill-color: red;}';
                 }
             else if (index == seaResults4True){
@@ -718,8 +742,8 @@ function drawSeaQ5() {
         var data = google.visualization.arrayToDataTable(seaResults5);
 
         var slices = { [0]: { color: 'black' }, [1]: { color: 'black' }, [2]: { color: 'black' }, [3]: { color: 'black' }, [4]: { color: 'black' }, [5]: { color: 'black' }, [6]: { color: 'black' }, [7]: { color: 'black' }, [8]: { color: 'black' }, [9]: { color: 'black' }, [10]: { color: 'black' }, [seaResults5Guess-1]: { offset: 0.2, color: 'red' }, [seaResults5True-1]: { offset: 0.4, color: 'green' }};
-        if (seaResults5Guess == seaResults5True){
-            slices = { [0]: { color: 'black' }, [1]: { color: 'black' }, [2]: { color: 'black' }, [3]: { color: 'black' }, [4]: { color: 'black' }, [5]: { color: 'black' }, [6]: { color: 'black' }, [7]: { color: 'black' }, [8]: { color: 'black' }, [9]: { color: 'black' }, [seaResults5Guess-1]: { offset: 0.2, color: 'yellow' }, [seaResults1True-1]: { offset: 0.4, color: 'yellow' }};
+        if(seaResults5Guess == seaResults5True){
+            slices[seaResults5True-1].color = "purple";
         }
         var options = {
           backgroundColor: 'transparent',
@@ -740,7 +764,10 @@ function drawSeaQ5() {
 function drawSubQ1() {
     
     $.each(subResults1, function(index, value){
-            if (index == subResults1Guess){
+            if(index == subResults1Guess && index == subResults1True){
+                value[2] = 'purple';
+            } 
+            else if (index == subResults1Guess){
                 value[2] = 'point {fill-color: red;}';
                 }
             else if (index == subResults1True){
@@ -777,7 +804,10 @@ function drawSubQ1() {
 function drawSubQ2() {
     
         $.each(subResults2, function(index, value){
-            if (index == subResults2Guess){
+            if(index == subResults2Guess && index == subResults2True){
+                value[2] = 'purple';
+            } 
+            else if (index == subResults2Guess){
                 value[2] = 'red';
                 }
             else if (index == subResults2True){
@@ -815,7 +845,7 @@ function drawSubQ3() {
 
         var slices = { [0]: { color: 'black' }, [1]: { color: 'black' }, [2]: { color: 'black' }, [3]: { color: 'black' }, [4]: { color: 'black' }, [5]: { color: 'black' }, [6]: { color: 'black' }, [7]: { color: 'black' }, [8]: { color: 'black' }, [9]: { color: 'black' }, [10]: { color: 'black' }, [subResults3Guess-1]: { offset: 0.2, color: 'red' }, [subResults3True-1]: { offset: 0.4, color: 'green' }};
         if (subResults3Guess == subResults3True){
-            slices = { [0]: { color: 'black' }, [1]: { color: 'black' }, [2]: { color: 'black' }, [3]: { color: 'black' }, [4]: { color: 'black' }, [5]: { color: 'black' }, [6]: { color: 'black' }, [7]: { color: 'black' }, [8]: { color: 'black' }, [9]: { color: 'black' }, [subResults3Guess-1]: { offset: 0.2, color: 'yellow' }, [subResults3True-1]: { offset: 0.4, color: 'yellow' }};
+            slices[seaResults5True-1].color = "purple";
         }
         var options = {
           backgroundColor: 'transparent',
@@ -828,9 +858,12 @@ function drawSubQ3() {
       }
 
 function drawSubQ4() {
-    
+    console.log("The Answers: ", subResults4Guess, subResults4True)
     $.each(subResults4, function(index, value){
-            if (index == subResults4Guess){
+            if(index == subResults4Guess && index == subResults4True){
+                value[2] = 'purple';
+            } 
+            else if (index == subResults4Guess){
                 value[2] = 'point {fill-color: red;}';
                 }
             else if (index == subResults4True){

@@ -7,7 +7,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$userid = 3;//$_POST['userid'];
+$userid = $_POST['userid'];
 
 $query = "SELECT * FROM Questions;";
 $questions = $conn->query($query);
@@ -57,7 +57,7 @@ if ($questions->num_rows > 0) {
                 $usedFigure[] = $average[$x];
                 $formattedAverage[] = array($average[$x], 1);
             } else {
-                $formattedAverage[array_search($average[$x], $usedFigure)][1] = intval($formattedAverage[$average[$x]])+1;
+                $formattedAverage[array_search($average[$x], $usedFigure)][1] = intval($formattedAverage[array_search($average[$x], $usedFigure)][1]) + 1;
             }
         }
         

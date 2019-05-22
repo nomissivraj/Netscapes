@@ -173,3 +173,7 @@
     border-radius: 5px;
 }
 
+#questions.sea p, #questions.subSurface p, #questions.sea h3, #questions.subSurface h3{
+    color: white;
+}
+
