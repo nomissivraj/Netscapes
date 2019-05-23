@@ -1,4 +1,5 @@
 window.onload = function (){
+    window.screen.orientation.lock('portrait');
     userID = localStorage.getItem("userID");
     console.log("THE USER ID IS ", localStorage.getItem("userID"))
     loadAnswers();

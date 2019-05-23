@@ -4,6 +4,7 @@ var questions;
 var userID;
 
 window.onload = function(){
+    window.screen.orientation.lock('portrait');
     //Code to test if user is already logged in
     if(localStorage.getItem("loginState") == "true"){
         document.getElementById("login").style.transition = "none";

@@ -52,6 +52,8 @@ if ($questions->num_rows > 0) {
         
         $usedFigure = array();
         $formattedAverage = array();
+        $usedFigure[] = $newItem['Reality'];//Pre-loads the real answer into the response
+        $formattedAverage[] = array($newItem['Reality'], 0);
         for($x=0; $x<count($average); $x++){
             if(!in_array($average[$x], $usedFigure)){
                 $usedFigure[] = $average[$x];
