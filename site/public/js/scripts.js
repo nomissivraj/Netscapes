@@ -316,9 +316,10 @@ function refreshResize() {
         //clear timeout every time resize event fires - i.e. when resizing is still happening
         clearTimeout(loop);
         //Initialise timeout and bind it to loop variable
-        loop = setTimeout(() => {
-            location.reload();// if resize event hasn't fired in the last quarter of a second (i.e. it has finishe resizing) then reload the page
-        }, 500)
+        loop = setTimeout(function(){
+            loadGraphs();
+            nextSection(0);
+        }, 50)
     });
 }
 
@@ -326,7 +327,7 @@ function refreshResize() {
 var scrollingTimeout;
 var sameScroll = false;
 (() => {
-    document.onwheel = (e) => {
+    document.addEventListener("wheel", (e) => {
         checkContScrollPos(e);
         if (pageScroll === false) return;
         e.preventDefault(e)
@@ -338,12 +339,12 @@ var sameScroll = false;
         setTimeout(function(){
             sameScroll = false;
         },50)
-    }; 
+    }, {passive: false}); 
 
     document.onkeyup = (e) => {
         scrolling(e)
     };
 
-    document.onresi
+    //document.onresi
     
 })();

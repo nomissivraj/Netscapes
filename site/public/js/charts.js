@@ -1,4 +1,6 @@
-$(document).ready(function(){
+$(document).ready(loadGraphs);
+    
+function loadGraphs(){
         drawAirQ1();
         drawAirQ2();
         drawAirQ3();
@@ -48,7 +50,7 @@ $(document).ready(function(){
         drawSubQ3();
         drawSubQ4();
     });
-});
+};
 
 var air = [];
 var sea = [];
